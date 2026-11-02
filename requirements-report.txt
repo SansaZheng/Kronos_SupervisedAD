@@ -1,0 +1,2 @@
+-r requirements-supervised.txt
+matplotlib>=3.7,<4

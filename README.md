@@ -76,6 +76,37 @@ python -m scripts.data.transaction_data restore --asset ulb --output /你的数�
 
 支付欺诈基线可先使用 ULB；用户交易序列可用 TabFormer；反洗钱可用 IBM AML 或 Elliptic；证券／加密市场操纵建议先用 Sapienza。不同标签粒度分别实验，不混合为同分布任务。
 
-只在训练集拟合预处理和重采样，验证集选择阈值，留出测试集评价。报告正类 Precision、Recall、F1、PR-AUC 和误报数量。Elliptic 的 unknown 标签不参与监督损失。交易后信息与图聚合特征须检查检测时是否可得。
+只在训练集拟合预处理和重采样，验证集选择阈值，留出测试集评价。报告正类 Precision、Recall、F1、AP（average precision）和误报数量。Elliptic 的 unknown 标签不参与监督损失。交易后信息与图聚合特征须检查检测时是否可得。
 
 这些数据不具备统一 OHLC 格式，不能直接复制为四列输入 Kronos。现已实现连续特征适配器与监督分类头；完整流程请见上方方法文档。单次运行检查不能证明优于现有方法。
+
+
+## 下载数据的批量实测与展示
+
+统一运行公开数据的 9 项检测任务（SD-FMM 分股票与加密资产）：
+
+```bash
+python scripts/run_downloaded_benchmark.py --stage batch --device cuda \
+  --epochs 5 --train-cap 500000 --validation-cap 100000 --output runs/downloaded
+```
+
+大交易数据按时间划分，训练／验证使用与标签无关的块抽样上限，测试时间段完整保留。Elliptic 使用本地节点特征，不使用边或邻居聚合特征；未知标签忽略。Sapienza 使用 15S 分辨率，5S／25S 是同一批事件的其他分辨率，不重复计作独立数据集。TSTR 是整段序列分类，其余任务的检测单位见结果记录。
+
+IEEE-CIS 使用已授权下载的官方 ZIP 单独在本机运行。该脚本只读取有标签的训练交易，另划时间留出集，不将官方无标签测试文件视为真值：
+
+```bash
+python scripts/run_ieee_local_benchmark.py --zip /你的私有目录/ieee-fraud-detection.zip \
+  --backbone /你的本地权重/Kronos-mini --epochs 5 --output .local_data/ieee-run
+```
+
+从真实预测独立复核指标，生成仅含汇总指标和曲线的可筛选 HTML 报告：
+
+```bash
+python -m pip install -r requirements-report.txt
+python scripts/render_downloaded_results.py --public runs/downloaded \
+  --private .local_data/ieee-run --output runs/downloaded-report
+python scripts/audit_downloaded_results.py runs/downloaded .local_data/ieee-run \
+  --output runs/downloaded-report/audit.json
+```
+
+原始交易、派生输入、检查点和逐笔预测不进入汇总报告。IEEE-CIS 的类别词表也不会被导出；其私有输出不得上传公开仓库或云端任务。各数据集分开报告，不把不同标签单位的分数混成总平均。
