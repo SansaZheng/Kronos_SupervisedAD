@@ -2,7 +2,7 @@
 
 > **扩充更新（2026-11-02）：** 按用户给定清单，新增 ULB、Elliptic、PaySim、IBM TabFormer、IBM AML HI-Small 五组支付／反洗钱数据；详情见 [新增数据说明](transactions/README.md)，原八组及本地 IEEE-CIS 的索引见 [dataset_index.csv](dataset_index.csv)。IEEE-CIS 现已在用户登录并确认规则后下载到本地，受规则限制不上传原始数据，见 [本地读取说明](transactions/IEEE_CIS_LOCAL.md)。下文继续描述原三组市场操纵数据，其规模统计与研究划分保持原有范围。
 
-检索与下载日期：**2026-11-02**。本目录关注证券／加密资产交易中的市场操纵，优先保留作者发布的人工标注与原始标签。它不包含信用卡盗刷、支付欺诈或我们根据价格涨跌生成的伪标签。
+检索与下载日期：**2026-11-02**。本目录关注证券／加密资产交易中的市场操纵，优先保留作者发布的人工标注与原始标签。本页介绍三组市场操纵数据；支付欺诈与反洗钱数据见 transactions/README.md。
 
 **建议先用 Sapienza 15S 做监督分类基线。** TSTR 适合整段操纵识别；SD-FMM 的公开派生序列用于补充研究。数据的统计单位和标签含义不同，请分别实验。
 
@@ -60,7 +60,7 @@ Sapienza 的三个分辨率来自相同事件，**不能相加声称有 951 个�
 python scripts/data/download_supervised_data.py  # 已有文件只核对；缺失时按固定版本恢复
 python scripts/data/prepare_supervised_data.py   # 验证来源并重新生成派生数据
 python scripts/data/validate_supervised_data.py  # 校验文件、标签对齐与划分隔离
-python -m pytest tests/test_anomaly.py tests/test_supervised_data.py -q
+python -m pytest tests/test_supervised_data.py -q
 ```
 
 元数据快照由 Git 保存，不从会持续变化的 Zenodo API 重新生成。原始大文件均实际包含在仓库中，无需登录 Kaggle、申请 API key 或另外付费下载。
@@ -91,12 +91,8 @@ Sapienza 和 SD-FMM crypto 评价开始点识别；SD-FMM stock 评价原始区�
 
 ## 与 Kronos 异常检测扩展的关系
 
-这些下载任务**没有训练新的模型，也没有产生新的检测性能结论**。现有 `python -m anomaly` 是基于 OHLC 的预测误差＋POT 研究扩展，尚未添加这些特征的监督训练接口。不能将 12 维特征或单通道派生序列复制成四列来冒充 OHLC。
+这些下载任务**没有训练新的模型，也没有产生新的检测性能结论**。来源项目 KronosAD 的 `python -m anomaly` 是基于 OHLC 的预测误差＋POT 研究扩展；本仓库只提供监督数据与读取工具，尚未添加模型训练接口。不能将 12 维特征或单通道派生序列复制成四列来冒充 OHLC。
 
 可以先用这些数据训练 Random Forest 等监督基线，再单独开发通用时序分类器或 Kronos 表征适配器。后续如需直接评价 Kronos 的行情异常检测，还需获取具有相应监督标签、真实时间戳及 OHLC 的原始行情并核对事件映射。
-
-## 旧数据的移除
-
-本次按用户要求，从仓库当前版本删除整个旧 `data/financial_anomalies/`：Meme2026 算法标签行情、公告时间弱标签 K 线、近期无标签 BTC／ETH 行情，以及旧下载／转换脚本和专用测试。保留核心模型、异常检测代码、上游示例及实现回归测试数据。Git 历史不重写。
 
 来源、引用与许可见 [DATA_LICENSES.md](DATA_LICENSES.md)，筛选记录见 [SEARCH_NOTES.md](SEARCH_NOTES.md)。

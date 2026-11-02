@@ -58,4 +58,4 @@ python -m scripts.data.transaction_data restore --asset ulb --output /你的数�
 
 只在训练集拟合预处理和重采样，验证集选择阈值，留出测试集评价。报告正类 Precision、Recall、F1、PR-AUC 和误报数量。Elliptic 的 unknown 标签不参与监督损失。交易后信息与图聚合特征须检查检测时是否可得。
 
-这些数据不具备统一 OHLC 格式，不能直接复制为四列输入 Kronos；本仓库尚不提供 Kronos 模型适配器或新的检测性能结论。详细数据文档中的 Kronos CLI 与历史清理描述来自来源项目，指向原 KronosAD 的实现背景，本仓库只迁入监督数据与工具。
+这些数据不具备统一 OHLC 格式，不能直接复制为四列输入 Kronos；本仓库尚不提供 Kronos 模型适配器或新的检测性能结论。本仓库只迁入监督数据与工具；Kronos CLI 的实现背景请参见来源项目 KronosAD。
