@@ -5,3 +5,8 @@ private_data/
 .local_data/
 ieee-fraud-detection.zip
 *.pyc
+
+# Locally prepared inputs, checkpoints and experiment outputs
+prepared_runs/
+runs/
+*.pt

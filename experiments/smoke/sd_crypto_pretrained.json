@@ -1,0 +1,86 @@
+{
+  "method": "supervised-kronos",
+  "task": "point",
+  "input_kind": "features",
+  "initialization": "/private/tmp/kronosad-data.Fs90Oy/repo/weights/Kronos-mini",
+  "tokenizer": null,
+  "freeze_backbone": false,
+  "seed": 42,
+  "positive_weight": 159.0,
+  "best_epoch": 1,
+  "threshold_selection": "validation F1; highest threshold breaks ties",
+  "epoch_selection": "validation average precision",
+  "preprocessing": "training-only mean imputation, standardization and clip [-5,5]",
+  "feature_names": [
+    "processed_price"
+  ],
+  "group_isolation_checked": false,
+  "split_archives": {
+    "train.npz": "d08f34f3ff58b3bbadf4b5190fd063412e2b647dc31055b5431a659fde848c3f",
+    "validation.npz": "16685edb42b35cb64b7d1557281d216c2b82c58533776dc6ef2dbb395297272c",
+    "test.npz": "ad9b512e0adee5533ed2e51ebd5debf75f124b8edf934d46d8711defdf0bcb1c"
+  },
+  "torch_version": "2.6.0",
+  "device": "cpu",
+  "settings": {
+    "command": "train",
+    "data_dir": "/private/tmp/kronos-supervised-sd-crypto",
+    "output": "/private/tmp/kronos-supervised-real-smoke",
+    "backbone": "/private/tmp/kronosad-data.Fs90Oy/repo/weights/Kronos-mini",
+    "tokenizer": null,
+    "scratch": false,
+    "input_kind": "features",
+    "freeze_backbone": false,
+    "local_only": true,
+    "max_context": 512,
+    "epochs": 2,
+    "batch_size": 16,
+    "lr": 0.0001,
+    "weight_decay": 0.01,
+    "seed": 42,
+    "device": "cpu",
+    "threads": 2
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_weighted_bce": 1.3005116682241458,
+      "validation_average_precision": 0.2603808981791182
+    },
+    {
+      "epoch": 2,
+      "train_weighted_bce": 1.0888943990858475,
+      "validation_average_precision": 0.2588829607019984
+    }
+  ],
+  "validation": {
+    "n": 10720,
+    "positives": 67,
+    "tp": 44,
+    "fp": 192,
+    "fn": 23,
+    "tn": 10461,
+    "precision": 0.1864406779661017,
+    "recall": 0.6567164179104478,
+    "f1": 0.2904290429042904,
+    "false_positive_rate": 0.01802309208673613,
+    "average_precision": 0.2603808981791182,
+    "roc_auc": 0.9619867432760165,
+    "threshold": 0.617992639541626
+  },
+  "test": {
+    "n": 10880,
+    "positives": 68,
+    "tp": 33,
+    "fp": 149,
+    "fn": 35,
+    "tn": 10663,
+    "precision": 0.1813186813186813,
+    "recall": 0.4852941176470588,
+    "f1": 0.264,
+    "false_positive_rate": 0.013780984091749908,
+    "average_precision": 0.18537426098565774,
+    "roc_auc": 0.9304286087353921,
+    "threshold": 0.617992639541626
+  }
+}

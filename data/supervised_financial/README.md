@@ -91,8 +91,8 @@ Sapienza 和 SD-FMM crypto 评价开始点识别；SD-FMM stock 评价原始区�
 
 ## 与 Kronos 异常检测扩展的关系
 
-这些下载任务**没有训练新的模型，也没有产生新的检测性能结论**。来源项目 KronosAD 的 `python -m anomaly` 是基于 OHLC 的预测误差＋POT 研究扩展；本仓库只提供监督数据与读取工具，尚未添加模型训练接口。不能将 12 维特征或单通道派生序列复制成四列来冒充 OHLC。
+这些下载任务**没有训练新的模型，也没有产生新的检测性能结论**。来源项目 KronosAD 的 `python -m anomaly` 是基于 OHLC 的预测误差＋POT 研究扩展；本仓库现已新增 [Kronos 监督训练接口](../../docs/supervised_method_CN.md)，支持连续特征适配与点级／整段分类。不能将 12 维特征或单通道派生序列复制成四列来冒充 OHLC。
 
-可以先用这些数据训练 Random Forest 等监督基线，再单独开发通用时序分类器或 Kronos 表征适配器。后续如需直接评价 Kronos 的行情异常检测，还需获取具有相应监督标签、真实时间戳及 OHLC 的原始行情并核对事件映射。
+现可用新增监督接口训练 Kronos 特征适配器，并应另外建立 Random Forest 等监督基线比较。后续如需直接评价 Kronos 的行情异常检测，还需获取具有相应监督标签、真实时间戳及 OHLC 的原始行情并核对事件映射。
 
 来源、引用与许可见 [DATA_LICENSES.md](DATA_LICENSES.md)，筛选记录见 [SEARCH_NOTES.md](SEARCH_NOTES.md)。
