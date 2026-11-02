@@ -98,7 +98,8 @@ def main():
         fig.suptitle('Kronos SupervisedAD · downloaded-data holdouts',x=.035,ha='left',fontsize=17,fontweight='bold')
         fig.text(.035,.015,'Single seed 42 · up to 5 epochs · independent validation selects epoch and threshold · units differ across datasets',fontsize=9,color='#586470')
         fig.tight_layout(rect=(0,.04,1,.93))
-        fig.savefig(out/'scores.png',dpi=180);fig.savefig(out/'scores.svg');plt.close(fig);figures.append(('scores.png','各数据集测试 AP 与 F1。橙点为测试集异常占比。'))
+        fig.savefig(out/'scores.png',dpi=180);fig.savefig(out/'scores.svg');plt.close(fig);
+        svg=out/'scores.svg';svg.write_text('\n'.join(line.rstrip() for line in svg.read_text().splitlines())+'\n');figures.append(('scores.png','各数据集测试 AP 与 F1。橙点为测试集异常占比。'))
     present=[n for n in ORDER if n in curves and n in records and records[n]['status']=='complete']
     if present:
         columns=3; rows=(len(present)+columns-1)//columns
@@ -149,7 +150,7 @@ def main():
         rows.append(row)
     import csv
     with (out/'metrics.csv').open('w',newline='') as stream:
-        writer=csv.writer(stream);writer.writerow(columns);writer.writerows(rows)
+        writer=csv.writer(stream,lineterminator="\n");writer.writerow(columns);writer.writerows(rows)
     safe_records={n:r for n,r in records.items()}
     (out/'aggregate_results.json').write_text(json.dumps(safe_records,indent=2,allow_nan=False)+'\n')
     heads=['数据集','状态','检测单位','测试数','异常数','异常占比','AP','ROC-AUC','精确率','召回率','F1','FPR','TP','FP','FN','TN','阈值','训练轮数','最佳轮数']
