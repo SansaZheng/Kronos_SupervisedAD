@@ -1,0 +1,223 @@
+{
+  "method": "supervised-kronos",
+  "task": "point",
+  "input_kind": "features",
+  "initialization": "scratch-tiny",
+  "tokenizer": null,
+  "freeze_backbone": false,
+  "seed": 42,
+  "positive_weight": 22.763503318543332,
+  "best_epoch": 2,
+  "threshold_selection": {
+    "threshold": 0.5593923926353456,
+    "policy": "fpr",
+    "feasible": true,
+    "validation_precision": 0.0,
+    "validation_recall": 0.0,
+    "validation_fpr": 0.0,
+    "validation_alerts": 0,
+    "validation_normals": 42663,
+    "validation_positives": 56,
+    "max_fpr": 0.001,
+    "min_precision": null,
+    "beta": 1.0
+  },
+  "epoch_selection": "validation average precision with specified min_delta/patience",
+  "epochs_executed": 2,
+  "test_deferred": true,
+  "model_specification": {
+    "backbone": {
+      "s1_bits": 4,
+      "s2_bits": 4,
+      "n_layers": 2,
+      "d_model": 64,
+      "n_heads": 4,
+      "ff_dim": 128,
+      "ffn_dropout_p": 0.0,
+      "attn_dropout_p": 0.0,
+      "resid_dropout_p": 0.0,
+      "token_dropout_p": 0.0,
+      "learn_te": true
+    },
+    "n_features": 30,
+    "task": "point",
+    "input_kind": "features",
+    "freeze_backbone": false,
+    "head_type": "multiscale",
+    "sequence_pooling": "attention",
+    "scales": [
+      4,
+      16,
+      64
+    ],
+    "head_dropout": 0.1,
+    "tokenizer": null
+  },
+  "optimizer_groups": [
+    {
+      "lr": 0.0001,
+      "weight_decay": 0.0,
+      "role": "backbone",
+      "parameters": 832
+    },
+    {
+      "lr": 0.0001,
+      "weight_decay": 0.01,
+      "role": "backbone",
+      "parameters": 81920
+    },
+    {
+      "lr": 0.0001,
+      "weight_decay": 0.01,
+      "role": "head_adapter",
+      "parameters": 10144
+    },
+    {
+      "lr": 0.0001,
+      "weight_decay": 0.0,
+      "role": "head_adapter",
+      "parameters": 225
+    }
+  ],
+  "trainable_parameters": 93121,
+  "initial_backbone_state_sha256": "5e06175b4610f8599539e3e538c8e33950c3d9f42d333ad97eb856124f38b72f",
+  "source_code_sha256": {
+    "__init__.py": "2c068dd9867e9488b99c491d621c5933e2f7f57ea9b4a2796acde0e052e541d8",
+    "__main__.py": "7014d41cd335bebe1dbb209cfa60012028de5f5372b8d8b87c79f958b109425a",
+    "baseline.py": "31c348704eec65e4f140493bc2bf46140c4a43a02063938304e71efceb96532b",
+    "data.py": "b6d626cb8b60aef9fa052d14b6e0b73642ca900088e05a72140999c610ed7ef4",
+    "engine.py": "624ca2ef249259d37daf4cfa8d6f990832895c92a4d4173d0dbb87f018094168",
+    "metrics.py": "b171188d3825e7250fc7bca98f2c59afdd82fdd32c6f26894ec97ed30c40a31f",
+    "model.py": "65a829fb8d680d0b4b164d147258fbae87f0d1cfcaf6d15d63e074d8ca827985",
+    "optimization.py": "4c5f4eafa7b2076f33bd7f8aa280d25cf97eb9794fb18075283dad4027db3492"
+  },
+  "preprocessing": "training-only mean imputation, standardization and clip [-5,5]",
+  "feature_names": [
+    "Time",
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7",
+    "V8",
+    "V9",
+    "V10",
+    "V11",
+    "V12",
+    "V13",
+    "V14",
+    "V15",
+    "V16",
+    "V17",
+    "V18",
+    "V19",
+    "V20",
+    "V21",
+    "V22",
+    "V23",
+    "V24",
+    "V25",
+    "V26",
+    "V27",
+    "V28",
+    "Amount"
+  ],
+  "group_isolation_checked": false,
+  "observation_isolation_checked": true,
+  "split_archives": {
+    "train.npz": "e0f88e81ce54b11e0ede66ba3ac5e3049143536052f555a6f0cbb482ba7e305a",
+    "validation.npz": "3ffa4720e84c9ee01f495b6fe81ce20f7aff81171c50dc0a28e64d3f7dc4e240"
+  },
+  "torch_version": "2.6.0",
+  "device": "cpu",
+  "settings": {
+    "command": "train",
+    "data_dir": "/private/tmp/kronos-supervised-ulb-history-v2",
+    "output": "/Users/zyy/Documents/ChatGPT/FinancialAD/output/kronos_supervised_20261103/ulb_history_focal",
+    "backbone": null,
+    "tokenizer": null,
+    "scratch": true,
+    "scratch_config": null,
+    "input_kind": "features",
+    "freeze_backbone": false,
+    "local_only": false,
+    "max_context": 512,
+    "epochs": 2,
+    "batch_size": 32,
+    "lr": 0.0001,
+    "weight_decay": 0.01,
+    "head_type": "multiscale",
+    "sequence_pooling": "attention",
+    "scales": [
+      4,
+      16,
+      64
+    ],
+    "head_dropout": 0.1,
+    "loss": "focal",
+    "focal_gamma": 2.0,
+    "pos_weight": "sqrt",
+    "max_pos_weight": null,
+    "backbone_lr_ratio": null,
+    "layer_decay": 1.0,
+    "schedule": "cosine",
+    "warmup_fraction": 0.1,
+    "patience": 3,
+    "min_delta": 0.0,
+    "threshold_policy": "fpr",
+    "max_fpr": 0.001,
+    "min_precision": 0.8,
+    "beta": 1.0,
+    "defer_test": true,
+    "seed": 42,
+    "device": "cpu",
+    "threads": 2
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.15164381335570268,
+      "loss_type": "focal",
+      "validation_average_precision": 0.0051338916920277405,
+      "learning_rates": [
+        5.79088715422152e-05,
+        5.79088715422152e-05,
+        5.79088715422152e-05,
+        5.79088715422152e-05
+      ]
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.09145548978855535,
+      "loss_type": "focal",
+      "validation_average_precision": 0.015294227630878794,
+      "learning_rates": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "validation": {
+    "n": 42719,
+    "positives": 56,
+    "tp": 0,
+    "fp": 0,
+    "fn": 56,
+    "tn": 42663,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "false_positive_rate": 0.0,
+    "false_alerts_per_1000": 0.0,
+    "prevalence": 0.0013108921088976803,
+    "brier_score": 0.16535747783347252,
+    "average_precision": 0.015294227630878794,
+    "roc_auc": 0.8638277229181526,
+    "threshold": 0.5593923926353456
+  },
+  "test": null
+}

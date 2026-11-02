@@ -10,3 +10,4 @@ ieee-fraud-detection.zip
 prepared_runs/
 runs/
 *.pt
+*.joblib

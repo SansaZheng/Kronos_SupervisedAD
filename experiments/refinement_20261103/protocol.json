@@ -1,0 +1,41 @@
+{
+  "protocol_version": 1,
+  "data_dir": "/private/tmp/kronos-supervised-sd-crypto",
+  "backbone": "/private/tmp/kronosad-data.Fs90Oy/repo/weights/Kronos-mini",
+  "settings": {
+    "data_dir": "/private/tmp/kronos-supervised-sd-crypto",
+    "backbone": "/private/tmp/kronosad-data.Fs90Oy/repo/weights/Kronos-mini",
+    "output": "/Users/zyy/Documents/ChatGPT/FinancialAD/output/kronos_supervised_20261103/compare_heads",
+    "epochs": 2,
+    "batch_size": 16,
+    "seeds": [
+      13,
+      42,
+      2026
+    ],
+    "device": "cpu",
+    "local_only": true
+  },
+  "variants": [
+    "mlp",
+    "multiscale"
+  ],
+  "shared_training": {
+    "lr": 0.0001,
+    "backbone_lr_ratio": 0.1,
+    "layer_decay": 1.0,
+    "schedule": "cosine",
+    "warmup_fraction": 0.1,
+    "loss": "bce",
+    "pos_weight": "auto",
+    "head_dropout": 0.0,
+    "patience": 0
+  },
+  "epoch_selection": "validation AP",
+  "threshold_selection": "validation F1",
+  "selection_rule": "mean validation AP; no selection or tuning from test metrics",
+  "splits": {
+    "train.npz": "d08f34f3ff58b3bbadf4b5190fd063412e2b647dc31055b5431a659fde848c3f",
+    "validation.npz": "16685edb42b35cb64b7d1557281d216c2b82c58533776dc6ef2dbb395297272c"
+  }
+}

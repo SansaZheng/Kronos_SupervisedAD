@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-03",
+  "tests": {
+    "command": "python -m pytest tests -q",
+    "passed": 50
+  },
+  "legacy_checkpoint_probabilities_exactly_reproduced": 10880,
+  "unique_ulb_test_targets": 42724,
+  "full_ohlcv_attention_checkpoint_roundtrip": true,
+  "cpu_only": true,
+  "paid_cloud_used": false
+}

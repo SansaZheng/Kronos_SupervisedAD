@@ -1,5 +1,7 @@
 # Supervised implementation validation — 2026-11-02
 
+This page preserves the original execution record. The 2026-11-03 refinement adds temporal ownership, multiscale/attention heads, optimized fine tuning, budget thresholds and validation-only training; see [new evidence and negative results](supervised_refinement_20261103.md). Test counts below describe the earlier version, not the current full suite.
+
 This is an implementation and execution record, not a completed effectiveness study.
 
 ## Source and tests

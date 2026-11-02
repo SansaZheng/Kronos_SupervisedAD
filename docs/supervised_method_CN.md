@@ -1,5 +1,7 @@
 # 基于 Kronos 的监督金融异常检测
 
+> **2026-11-03 方法完善：** 已加入历史上下文、点级多尺度头、整段注意力汇聚、稳定微调、误报预算与封存测试流程。新增参数、对照和负结果见 [方法完善记录](supervised_refinement_20261103.md)。本页保留基础数据格式和入口说明，原版本的实现／执行证据另见日期记录。
+
 ## 方法与上游的关系
 
 本扩展将 Kronos 从下一步行情 token 预测改为带标签的二分类。沿用上游的 RoPE、RMSNorm、门控前馈网络和因果 Transformer；原模型源码与固定提交见 [UPSTREAM.md](../UPSTREAM.md)。新增代码位于 `supervised/`，不修改原模型或把预测误差当作监督标签。
@@ -9,7 +11,7 @@
 1. **真实 OHLCVA**：六列按 `open,high,low,close,volume,amount` 排列，经过冻结的 KronosTokenizer 分为粗、细两级 token，再经原分层 embedding 接入 Kronos。检查价格高低关系、正价格、非负成交量／金额及 tokenizer 码本匹配。当前接口要求六列真实数值；不伪造缺失行情字段。离散 tokenizer 不参与反向传播，默认微调 Transformer 与分类头。
 2. **一般金融特征**：`Linear(F,d_model) → GELU → LayerNorm` 接入原 Kronos 因果 Transformer。绕过行情 tokenizer、token embedding、日历 embedding 和预测输出头。适用于 Sapienza、ULB、单变量派生序列及用户已准备的交易特征。主干可加载 Kronos-mini 的真实预训练权重，但这是有分布变化的**连续特征适配实验**，并非保留完整行情 token 预训练流程；需要与从头训练及普通分类器比较。
 
-设 Transformer 输出为 `h_t`。逐点任务输出 `z_t = MLP(h_t)`；整段任务取最后一个有效位置 `z = MLP(h_length)`。异常分数为 `sigmoid(z)`，它是分类分数，尚未经过概率校准。整段标签不扩展成每个时间点的异常真值。
+设 Transformer 输出为 `h_t`。逐点任务可直接分类 h_t，或默认将 h_t 与多个过去窗口的偏离量拼接后分类；整段任务可取最后有效位置，或默认将其与有效位置的 attention 汇聚拼接。异常分数为 `sigmoid(z)`，它是分类分数，尚未经过概率校准。整段标签不扩展成每个时间点的异常真值。
 
 训练目标是已知标签上的类别加权 BCE：
 
@@ -23,10 +25,10 @@
 - 采用仅训练集拟合的缺失值均值填补、逐特征标准化及 `[-5,5]` 截断。没有全窗口归一化，因此点级早期输出不会读取窗口后半段统计。此预处理与上游预测器的窗口归一化不同，保留因果性同时存在预训练分布偏移，需要后续消融。
 - 同一 split 内样本右侧 padding；因果注意力保证 padding 不影响前面的有效位置。整段任务只取最后有效位置。禁止自动截断，否则可能丢掉整段异常事件。上下文过长会报错；普通模型最多支持 512，本接口仅允许名称含 Kronos-mini 的预训练模型使用更长上下文（最长按用户指定值限制，应不超过上游 2048）。
 - 原始输入不包含标签、事件 ID、样本 ID。检查跨 split 样本 ID；提供 group_id 时进一步检查分组隔离。没有 group_id 的序列还检查完整输入内容是否跨 split 重复。已知独立组的背景特征可能自然相同，不单凭特征相等删除这些观察。
-- 每轮只在验证集计算 Average Precision，保存最优 epoch；随后只用该模型的验证分数最大化正类 F1 选择阈值，平局时取更高阈值。**模型和阈值固定后才计算测试分数**。不要重复用测试结果挑超参数。
+- 每轮只在验证集计算 Average Precision，保存最优 epoch；随后只用该模型的验证分数最大化正类 F1 选择阈值，平局时取更高阈值；也支持 F-beta、FPR 预算和最低 precision 策略。**模型和阈值固定后才计算测试分数**，调参建议使用 --defer-test 封存测试集。不要重复用测试结果挑超参数。
 - 输出正类 Precision、Recall、F1、混淆矩阵、误报率、Average Precision 和 ROC-AUC。AP 使用 sklearn 的阶梯积分定义，不把它冒称为梯形积分 PR-AUC。单类测试集的 AP／ROC-AUC 记为 null。不会使用 point adjustment 或容忍窗口修改标签。
 
-分块使历史在边界处重置：内置逐点数据使用不重叠块，每个有效点只评价一次，不在块间传递缓存。当前尚未实现跨块持续在线状态或实时服务。时间／币种缺失、标签粒度及原始数据的其他限制见各数据卡。
+内置逐点数据可用 --history-length 增加过去上下文；target_mask 保证每个原始点只负责一次监督／评价。未启用该参数时仍在块边界重置历史；没有跨请求缓存。当前尚未实现跨块持续在线状态或实时服务。时间／币种缺失、标签粒度及原始数据的其他限制见各数据卡。
 
 ## 安装与运行
 
@@ -48,7 +50,7 @@ python -m supervised predict --checkpoint runs/sapienza-mini/best.pt \
   --data prepared_runs/sapienza/test.npz --output runs/sapienza-mini/reloaded.csv
 ```
 
-运行目录必须不存在，避免覆盖已有模型。输出：`best.pt`、`metrics.json`、`validation_predictions.csv`、`test_predictions.csv`。checkpoint 包含模型构造配置、全部模型参数、训练集预处理参数、特征顺序、上下文限制和验证阈值；仅加载自己信任的 checkpoint。
+运行目录必须不存在，避免覆盖已有模型。输出：`best.pt`、`metrics.json`、`validation_predictions.csv`、`test_predictions.csv`。checkpoint 包含模型构造配置、全部模型参数、训练集预处理参数、特征顺序、上下文限制和验证阈值；新版本另含来源身份核验信息；仅加载自己信任的 checkpoint。
 
 其他已接通的数据：
 
@@ -86,6 +88,8 @@ TSTR、SD-FMM 使用原有仓库研究划分，不声称复现论文官方训练
 | sample_id | 字符串 `[N]`，跨三个 split 不相交 |
 | feature_names | 字符串 `[F]`，三个 split 的名称和顺序严格一致 |
 | group_id | 可选字符串 `[N]`；如提供则三个 split 的组不相交 |
+| target_mask | 可选 boolean `[N,T]`，仅点级任务；历史／padding 不作为本块目标 |
+| observation_id | 可选字符串 `[N,T]`，仅点级任务；原始点身份，所有 split 不交叉，目标不重复 |
 
 推断时 y 可以全部为 -1。训练和验证均须含已知的两个类别。类别特征必须只在训练集拟合编码器，再以相同列顺序转换验证／测试；不要使用洗钱类型、事后调查结果或未来交易聚合字段作为输入。
 

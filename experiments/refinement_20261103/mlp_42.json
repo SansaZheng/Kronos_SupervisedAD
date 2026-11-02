@@ -1,0 +1,183 @@
+{
+  "method": "supervised-kronos",
+  "task": "point",
+  "input_kind": "features",
+  "initialization": "/private/tmp/kronosad-data.Fs90Oy/repo/weights/Kronos-mini",
+  "tokenizer": null,
+  "freeze_backbone": false,
+  "seed": 42,
+  "positive_weight": 159.0,
+  "best_epoch": 2,
+  "threshold_selection": {
+    "threshold": 0.5281664133071899,
+    "policy": "f1",
+    "feasible": true,
+    "validation_precision": 0.12684365781710916,
+    "validation_recall": 0.6417910447761194,
+    "validation_fpr": 0.027785600300384867,
+    "validation_alerts": 339,
+    "validation_normals": 10653,
+    "validation_positives": 67,
+    "max_fpr": null,
+    "min_precision": null,
+    "beta": 1.0
+  },
+  "epoch_selection": "validation average precision with specified min_delta/patience",
+  "epochs_executed": 2,
+  "test_deferred": true,
+  "model_specification": {
+    "backbone": {
+      "s1_bits": 10,
+      "s2_bits": 10,
+      "n_layers": 4,
+      "d_model": 256,
+      "n_heads": 4,
+      "ff_dim": 512,
+      "ffn_dropout_p": 0.2,
+      "attn_dropout_p": 0.0,
+      "resid_dropout_p": 0.2,
+      "token_dropout_p": 0.0,
+      "learn_te": true
+    },
+    "n_features": 1,
+    "task": "point",
+    "input_kind": "features",
+    "freeze_backbone": false,
+    "head_type": "mlp",
+    "sequence_pooling": "last",
+    "scales": [
+      4,
+      16,
+      64
+    ],
+    "head_dropout": 0.0,
+    "tokenizer": null
+  },
+  "optimizer_groups": [
+    {
+      "lr": 1e-05,
+      "weight_decay": 0.0,
+      "role": "backbone",
+      "parameters": 6400
+    },
+    {
+      "lr": 1e-05,
+      "weight_decay": 0.01,
+      "role": "backbone",
+      "parameters": 2621440
+    },
+    {
+      "lr": 0.0001,
+      "weight_decay": 0.01,
+      "role": "head_adapter",
+      "parameters": 33152
+    },
+    {
+      "lr": 0.0001,
+      "weight_decay": 0.0,
+      "role": "head_adapter",
+      "parameters": 897
+    }
+  ],
+  "trainable_parameters": 2661889,
+  "preprocessing": "training-only mean imputation, standardization and clip [-5,5]",
+  "feature_names": [
+    "processed_price"
+  ],
+  "group_isolation_checked": false,
+  "observation_isolation_checked": false,
+  "split_archives": {
+    "train.npz": "d08f34f3ff58b3bbadf4b5190fd063412e2b647dc31055b5431a659fde848c3f",
+    "validation.npz": "16685edb42b35cb64b7d1557281d216c2b82c58533776dc6ef2dbb395297272c"
+  },
+  "torch_version": "2.6.0",
+  "device": "cpu",
+  "settings": {
+    "command": "train",
+    "data_dir": "/private/tmp/kronos-supervised-sd-crypto",
+    "output": "/Users/zyy/Documents/ChatGPT/FinancialAD/output/kronos_supervised_20261103/compare_heads/mlp-42",
+    "backbone": "/private/tmp/kronosad-data.Fs90Oy/repo/weights/Kronos-mini",
+    "tokenizer": null,
+    "scratch": false,
+    "scratch_config": null,
+    "input_kind": "features",
+    "freeze_backbone": false,
+    "local_only": true,
+    "max_context": 512,
+    "epochs": 2,
+    "batch_size": 16,
+    "lr": 0.0001,
+    "weight_decay": 0.01,
+    "head_type": "mlp",
+    "sequence_pooling": "last",
+    "scales": [
+      4,
+      16,
+      64
+    ],
+    "head_dropout": 0.0,
+    "loss": "bce",
+    "focal_gamma": 2.0,
+    "pos_weight": "auto",
+    "max_pos_weight": null,
+    "backbone_lr_ratio": null,
+    "layer_decay": 1.0,
+    "schedule": "cosine",
+    "warmup_fraction": 0.1,
+    "patience": 0,
+    "min_delta": 0.0,
+    "threshold_policy": "f1",
+    "max_fpr": 0.001,
+    "min_precision": 0.8,
+    "beta": 1.0,
+    "defer_test": true,
+    "seed": 42,
+    "device": "cpu",
+    "threads": 2
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.3420586798450735,
+      "loss_type": "bce",
+      "validation_average_precision": 0.0858995941188954,
+      "learning_rates": [
+        5.65263096110026e-06,
+        5.65263096110026e-06,
+        5.6526309611002594e-05,
+        5.6526309611002594e-05
+      ]
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.3165490910558417,
+      "loss_type": "bce",
+      "validation_average_precision": 0.135694884398487,
+      "learning_rates": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "validation": {
+    "n": 10720,
+    "positives": 67,
+    "tp": 43,
+    "fp": 296,
+    "fn": 24,
+    "tn": 10357,
+    "precision": 0.12684365781710916,
+    "recall": 0.6417910447761194,
+    "f1": 0.2118226600985222,
+    "false_positive_rate": 0.027785600300384867,
+    "false_alerts_per_1000": 27.611940298507463,
+    "prevalence": 0.00625,
+    "brier_score": 0.23534289461829672,
+    "average_precision": 0.135694884398487,
+    "roc_auc": 0.963108983384962,
+    "threshold": 0.5281664133071899
+  },
+  "test": null
+}

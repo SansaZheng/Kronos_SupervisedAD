@@ -1,0 +1,75 @@
+{
+  "dataset": "sapienza",
+  "source_root": "data/supervised_financial",
+  "chunk_length": 128,
+  "history_length": 32,
+  "split_policy": "existing repository research splits; no relabelling",
+  "summaries": {
+    "train": {
+      "sequences": 2649,
+      "valid_observations": 405695,
+      "prediction_targets": 327103,
+      "positives": 190,
+      "negatives": 326913,
+      "feature_names": [
+        "std_rush_order",
+        "avg_rush_order",
+        "std_trades",
+        "std_volume",
+        "avg_volume",
+        "std_price",
+        "avg_price",
+        "avg_price_max",
+        "hour_sin",
+        "hour_cos",
+        "minute_sin",
+        "minute_cos",
+        "log1p_gap_seconds"
+      ]
+    },
+    "validation": {
+      "sequences": 898,
+      "valid_observations": 138427,
+      "prediction_targets": 111451,
+      "positives": 50,
+      "negatives": 111401,
+      "feature_names": [
+        "std_rush_order",
+        "avg_rush_order",
+        "std_trades",
+        "std_volume",
+        "avg_volume",
+        "std_price",
+        "avg_price",
+        "avg_price_max",
+        "hour_sin",
+        "hour_cos",
+        "minute_sin",
+        "minute_cos",
+        "log1p_gap_seconds"
+      ]
+    },
+    "test": {
+      "sequences": 1180,
+      "valid_observations": 180782,
+      "prediction_targets": 145550,
+      "positives": 77,
+      "negatives": 145473,
+      "feature_names": [
+        "std_rush_order",
+        "avg_rush_order",
+        "std_trades",
+        "std_volume",
+        "avg_volume",
+        "std_price",
+        "avg_price",
+        "avg_price_max",
+        "hour_sin",
+        "hour_cos",
+        "minute_sin",
+        "minute_cos",
+        "log1p_gap_seconds"
+      ]
+    }
+  }
+}

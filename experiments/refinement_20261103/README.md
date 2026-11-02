@@ -1,0 +1,13 @@
+# Refinement evidence — 2026-11-03
+
+The protocol and validation selection were persisted before any comparison test scoring. Three declared seeds (13, 42, 2026), 2 epochs each, same Kronos-mini initialization, same data, same BCE weighting/optimizer schedule/batch size, zero head dropout, and independent seeded data-loader permutations. Only the point classification head differs. `comparison.json` includes all runs and sample standard deviation across seeds (not a confidence interval). The MLP control uses the new shared trainer: it is not the previous trainer's one-run result. This is a small head comparison, not an exhaustive benchmark.
+
+Mean test AP: MLP 0.142466 +/- 0.102416; multiscale 0.250347 +/- 0.089848. Mean positive F1: MLP 0.211322 +/- 0.169324; multiscale 0.353599 +/- 0.050296. Selection from mean validation AP also favors multiscale (0.302234 vs 0.176968). These numbers support the multiscale head in this split and short-budget setting only.
+
+A fixed causal raw-feature HistGradientBoosting control, one seed, has test AP 0.656226 and F1 0.601504. It scores higher here; the Kronos extension has not beaten this control. The stock/crypto arrays are publisher-processed research sequences, not independently verified live market feeds.
+
+The ULB history/focal/sqrt-weight run is a **failed short-training diagnostic**, not evidence that focal improves BCE. Its validation AP is 0.015294 and test AP 0.013626. At a 0.1% empirical validation FPR budget it selects a no-alert operating point and gets zero test recall/F1. Zero false positives is not success when every positive is missed. This differs from the BCE control in several settings and cannot isolate the loss function. BCE remains the default. We preserve this negative result and do not tune it using the test set.
+
+Actual ULB holdout evaluation verifies training/validation source-ID isolation. Sapienza and ULB preparation preserve all original targets and labels while reusing context, supervised/exported exactly once per target. Checkpoints and all prediction CSVs remain in the local output directory; no paid cloud resources were used.
+
+The comparison ran before additional checkpoint audit metadata and degenerate-operating-point status fields were added; its source-identical initial backbone was loaded from the same local Kronos-mini files for all six runs. The final training code now records initial backbone tensor hash and source-code hashes for new runs. Comparison test isolation was checked explicitly by the runner; these earlier comparison checkpoints do not carry the later evaluation-reference metadata.

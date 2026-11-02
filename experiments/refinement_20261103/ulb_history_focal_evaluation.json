@@ -1,0 +1,37 @@
+{
+  "metrics": {
+    "n": 42724,
+    "positives": 52,
+    "tp": 0,
+    "fp": 0,
+    "fn": 52,
+    "tn": 42672,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "false_positive_rate": 0.0,
+    "false_alerts_per_1000": 0.0,
+    "prevalence": 0.0012171145023874169,
+    "brier_score": 0.16855825490171472,
+    "average_precision": 0.013625701813723426,
+    "roc_auc": 0.8383717660292463,
+    "threshold": 0.5593923926353456
+  },
+  "holdout_isolation_checked": true,
+  "operating_point": {
+    "threshold": 0.5593923926353456,
+    "policy": "fpr",
+    "feasible": true,
+    "validation_precision": 0.0,
+    "validation_recall": 0.0,
+    "validation_fpr": 0.0,
+    "validation_alerts": 0,
+    "validation_normals": 42663,
+    "validation_positives": 56,
+    "max_fpr": 0.001,
+    "min_precision": null,
+    "beta": 1.0
+  },
+  "checkpoint_sha256": "185562ed9a6cfa5a570ff0fdb939641135285d2a3d98fbc0b730f2d512f33528",
+  "input_sha256": "c28694330b2266d7e6931e13492615867333f985f6777458e536d6794f9d922b"
+}

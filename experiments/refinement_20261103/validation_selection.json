@@ -1,0 +1,7 @@
+{
+  "validation_mean_ap": {
+    "mlp": 0.17696830326062574,
+    "multiscale": 0.30223400901141756
+  },
+  "selected_by_validation": "multiscale"
+}
