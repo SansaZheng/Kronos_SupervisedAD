@@ -61,8 +61,11 @@ def run_dataset(dataset,args,out):
     evaluated=json.loads((run/'test_predictions.csv.metrics.json').read_text())
     table=pd.read_csv(run/'test_predictions.csv',usecols=['label','anomaly_probability'])
     known=table.label>=0
-    precision,recall,thresholds=precision_recall_curve(table.loc[known,'label'],table.loc[known,'anomaly_probability'])
-    selected=np.unique(np.linspace(0,len(precision)-1,min(2000,len(precision))).astype(int))
+    precision,recall,thresholds=precision_recall_curve(table.loc[known,'label'],table.loc[known,'anomaly_probability'],drop_intermediate=True)
+    bins=np.floor(recall*1000).astype(int)
+    edges=np.flatnonzero(bins[1:]!=bins[:-1])
+    operating=min(int(np.searchsorted(thresholds,evaluated['metrics']['threshold'])),len(precision)-1)
+    selected=np.unique(np.r_[0,edges,edges+1,len(precision)-1,operating])
     atomic_json(run/'pr_curve.json',dict(precision=precision[selected].tolist(),recall=recall[selected].tolist(),
         prevalence=float(table.loc[known,'label'].mean())))
     rows=len(table)
