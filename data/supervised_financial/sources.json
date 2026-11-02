@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "retrieved_date": "2026-11-02",
+  "files": [
+    {
+      "path": "raw/sapienza/LICENSE",
+      "url": "https://raw.githubusercontent.com/SystemsLab-Sapienza/pump-and-dump-dataset/d71250d4cb055dde2d415c8cba38a0dcd6eb6e16/LICENSE",
+      "bytes": 1076,
+      "sha256": "e81234099e71b667dae61b2580d49b7bd567d61492f909fd376bc2cca1e2a858",
+      "license": "MIT",
+      "revision": "d71250d4cb055dde2d415c8cba38a0dcd6eb6e16"
+    },
+    {
+      "path": "raw/sapienza/README.md",
+      "url": "https://raw.githubusercontent.com/SystemsLab-Sapienza/pump-and-dump-dataset/d71250d4cb055dde2d415c8cba38a0dcd6eb6e16/README.md",
+      "bytes": 4893,
+      "sha256": "ca761629e7ea2305b56741816b74b87fdb0436f1796599b743394e92131ba39a",
+      "license": "MIT",
+      "revision": "d71250d4cb055dde2d415c8cba38a0dcd6eb6e16"
+    },
+    {
+      "path": "raw/sapienza/classifier.py",
+      "url": "https://raw.githubusercontent.com/SystemsLab-Sapienza/pump-and-dump-dataset/d71250d4cb055dde2d415c8cba38a0dcd6eb6e16/classifier.py",
+      "bytes": 1728,
+      "sha256": "05e130af9cf1431ee6de417bbeece3822303e1ba6b62cb352d26699ec265ddde",
+      "license": "MIT",
+      "revision": "d71250d4cb055dde2d415c8cba38a0dcd6eb6e16"
+    },
+    {
+      "path": "raw/sapienza/features.py",
+      "url": "https://raw.githubusercontent.com/SystemsLab-Sapienza/pump-and-dump-dataset/d71250d4cb055dde2d415c8cba38a0dcd6eb6e16/features.py",
+      "bytes": 6065,
+      "sha256": "b02c14034f837bc625cb9df6baff7046d2186fb5f32cb5da056b8acaeedd083f",
+      "license": "MIT",
+      "revision": "d71250d4cb055dde2d415c8cba38a0dcd6eb6e16"
+    },
+    {
+      "path": "raw/sapienza/labeled_features/features_15S.csv.gz",
+      "url": "https://raw.githubusercontent.com/SystemsLab-Sapienza/pump-and-dump-dataset/d71250d4cb055dde2d415c8cba38a0dcd6eb6e16/labeled_features/features_15S.csv.gz",
+      "bytes": 5237042,
+      "sha256": "fd6fd97f50ddc13b37b9a6361c09bf4cb07159c61f150328902b2d95137041f2",
+      "license": "MIT",
+      "revision": "d71250d4cb055dde2d415c8cba38a0dcd6eb6e16"
+    },
+    {
+      "path": "raw/sapienza/labeled_features/features_25S.csv.gz",
+      "url": "https://raw.githubusercontent.com/SystemsLab-Sapienza/pump-and-dump-dataset/d71250d4cb055dde2d415c8cba38a0dcd6eb6e16/labeled_features/features_25S.csv.gz",
+      "bytes": 4585635,
+      "sha256": "0d43d1d396ef13778ab2cd2a9f047034713f9066bdc07c23efce335da8185331",
+      "license": "MIT",
+      "revision": "d71250d4cb055dde2d415c8cba38a0dcd6eb6e16"
+    },
+    {
+      "path": "raw/sapienza/labeled_features/features_5S.csv.gz",
+      "url": "https://raw.githubusercontent.com/SystemsLab-Sapienza/pump-and-dump-dataset/d71250d4cb055dde2d415c8cba38a0dcd6eb6e16/labeled_features/features_5S.csv.gz",
+      "bytes": 7048463,
+      "sha256": "e1f82b42d735e368f04a60062cadd50d6b097cc1222ebe8830cbff24b6d5ab99",
+      "license": "MIT",
+      "revision": "d71250d4cb055dde2d415c8cba38a0dcd6eb6e16"
+    },
+    {
+      "path": "raw/sd_fmm/LICENSE",
+      "url": "https://raw.githubusercontent.com/ys-Dai/SD-FMM/0d1a2158ee849fdc31a127bd049e622174f5c893/LICENSE",
+      "bytes": 1057,
+      "sha256": "b2b1d9ddfbdc02e658d4b1f113b3fa5d68eeda78d1087c8aea1fdfb446f3c521",
+      "license": "MIT",
+      "revision": "0d1a2158ee849fdc31a127bd049e622174f5c893"
+    },
+    {
+      "path": "raw/sd_fmm/README.md",
+      "url": "https://raw.githubusercontent.com/ys-Dai/SD-FMM/0d1a2158ee849fdc31a127bd049e622174f5c893/README.md",
+      "bytes": 3605,
+      "sha256": "21dc2c1d106ac1fee50275f9c4d5ebf2617d54f763419d281bda8b7a29823bf6",
+      "license": "MIT",
+      "revision": "0d1a2158ee849fdc31a127bd049e622174f5c893"
+    },
+    {
+      "path": "raw/sd_fmm/cryptocurrency cases/test_data.npy",
+      "url": "https://raw.githubusercontent.com/ys-Dai/SD-FMM/0d1a2158ee849fdc31a127bd049e622174f5c893/cryptocurrency%20cases/test_data.npy",
+      "bytes": 215808,
+      "sha256": "4c049bfc8170c4c39051450435b9ee618752d0a0187cfe1b3bdfc12a159ef202",
+      "license": "MIT",
+      "revision": "0d1a2158ee849fdc31a127bd049e622174f5c893"
+    },
+    {
+      "path": "raw/sd_fmm/cryptocurrency cases/test_label.npy",
+      "url": "https://raw.githubusercontent.com/ys-Dai/SD-FMM/0d1a2158ee849fdc31a127bd049e622174f5c893/cryptocurrency%20cases/test_label.npy",
+      "bytes": 215808,
+      "sha256": "eaf53de833d20f4a1d6761d3be3b57096e91c4b1ad7cc6d37c2e33491321c043",
+      "license": "MIT",
+      "revision": "0d1a2158ee849fdc31a127bd049e622174f5c893"
+    },
+    {
+      "path": "raw/sd_fmm/evaluation.py",
+      "url": "https://raw.githubusercontent.com/ys-Dai/SD-FMM/0d1a2158ee849fdc31a127bd049e622174f5c893/evaluation.py",
+      "bytes": 13449,
+      "sha256": "589807d39bc0e9fd51860378236b51933bb451a739d7c7ea101ac00a72dd5e73",
+      "license": "MIT",
+      "revision": "0d1a2158ee849fdc31a127bd049e622174f5c893"
+    },
+    {
+      "path": "raw/sd_fmm/features.py",
+      "url": "https://raw.githubusercontent.com/ys-Dai/SD-FMM/0d1a2158ee849fdc31a127bd049e622174f5c893/features.py",
+      "bytes": 8509,
+      "sha256": "b6aead81358f087c399249d066b980bff57e67d18ebcd35e06091ed46578dff5",
+      "license": "MIT",
+      "revision": "0d1a2158ee849fdc31a127bd049e622174f5c893"
+    },
+    {
+      "path": "raw/sd_fmm/stock cases/test_ano_bs.npy",
+      "url": "https://raw.githubusercontent.com/ys-Dai/SD-FMM/0d1a2158ee849fdc31a127bd049e622174f5c893/stock%20cases/test_ano_bs.npy",
+      "bytes": 344,
+      "sha256": "e482498beefb9490294fa2c1ce0ef14ad7b5efa8b530791f59fa380194118ee9",
+      "license": "MIT",
+      "revision": "0d1a2158ee849fdc31a127bd049e622174f5c893"
+    },
+    {
+      "path": "raw/sd_fmm/stock cases/test_data_bs.npy",
+      "url": "https://raw.githubusercontent.com/ys-Dai/SD-FMM/0d1a2158ee849fdc31a127bd049e622174f5c893/stock%20cases/test_data_bs.npy",
+      "bytes": 34688,
+      "sha256": "10ba05b6d09cc9291aeff6f9be806f0e2f72a39af24f1f709d7f64536aebceb6",
+      "license": "MIT",
+      "revision": "0d1a2158ee849fdc31a127bd049e622174f5c893"
+    },
+    {
+      "path": "raw/sd_fmm/stock cases/test_label_bs.npy",
+      "url": "https://raw.githubusercontent.com/ys-Dai/SD-FMM/0d1a2158ee849fdc31a127bd049e622174f5c893/stock%20cases/test_label_bs.npy",
+      "bytes": 34688,
+      "sha256": "3389bf0c8ae0998acb22a525d829ee214d41bb32afbb326c8d448e85c911933e",
+      "license": "MIT",
+      "revision": "0d1a2158ee849fdc31a127bd049e622174f5c893"
+    },
+    {
+      "path": "raw/sd_fmm/train.py",
+      "url": "https://raw.githubusercontent.com/ys-Dai/SD-FMM/0d1a2158ee849fdc31a127bd049e622174f5c893/train.py",
+      "bytes": 16330,
+      "sha256": "3167eb5c50613ae9a827d51c58d5163f54500fcdac733d4d23e6b452c1588dd7",
+      "license": "MIT",
+      "revision": "0d1a2158ee849fdc31a127bd049e622174f5c893"
+    },
+    {
+      "path": "raw/tstr/v1.0.0.zip",
+      "url": "https://zenodo.org/api/records/17301104/files/AhmedMahrous00/TSTR-for-Financial-Fraud.-Detecting-Market-Manipulation-Without-Real-Data-v1.0.0.zip/content",
+      "bytes": 8399008,
+      "sha256": "01e8d8af2d48e27e016f6cdaa3371043707a8c97995ccb11f8a977422a1783a3",
+      "license": "CC-BY-4.0",
+      "revision": "zenodo:17301104 / v1.0.0",
+      "download": true
+    },
+    {
+      "path": "raw/tstr/LICENSE-CC-BY-4.0.txt",
+      "url": "https://creativecommons.org/licenses/by/4.0/legalcode.txt",
+      "bytes": 18657,
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+      "license": "CC-BY-4.0",
+      "revision": "zenodo:17301104 / v1.0.0",
+      "download": true
+    },
+    {
+      "path": "raw/tstr/zenodo-record-17301104.json",
+      "url": "https://zenodo.org/api/records/17301104",
+      "bytes": 4726,
+      "sha256": "f60c6d09232cdd35a79dc7891bc2c1e7e595bf5a33b164729a0d80e06c7b5623",
+      "license": "CC-BY-4.0",
+      "revision": "zenodo:17301104 / v1.0.0",
+      "download": false
+    }
+  ]
+}

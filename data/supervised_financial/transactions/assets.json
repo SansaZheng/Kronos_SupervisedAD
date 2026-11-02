@@ -1,0 +1,283 @@
+{
+  "schema_version": 1,
+  "retrieved_date": "2026-11-02",
+  "part_bytes": 41943040,
+  "assets": [
+    {
+      "id": "ulb",
+      "dataset": "ulb",
+      "filename": "creditcard.zip",
+      "format": "zip",
+      "bytes": 69155632,
+      "sha256": "afc4d82cd3fe3c984e68987fd4c03617b9293448b393c32a6c3b76f59ae7f3f3",
+      "source_url": "https://storage.googleapis.com/download.tensorflow.org/data/creditcard.zip",
+      "parts": [
+        {
+          "path": "raw/ulb/creditcard.zip.part000",
+          "bytes": 41943040,
+          "sha256": "f2979241414661d6607c043fd31297ec785586d65ce7310b3b0aa177022af7bc"
+        },
+        {
+          "path": "raw/ulb/creditcard.zip.part001",
+          "bytes": 27212592,
+          "sha256": "d15a141db99e932b3d0752020d01edcb4ca89dbbbdbdf7d2a3e2ea07bfc123d4"
+        }
+      ],
+      "data_license": "ODbL-1.0 AND DbCL-1.0",
+      "source_role": "TensorFlow tutorial mirror",
+      "member": "creditcard.csv"
+    },
+    {
+      "id": "tabformer",
+      "dataset": "tabformer",
+      "filename": "transactions.tgz",
+      "format": "tar.gz",
+      "bytes": 278576638,
+      "sha256": "e9f589a0958f40d60f81b1a2e8428db86e00c05755caf44fb055827976c0efa2",
+      "source_url": "https://media.githubusercontent.com/media/IBM/TabFormer/ebb7cd68ee1897599568107740bc452104bbbaf8/data/credit_card/transactions.tgz",
+      "parts": [
+        {
+          "path": "raw/tabformer/transactions.tgz.part000",
+          "bytes": 41943040,
+          "sha256": "6ac9df6646bef9d5ecbe367e0fb095799a5dcd1f9be8dd271da89918c0e96592"
+        },
+        {
+          "path": "raw/tabformer/transactions.tgz.part001",
+          "bytes": 41943040,
+          "sha256": "a386467b3786201eaa58be0a75068449f73dc0fdefb4538240258a0dab5a41e2"
+        },
+        {
+          "path": "raw/tabformer/transactions.tgz.part002",
+          "bytes": 41943040,
+          "sha256": "756bb192b55dd7f91bdda1d0ea7240ff25fa597682637a4126636c57e44087af"
+        },
+        {
+          "path": "raw/tabformer/transactions.tgz.part003",
+          "bytes": 41943040,
+          "sha256": "90c1d484e3db217bc12ba10288f58a1f1f9122c8cdbffa1d6bd02690dc7aee69"
+        },
+        {
+          "path": "raw/tabformer/transactions.tgz.part004",
+          "bytes": 41943040,
+          "sha256": "fc250e14407ef376e57252c66848916c2642ea2ebbfb38eb3e0ced514578b914"
+        },
+        {
+          "path": "raw/tabformer/transactions.tgz.part005",
+          "bytes": 41943040,
+          "sha256": "0328dcb680e6a2c5dec9ec03ccb34b2a6700792c18162b56d106f06bcbe42e49"
+        },
+        {
+          "path": "raw/tabformer/transactions.tgz.part006",
+          "bytes": 26918398,
+          "sha256": "bf34e8cf3ff93616174736373e945b80055d9aeaf7bb3b85b2ef86e6d2f72b98"
+        }
+      ],
+      "data_license": "Apache-2.0 (source repository)",
+      "revision": "ebb7cd68ee1897599568107740bc452104bbbaf8",
+      "publisher_lfs_sha256": "e9f589a0958f40d60f81b1a2e8428db86e00c05755caf44fb055827976c0efa2",
+      "source_role": "publisher Git LFS",
+      "member": "card_transaction.v1.csv"
+    },
+    {
+      "id": "elliptic_classes",
+      "dataset": "elliptic",
+      "filename": "elliptic_txs_classes.csv.zip",
+      "format": "zip",
+      "bytes": 925698,
+      "sha256": "4ca957f0ceffd5dd164e255c7d5ad9ee69a6fa64ae1dd94d6f113e5ebf3b07ba",
+      "source_url": "https://data.pyg.org/datasets/elliptic/elliptic_txs_classes.csv.zip",
+      "parts": [
+        {
+          "path": "raw/elliptic/elliptic_txs_classes.csv.zip.part000",
+          "bytes": 925698,
+          "sha256": "4ca957f0ceffd5dd164e255c7d5ad9ee69a6fa64ae1dd94d6f113e5ebf3b07ba"
+        }
+      ],
+      "data_license": "CC-BY-NC-ND-4.0",
+      "source_role": "PyTorch Geometric library mirror",
+      "csv_header": "infer",
+      "member": "elliptic_txs_classes.csv"
+    },
+    {
+      "id": "elliptic_edges",
+      "dataset": "elliptic",
+      "filename": "elliptic_txs_edgelist.csv.zip",
+      "format": "zip",
+      "bytes": 1690631,
+      "sha256": "a2f9f6b67a39da2d8cf87fe77b9db89571ba6d880e5dd5b5991dc45c80fa34ec",
+      "source_url": "https://data.pyg.org/datasets/elliptic/elliptic_txs_edgelist.csv.zip",
+      "parts": [
+        {
+          "path": "raw/elliptic/elliptic_txs_edgelist.csv.zip.part000",
+          "bytes": 1690631,
+          "sha256": "a2f9f6b67a39da2d8cf87fe77b9db89571ba6d880e5dd5b5991dc45c80fa34ec"
+        }
+      ],
+      "data_license": "CC-BY-NC-ND-4.0",
+      "source_role": "PyTorch Geometric library mirror",
+      "csv_header": "infer",
+      "member": "elliptic_txs_edgelist.csv"
+    },
+    {
+      "id": "elliptic_features",
+      "dataset": "elliptic",
+      "filename": "elliptic_txs_features.csv.zip",
+      "format": "zip",
+      "bytes": 150601883,
+      "sha256": "d33d62159e64b5e889f1a7ea880227c612775b58d409598855e0c4400fa52b3e",
+      "source_url": "https://data.pyg.org/datasets/elliptic/elliptic_txs_features.csv.zip",
+      "parts": [
+        {
+          "path": "raw/elliptic/elliptic_txs_features.csv.zip.part000",
+          "bytes": 41943040,
+          "sha256": "6a5f20ccd20f674b94de66384ffc1ef0f0ddcfadcd26b6f80ebe5c0d341dc75b"
+        },
+        {
+          "path": "raw/elliptic/elliptic_txs_features.csv.zip.part001",
+          "bytes": 41943040,
+          "sha256": "ea8896df9663825667a3226d63356bc4a0e04f895451917d32e054543cd9ee6b"
+        },
+        {
+          "path": "raw/elliptic/elliptic_txs_features.csv.zip.part002",
+          "bytes": 41943040,
+          "sha256": "838ded41f62d66d8048ab8714fb1e1ced5d6051f9131c837c120a72d4f29a35a"
+        },
+        {
+          "path": "raw/elliptic/elliptic_txs_features.csv.zip.part003",
+          "bytes": 24772763,
+          "sha256": "24e941512ffaedd5b09546ee096b4e8adfaf6544a78bf3964df2ec7c9b22f7fc"
+        }
+      ],
+      "data_license": "CC-BY-NC-ND-4.0",
+      "source_role": "PyTorch Geometric library mirror",
+      "csv_header": null,
+      "member": "elliptic_txs_features.csv"
+    },
+    {
+      "id": "paysim",
+      "dataset": "paysim",
+      "filename": "paysim.csv.gz",
+      "format": "gzip",
+      "bytes": 185379802,
+      "sha256": "c932376ff55fbb55a25cc5656ef02f69c070b983f9dcd06eff049a365dd7e2c7",
+      "source_url": "https://huggingface.co/datasets/kohdified/synthetic-financial-data/resolve/dfe0c96bc261e79da03af5ca52f36e8fc26a0e69/paysim.csv",
+      "parts": [
+        {
+          "path": "raw/paysim/paysim.csv.gz.part000",
+          "bytes": 41943040,
+          "sha256": "ec2b86d78b186a2ad1e1d25877bcc10e8cc413fb912a53ece516d84a4467c136"
+        },
+        {
+          "path": "raw/paysim/paysim.csv.gz.part001",
+          "bytes": 41943040,
+          "sha256": "2d7891a08cb8456217d1664dac743a8ba20669a418355b96b5aa322fb92fe24b"
+        },
+        {
+          "path": "raw/paysim/paysim.csv.gz.part002",
+          "bytes": 41943040,
+          "sha256": "e6e028b4b6cba6d6e2e8986307ecde8914453d46de8de20e1e900784a2340baa"
+        },
+        {
+          "path": "raw/paysim/paysim.csv.gz.part003",
+          "bytes": 41943040,
+          "sha256": "6d0ba58cc1fcca020570522c91487ad90cf432310099cc4cd78bbac4b5720e2b"
+        },
+        {
+          "path": "raw/paysim/paysim.csv.gz.part004",
+          "bytes": 17607642,
+          "sha256": "85993725a723c60f4b951a017cbc549e27e704f7261ff6b04173202763b9e280"
+        }
+      ],
+      "data_license": "CC-BY-SA-4.0",
+      "source_role": "community mirror; not independently compared to Kaggle original",
+      "revision": "dfe0c96bc261e79da03af5ca52f36e8fc26a0e69",
+      "source_repository": "kohdified/synthetic-financial-data",
+      "source_name": "paysim.csv",
+      "source_bytes": 493534783,
+      "source_sha256": "16910f90577b0d981bf8ff289714510bb89bc71bff7d3f220f024e287e4eea6b",
+      "transport_transform": "lossless gzip, empty filename, mtime=0, compression level 6"
+    },
+    {
+      "id": "ibm_aml",
+      "dataset": "ibm_aml_hi_small",
+      "filename": "HI-Small_Trans.csv.gz",
+      "format": "gzip",
+      "bytes": 89638200,
+      "sha256": "9929308cccca499e4c44241d8cb8913da9ef048b855b47ccd4555b03c9a43ce2",
+      "source_url": "https://huggingface.co/datasets/OsamaMIT/IBM-AML-HI-Small/resolve/95aa8c419e7c43eb1f3299901aab601889c6dd1b/HI-Small_Trans.csv",
+      "parts": [
+        {
+          "path": "raw/ibm_aml_hi_small/HI-Small_Trans.csv.gz.part000",
+          "bytes": 41943040,
+          "sha256": "ac4a5a417813d3fd8abd8a4815dcd85f293b0b28d68dd01ebad46d96b6be53f0"
+        },
+        {
+          "path": "raw/ibm_aml_hi_small/HI-Small_Trans.csv.gz.part001",
+          "bytes": 41943040,
+          "sha256": "e82913b8d6ef1e56e2423b52effdfc16ff7129f59051b0dcb66f138ad526bd0a"
+        },
+        {
+          "path": "raw/ibm_aml_hi_small/HI-Small_Trans.csv.gz.part002",
+          "bytes": 5752120,
+          "sha256": "f318db6e95cc54e5d445e80d3665de659f848ccd7c32aadcd6ad85b86324f92c"
+        }
+      ],
+      "data_license": "CDLA-Sharing-1.0",
+      "source_role": "community mirror; not independently compared to Kaggle original",
+      "revision": "95aa8c419e7c43eb1f3299901aab601889c6dd1b",
+      "source_repository": "OsamaMIT/IBM-AML-HI-Small",
+      "source_name": "HI-Small_Trans.csv",
+      "source_bytes": 475664283,
+      "source_sha256": "b19d39f515523373f991b689c07e11e7b0b95c17a2c27a87d91584ae16c5b040",
+      "transport_transform": "lossless gzip, empty filename, mtime=0, compression level 6"
+    },
+    {
+      "id": "ibm_aml_accounts",
+      "dataset": "ibm_aml_hi_small",
+      "filename": "HI-Small_accounts.csv.gz",
+      "format": "gzip",
+      "bytes": 9834911,
+      "sha256": "4b34314cb0b8c96655930442ab94fb491dd7655d1a4561ef8f582a3e9d5a57b5",
+      "source_url": "https://huggingface.co/datasets/OsamaMIT/IBM-AML-HI-Small/resolve/95aa8c419e7c43eb1f3299901aab601889c6dd1b/HI-Small_accounts.csv",
+      "parts": [
+        {
+          "path": "raw/ibm_aml_hi_small/HI-Small_accounts.csv.gz.part000",
+          "bytes": 9834911,
+          "sha256": "4b34314cb0b8c96655930442ab94fb491dd7655d1a4561ef8f582a3e9d5a57b5"
+        }
+      ],
+      "data_license": "CDLA-Sharing-1.0",
+      "source_role": "community mirror; not independently compared to Kaggle original",
+      "revision": "95aa8c419e7c43eb1f3299901aab601889c6dd1b",
+      "source_repository": "OsamaMIT/IBM-AML-HI-Small",
+      "source_name": "HI-Small_accounts.csv",
+      "source_bytes": 34053187,
+      "source_sha256": "786808526e33cfc441212dd6fccda7edfc24172149bed59c6ef59b186836b014",
+      "transport_transform": "lossless gzip, empty filename, mtime=0, compression level 6"
+    },
+    {
+      "id": "ibm_aml_patterns",
+      "dataset": "ibm_aml_hi_small",
+      "filename": "HI-Small_Patterns.txt.gz",
+      "format": "gzip",
+      "bytes": 75637,
+      "sha256": "8c008a5be8cba8279b84dbaa05747503e050c7aff01959dfe05a0df9dcea65a0",
+      "source_url": "https://huggingface.co/datasets/OsamaMIT/IBM-AML-HI-Small/resolve/95aa8c419e7c43eb1f3299901aab601889c6dd1b/HI-Small_Patterns.txt",
+      "parts": [
+        {
+          "path": "raw/ibm_aml_hi_small/HI-Small_Patterns.txt.gz.part000",
+          "bytes": 75637,
+          "sha256": "8c008a5be8cba8279b84dbaa05747503e050c7aff01959dfe05a0df9dcea65a0"
+        }
+      ],
+      "data_license": "CDLA-Sharing-1.0",
+      "source_role": "community mirror; not independently compared to Kaggle original",
+      "revision": "95aa8c419e7c43eb1f3299901aab601889c6dd1b",
+      "source_repository": "OsamaMIT/IBM-AML-HI-Small",
+      "source_name": "HI-Small_Patterns.txt",
+      "source_bytes": 323844,
+      "source_sha256": "2c546b5ce6009e73851f0139af053cf845f08bf92f3bc82fe1eb937dec2ef39b",
+      "transport_transform": "lossless gzip, empty filename, mtime=0, compression level 6"
+    }
+  ]
+}

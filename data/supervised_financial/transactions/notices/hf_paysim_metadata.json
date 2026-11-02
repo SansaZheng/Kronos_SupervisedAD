@@ -1,0 +1,48 @@
+{
+  "_id": "67a7d59a0fdd5543157ac8c5",
+  "id": "kohdified/synthetic-financial-data",
+  "author": "kohdified",
+  "sha": "dfe0c96bc261e79da03af5ca52f36e8fc26a0e69",
+  "lastModified": "2025-02-08T22:17:49.000Z",
+  "private": false,
+  "gated": false,
+  "disabled": false,
+  "tags": [
+    "language:en",
+    "license:cc-by-sa-4.0",
+    "size_categories:1M<n<10M",
+    "format:csv",
+    "modality:tabular",
+    "modality:text",
+    "library:datasets",
+    "library:pandas",
+    "library:mlcroissant",
+    "library:polars",
+    "region:us"
+  ],
+  "description": "\n\t\n\t\t\n\t\n\t\n\t\tDataset Card for Dataset Name\n\t\n\n\nExtracted from Kaggle: https://www.kaggle.com/datasets/ealaxi/paysim1?resource=download \nPurpose is to have synthetic data on here for testing.\n",
+  "downloads": 61,
+  "likes": 0,
+  "cardData": {
+    "license": "cc-by-sa-4.0",
+    "task-categories": [
+      "feature-extraction"
+    ],
+    "language": [
+      "en"
+    ]
+  },
+  "siblings": [
+    {
+      "rfilename": ".gitattributes"
+    },
+    {
+      "rfilename": "README.md"
+    },
+    {
+      "rfilename": "paysim.csv"
+    }
+  ],
+  "createdAt": "2025-02-08T22:07:22.000Z",
+  "usedStorage": 828163132
+}

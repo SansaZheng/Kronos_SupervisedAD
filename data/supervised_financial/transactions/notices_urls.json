@@ -1,0 +1,62 @@
+[
+  {
+    "path": "ULB-ODbL-1.0.txt",
+    "url": "https://opendatacommons.org/licenses/odbl/odbl-10.txt",
+    "bytes": 25278
+  },
+  {
+    "path": "ULB-DbCL-1.0.txt",
+    "url": "https://opendatacommons.org/licenses/dbcl/dbcl-10.txt",
+    "bytes": 2374
+  },
+  {
+    "path": "Elliptic-CC-BY-NC-ND-4.0.txt",
+    "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode.txt",
+    "bytes": 19127
+  },
+  {
+    "path": "PaySim-CC-BY-SA-4.0.txt",
+    "url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode.txt",
+    "bytes": 20138
+  },
+  {
+    "path": "TabFormer-Apache-2.0.txt",
+    "url": "https://raw.githubusercontent.com/IBM/TabFormer/ebb7cd68ee1897599568107740bc452104bbbaf8/LICENSE",
+    "bytes": 11357
+  },
+  {
+    "path": "IBM-AML-CDLA-Sharing-1.0.txt",
+    "url": "https://raw.githubusercontent.com/spdx/license-list-data/main/text/CDLA-Sharing-1.0.txt",
+    "bytes": 11233
+  },
+  {
+    "path": "IBM-AML-README.md",
+    "url": "https://raw.githubusercontent.com/IBM/AML-Data/366436e605ac7713bf4eee8b4fbc45984d64427c/README.md",
+    "bytes": 2053
+  },
+  {
+    "path": "TabFormer-README.md",
+    "url": "https://raw.githubusercontent.com/IBM/TabFormer/ebb7cd68ee1897599568107740bc452104bbbaf8/README.md",
+    "bytes": 3193
+  },
+  {
+    "path": "PaySim-mirror-README.md",
+    "url": "https://huggingface.co/datasets/kohdified/synthetic-financial-data/raw/dfe0c96bc261e79da03af5ca52f36e8fc26a0e69/README.md",
+    "bytes": 316
+  },
+  {
+    "path": "IBM-AML-mirror-README.md",
+    "url": "https://huggingface.co/datasets/OsamaMIT/IBM-AML-HI-Small/raw/95aa8c419e7c43eb1f3299901aab601889c6dd1b/README.md",
+    "bytes": 586
+  },
+  {
+    "path": "Elliptic-PyG-loader.py",
+    "url": "https://raw.githubusercontent.com/pyg-team/pytorch_geometric/master/torch_geometric/datasets/elliptic.py",
+    "bytes": 4605
+  },
+  {
+    "path": "PyG-MIT.txt",
+    "url": "https://raw.githubusercontent.com/pyg-team/pytorch_geometric/master/LICENSE",
+    "bytes": 1067
+  }
+]

@@ -1,0 +1,40 @@
+{
+  "_id": "6a21225e63fab6f2e55c7c6f",
+  "id": "OsamaMIT/IBM-AML-HI-Small",
+  "author": "OsamaMIT",
+  "sha": "95aa8c419e7c43eb1f3299901aab601889c6dd1b",
+  "lastModified": "2026-06-04T07:09:49.000Z",
+  "private": false,
+  "gated": false,
+  "disabled": false,
+  "tags": [
+    "license:cdla-sharing-1.0",
+    "modality:text",
+    "region:us"
+  ],
+  "description": "\n\t\n\t\t\n\t\n\t\n\t\tAbout\n\t\n\nA HI-Small sample from a IBM AML Dataset\nGenerated using IBM's AMLSim\n\n\t\n\t\t\n\t\n\t\n\t\tDescription\n\t\n\nSample group HI has a relatively higher illicit ratio (more laundering).\nThe small sample features approximately 5 million transactions across 518,573 accounts.\n\nHI-Small_Trans.csv - Accounts\nHI-Small_Trans.csv - Transactions\nHI-Small_Patterns.txt - Laundering Pattern Transactions\n\n",
+  "downloads": 290,
+  "likes": 0,
+  "cardData": {
+    "license": "cdla-sharing-1.0"
+  },
+  "siblings": [
+    {
+      "rfilename": ".gitattributes"
+    },
+    {
+      "rfilename": "HI-Small_Patterns.txt"
+    },
+    {
+      "rfilename": "HI-Small_Trans.csv"
+    },
+    {
+      "rfilename": "HI-Small_accounts.csv"
+    },
+    {
+      "rfilename": "README.md"
+    }
+  ],
+  "createdAt": "2026-06-04T06:59:42.000Z",
+  "usedStorage": 1019434940
+}

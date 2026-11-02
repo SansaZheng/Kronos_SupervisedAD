@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "verified_source_files": 20,
+  "split_seed": "kronosad-supervised-v1",
+  "datasets": [
+    {
+      "dataset": "sapienza_5S",
+      "task": "point_onset_classification",
+      "rows": 821307,
+      "features": 12,
+      "positive_labels": 317,
+      "event_groups": 327,
+      "symbols": 85,
+      "split_unit": "symbol",
+      "splits": {
+        "train": {
+          "samples": 456267,
+          "positive_labels": 190
+        },
+        "validation": {
+          "samples": 157773,
+          "positive_labels": 50
+        },
+        "test": {
+          "samples": 207267,
+          "positive_labels": 77
+        }
+      }
+    },
+    {
+      "dataset": "sapienza_15S",
+      "task": "point_onset_classification",
+      "rows": 584104,
+      "features": 12,
+      "positive_labels": 317,
+      "event_groups": 327,
+      "symbols": 85,
+      "split_unit": "symbol",
+      "splits": {
+        "train": {
+          "samples": 327103,
+          "positive_labels": 190
+        },
+        "validation": {
+          "samples": 111451,
+          "positive_labels": 50
+        },
+        "test": {
+          "samples": 145550,
+          "positive_labels": 77
+        }
+      }
+    },
+    {
+      "dataset": "sapienza_25S",
+      "task": "point_onset_classification",
+      "rows": 482157,
+      "features": 12,
+      "positive_labels": 317,
+      "event_groups": 327,
+      "symbols": 85,
+      "split_unit": "symbol",
+      "splits": {
+        "train": {
+          "samples": 271761,
+          "positive_labels": 190
+        },
+        "validation": {
+          "samples": 90927,
+          "positive_labels": 50
+        },
+        "test": {
+          "samples": 119469,
+          "positive_labels": 77
+        }
+      }
+    },
+    {
+      "dataset": "tstr_real",
+      "task": "sequence_classification",
+      "raw_sequences": 977,
+      "raw_positive_sequences": 466,
+      "sequences": 964,
+      "positive_labels": 466,
+      "length": 1000,
+      "features": 1,
+      "removed_exact_duplicates": 13,
+      "split_unit": "unique_price_sequence",
+      "splits": {
+        "train": {
+          "samples": 577,
+          "positive_labels": 279
+        },
+        "validation": {
+          "samples": 193,
+          "positive_labels": 93
+        },
+        "test": {
+          "samples": 194,
+          "positive_labels": 94
+        }
+      },
+      "source_column": "High",
+      "absolute_timestamps_available": false,
+      "synthetic_series_in_default_prepared_data": false
+    },
+    {
+      "dataset": "sd_fmm_stock",
+      "task": "point_interval_classification",
+      "sequences": 27,
+      "length": 160,
+      "features": 1,
+      "positive_labels": 493,
+      "split_unit": "feature_sequence",
+      "splits": {
+        "train": {
+          "samples": 16,
+          "positive_labels": 333
+        },
+        "validation": {
+          "samples": 5,
+          "positive_labels": 61
+        },
+        "test": {
+          "samples": 6,
+          "positive_labels": 99
+        }
+      },
+      "absolute_timestamps_available": false,
+      "original_partition": "test",
+      "research_splits_are_official": false
+    },
+    {
+      "dataset": "sd_fmm_crypto",
+      "task": "point_onset_classification",
+      "sequences": 337,
+      "length": 160,
+      "features": 1,
+      "positive_labels": 337,
+      "split_unit": "feature_sequence",
+      "splits": {
+        "train": {
+          "samples": 202,
+          "positive_labels": 202
+        },
+        "validation": {
+          "samples": 67,
+          "positive_labels": 67
+        },
+        "test": {
+          "samples": 68,
+          "positive_labels": 68
+        }
+      },
+      "absolute_timestamps_available": false,
+      "original_partition": "test",
+      "research_splits_are_official": false
+    }
+  ]
+}

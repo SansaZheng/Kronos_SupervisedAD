@@ -1,0 +1,10 @@
+id,name,status,scope,rows_or_sequences,count_unit,positive_labels,label_granularity,path
+sapienza,Sapienza labelled features,downloaded,5S/15S/25S; displayed row count is 15S only,584104,feature rows,317,onset block,raw/sapienza
+tstr,TSTR real sequences,downloaded,977 raw sequences; 964 after exact deduplication,964,sequences,466,whole sequence,prepared/tstr_real.npz
+sd_fmm,SD-FMM public derived arrays,downloaded,27 stock plus 337 crypto sequences; not the full described proprietary data,364,sequences,830,point/interval,raw/sd_fmm
+ulb,ULB / Worldline Credit Card Fraud,downloaded,complete 284807-row release,284807,transactions,492,transaction,transactions/README.md
+elliptic,Elliptic Bitcoin Dataset,downloaded,complete 3-file release,203769,graph nodes,4545,node,transactions/README.md
+paysim,PaySim,downloaded,complete 6362620-row published Kaggle-sized CSV via community mirror,6362620,transactions,8213,transaction,transactions/README.md
+tabformer,IBM TabFormer,downloaded,complete publisher transactions.tgz,24386900,transactions,29757,transaction,transactions/README.md
+ibm_aml,IBM AML HI-Small,downloaded,complete HI-Small transaction/accounts/pattern files via community mirror; not all AMLworld variants,5078345,transactions,5177,transaction,transactions/README.md
+ieee_cis,IEEE-CIS Fraud Detection,local_only_restricted,official ZIP local only: 590540 labelled train plus 506691 unlabelled test,590540,transactions,20663,transaction,transactions/IEEE_CIS_LOCAL.md

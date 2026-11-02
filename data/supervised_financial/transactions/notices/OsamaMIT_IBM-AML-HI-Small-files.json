@@ -1,0 +1,44 @@
+[
+  {
+    "type": "file",
+    "oid": "e1031b52596e1f565163b9de3fbbcaf47f0ad448",
+    "size": 2617,
+    "path": ".gitattributes"
+  },
+  {
+    "type": "file",
+    "oid": "681aa1718a9d5425035d4874c6b5e6c9975af6a3",
+    "size": 323844,
+    "path": "HI-Small_Patterns.txt"
+  },
+  {
+    "type": "file",
+    "oid": "9de922c812de6afd531079c4cb19f8644da9e35f",
+    "size": 475664283,
+    "lfs": {
+      "oid": "b19d39f515523373f991b689c07e11e7b0b95c17a2c27a87d91584ae16c5b040",
+      "size": 475664283,
+      "pointerSize": 134
+    },
+    "xetHash": "73784c1b5cfd0cfbbd80b5b49d8e0d0c51fa0c8f4460bbd630033ce5c7649838",
+    "path": "HI-Small_Trans.csv"
+  },
+  {
+    "type": "file",
+    "oid": "9bcb40fe65eebfd129d1d2ae1bfb0f45eacb655d",
+    "size": 34053187,
+    "lfs": {
+      "oid": "786808526e33cfc441212dd6fccda7edfc24172149bed59c6ef59b186836b014",
+      "size": 34053187,
+      "pointerSize": 133
+    },
+    "xetHash": "304146009129f057622916ea4838d5acc2956be1e7dec60c9cfac143418517f9",
+    "path": "HI-Small_accounts.csv"
+  },
+  {
+    "type": "file",
+    "oid": "4426408681d6f821d818edcf9bf63bfb24fa5adb",
+    "size": 586,
+    "path": "README.md"
+  }
+]

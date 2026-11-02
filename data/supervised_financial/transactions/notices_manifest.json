@@ -1,0 +1,82 @@
+[
+  {
+    "path": "notices/Elliptic-CC-BY-NC-ND-4.0.txt",
+    "bytes": 19127,
+    "sha256": "38762e3777f4ec00a6f769062a7c3f704fb78ce08303ecff88558da4c49cf9ea"
+  },
+  {
+    "path": "notices/Elliptic-PyG-loader.py",
+    "bytes": 4605,
+    "sha256": "572915ca11d971e69e74bbef487b1c991fa49b5c14811b398073f99d8bf2bcb6"
+  },
+  {
+    "path": "notices/IBM-AML-CDLA-Sharing-1.0.txt",
+    "bytes": 11233,
+    "sha256": "6419d7a7245cb8a9da6e3dd925d05d824ea0268e3527095f68dec091f84f75da"
+  },
+  {
+    "path": "notices/IBM-AML-README.md",
+    "bytes": 2053,
+    "sha256": "e9aa468628ce39f50c91baf8ba88986821fff04263e405e0b22633c51e541458"
+  },
+  {
+    "path": "notices/IBM-AML-mirror-README.md",
+    "bytes": 586,
+    "sha256": "4858a55ed1dd0b2449cd3c1a6434c17105a90c59d9ee14abb6f95e5aaae8c8f0"
+  },
+  {
+    "path": "notices/OsamaMIT_IBM-AML-HI-Small-files.json",
+    "bytes": 1147,
+    "sha256": "55ff91c7551f2b625ef0e84316668c2048cbe86687076cb5e083410a3c5c190e"
+  },
+  {
+    "path": "notices/OsamaMIT_IBM-AML-HI-Small.json",
+    "bytes": 1246,
+    "sha256": "9017f81672331258cf5f3112802b2fa5b415360f24a2deb834027d20648f1fa6"
+  },
+  {
+    "path": "notices/PaySim-CC-BY-SA-4.0.txt",
+    "bytes": 20138,
+    "sha256": "28a9529c7d0bb4dc51f4bf5c116a3d16ef247a052f7591466768ddf563fd1cf5"
+  },
+  {
+    "path": "notices/PaySim-mirror-README.md",
+    "bytes": 316,
+    "sha256": "a06e9c8d8552bf22eaa2cd02683ba12006e8e68ea966f455e5672c662386bd6b"
+  },
+  {
+    "path": "notices/PyG-MIT.txt",
+    "bytes": 1067,
+    "sha256": "89cfb6edc309735916a0c1189dccf761add4af6062ddb34b5a26f60d3efadfea"
+  },
+  {
+    "path": "notices/TabFormer-Apache-2.0.txt",
+    "bytes": 11357,
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+  },
+  {
+    "path": "notices/TabFormer-README.md",
+    "bytes": 3193,
+    "sha256": "d534666c5bdf65f8d83ac25647485dc1e739ea93860fb86bea7d9308e49ff1fc"
+  },
+  {
+    "path": "notices/ULB-DbCL-1.0.txt",
+    "bytes": 2374,
+    "sha256": "3cbfa990f26df856c6a7d3fff3d1f236e3b0165b1e8257ca0d00f15758754f81"
+  },
+  {
+    "path": "notices/ULB-ODbL-1.0.txt",
+    "bytes": 25278,
+    "sha256": "607680718977f6f6c9607972afd98f208573f19251315ed1362a8589b51beaf5"
+  },
+  {
+    "path": "notices/hf_paysim_metadata.json",
+    "bytes": 1176,
+    "sha256": "2b22ee6f39710cd939b1ce0a5c38b2d26d660408dc6fcc5fae42e229b34e2e9b"
+  },
+  {
+    "path": "notices/kohdified_synthetic-financial-data-files.json",
+    "bytes": 624,
+    "sha256": "f9bfc83ac15cc228ff84fe542a9960d77acfc5679ad9ab6f34db39e71032c3bd"
+  }
+]

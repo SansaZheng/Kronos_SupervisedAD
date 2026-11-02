@@ -1,0 +1,27 @@
+[
+  {
+    "path": "prepared/sapienza_features.json",
+    "bytes": 200,
+    "sha256": "7f1b4749278d77aef7d7c2ab58ebaabe7ba0dd09b0291f9a3d8caeb415783045"
+  },
+  {
+    "path": "prepared/sapienza_groups.csv",
+    "bytes": 63647,
+    "sha256": "bc55814f71b9dbd34c44dcf1af4265a2d9ee188e2ec80acec40bea1c0780aeeb"
+  },
+  {
+    "path": "prepared/sd_fmm_sequences.csv",
+    "bytes": 30763,
+    "sha256": "fa48168a83bab2455ed9d0b22dba4fbe5dcc93e26f5630af7be449a555c9fc90"
+  },
+  {
+    "path": "prepared/tstr_real.npz",
+    "bytes": 1489996,
+    "sha256": "b11f04be757306ca0cd13a154d368941c75a1307c6503328de7997846efee233"
+  },
+  {
+    "path": "prepared/tstr_samples.csv",
+    "bytes": 112545,
+    "sha256": "a4afe6999713a28e3c594b52544f944d219ee9a5c4fb10a7258a6afa5ca5e002"
+  }
+]

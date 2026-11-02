@@ -1,0 +1,195 @@
+{
+  "ulb": {
+    "rows": 284807,
+    "columns": [
+      "Time",
+      "V1",
+      "V2",
+      "V3",
+      "V4",
+      "V5",
+      "V6",
+      "V7",
+      "V8",
+      "V9",
+      "V10",
+      "V11",
+      "V12",
+      "V13",
+      "V14",
+      "V15",
+      "V16",
+      "V17",
+      "V18",
+      "V19",
+      "V20",
+      "V21",
+      "V22",
+      "V23",
+      "V24",
+      "V25",
+      "V26",
+      "V27",
+      "V28",
+      "Amount",
+      "Class"
+    ],
+    "class_counts": {
+      "0": 284315,
+      "1": 492
+    },
+    "time_range": [
+      0.0,
+      172792.0
+    ],
+    "member": "creditcard.csv",
+    "csv_sha256": "76274b691b16a6c49d3f159c883398e03ccd6d1ee12d9d8ee38f4b4b98551a89"
+  },
+  "tabformer": {
+    "rows": 24386900,
+    "class_counts": {
+      "No": 24357143,
+      "Yes": 29757
+    },
+    "member": "card_transaction.v1.csv",
+    "uncompressed_bytes": 2354626737
+  },
+  "elliptic_classes": {
+    "rows": 203769,
+    "columns": [
+      "txId",
+      "class"
+    ],
+    "class_counts": {
+      "unknown": 157205,
+      "2": 42019,
+      "1": 4545
+    }
+  },
+  "elliptic_edgelist": {
+    "rows": 234355,
+    "columns": [
+      "txId1",
+      "txId2"
+    ]
+  },
+  "elliptic_features": {
+    "rows": 203769,
+    "time_range": [
+      1,
+      49
+    ],
+    "time_counts": {
+      "1": 7880,
+      "2": 4544,
+      "3": 6621,
+      "4": 5693,
+      "5": 6803,
+      "6": 4328,
+      "7": 6048,
+      "8": 4457,
+      "9": 4996,
+      "10": 6727,
+      "11": 4296,
+      "12": 2047,
+      "13": 4528,
+      "14": 2022,
+      "15": 3639,
+      "16": 2975,
+      "17": 3385,
+      "18": 1976,
+      "19": 3506,
+      "20": 4291,
+      "21": 3537,
+      "22": 5894,
+      "23": 4165,
+      "24": 4592,
+      "25": 2314,
+      "26": 2523,
+      "27": 1089,
+      "28": 1653,
+      "29": 4275,
+      "30": 2483,
+      "31": 2816,
+      "32": 4525,
+      "33": 3151,
+      "34": 2486,
+      "35": 5507,
+      "36": 6393,
+      "37": 3306,
+      "38": 2891,
+      "39": 2760,
+      "40": 4481,
+      "41": 5342,
+      "42": 7140,
+      "43": 5063,
+      "44": 4975,
+      "45": 5598,
+      "46": 3519,
+      "47": 5121,
+      "48": 2954,
+      "49": 2454
+    },
+    "ids_unique": true,
+    "full_graph_consistent": true
+  },
+  "paysim": {
+    "rows": 6362620,
+    "class_counts": {
+      "0": 6354407,
+      "1": 8213
+    },
+    "columns": [
+      "step",
+      "type",
+      "amount",
+      "nameOrig",
+      "oldbalanceOrg",
+      "newbalanceOrig",
+      "nameDest",
+      "oldbalanceDest",
+      "newbalanceDest",
+      "isFraud",
+      "isFlaggedFraud"
+    ],
+    "time_column": "step",
+    "time_min": "1",
+    "time_max": "743"
+  },
+  "ibm_aml_hi_small": {
+    "rows": 5078345,
+    "class_counts": {
+      "0": 5073168,
+      "1": 5177
+    },
+    "columns": [
+      "Timestamp",
+      "From Bank",
+      "Account",
+      "To Bank",
+      "Account",
+      "Amount Received",
+      "Receiving Currency",
+      "Amount Paid",
+      "Payment Currency",
+      "Payment Format",
+      "Is Laundering"
+    ],
+    "time_column": "Timestamp",
+    "time_min": "2022/09/01 00:00",
+    "time_max": "2022/09/18 16:18"
+  },
+  "ibm_aml_accounts": {
+    "rows": 518581,
+    "columns": [
+      "Bank Name",
+      "Bank ID",
+      "Account Number",
+      "Entity ID",
+      "Entity Name"
+    ],
+    "unique_account_numbers": 518573,
+    "unique_bank_account_pairs": 518581,
+    "exact_duplicate_rows": 0
+  }
+}

@@ -1,0 +1,7 @@
+dataset,task,rows,features,positive_labels,event_groups,symbols,split_unit,splits.train.samples,splits.train.positive_labels,splits.validation.samples,splits.validation.positive_labels,splits.test.samples,splits.test.positive_labels,raw_sequences,raw_positive_sequences,sequences,length,removed_exact_duplicates,source_column,absolute_timestamps_available,synthetic_series_in_default_prepared_data,original_partition,research_splits_are_official
+sapienza_5S,point_onset_classification,821307.0,12,317,327.0,85.0,symbol,456267,190,157773,50,207267,77,,,,,,,,,,
+sapienza_15S,point_onset_classification,584104.0,12,317,327.0,85.0,symbol,327103,190,111451,50,145550,77,,,,,,,,,,
+sapienza_25S,point_onset_classification,482157.0,12,317,327.0,85.0,symbol,271761,190,90927,50,119469,77,,,,,,,,,,
+tstr_real,sequence_classification,,1,466,,,unique_price_sequence,577,279,193,93,194,94,977.0,466.0,964.0,1000.0,13.0,High,False,False,,
+sd_fmm_stock,point_interval_classification,,1,493,,,feature_sequence,16,333,5,61,6,99,,,27.0,160.0,,,False,,test,False
+sd_fmm_crypto,point_onset_classification,,1,337,,,feature_sequence,202,202,67,67,68,68,,,337.0,160.0,,,False,,test,False

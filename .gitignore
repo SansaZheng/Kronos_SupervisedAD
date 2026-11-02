@@ -1,0 +1,7 @@
+__pycache__/
+.pytest_cache/
+.venv/
+private_data/
+.local_data/
+ieee-fraud-detection.zip
+*.pyc

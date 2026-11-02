@@ -1,0 +1,26 @@
+[
+  {
+    "type": "file",
+    "oid": "72e0c8cfd399d4793ba6a1f9a10fc957788472c2",
+    "size": 2508,
+    "path": ".gitattributes"
+  },
+  {
+    "type": "file",
+    "oid": "881cd896c134b406f1c68303d9e02a0e6bb5c40b",
+    "size": 316,
+    "path": "README.md"
+  },
+  {
+    "type": "file",
+    "oid": "1a253beeac4b657800a477099e848dcea38f0780",
+    "size": 493534783,
+    "lfs": {
+      "oid": "16910f90577b0d981bf8ff289714510bb89bc71bff7d3f220f024e287e4eea6b",
+      "size": 493534783,
+      "pointerSize": 134
+    },
+    "xetHash": "0cb61df7f337df237908b29b21d192757b969165883e69fa7ee9d66d7c325cec",
+    "path": "paysim.csv"
+  }
+]
