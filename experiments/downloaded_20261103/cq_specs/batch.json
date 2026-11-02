@@ -1,0 +1,44 @@
+{
+  "name": "Kronos SAD full downloaded-data holdout benchmark",
+  "work": "KronosSupervisedAD",
+  "code": {
+    "github": "SansaZheng/Kronos_SupervisedAD",
+    "commit": "add76164bcacc34392b6dd9499a99f348f7cdc0e"
+  },
+  "command": [
+    "bash",
+    "-lc",
+    "python -m pip install -q einops==0.8.1 huggingface_hub==0.33.1 safetensors==0.6.2 scikit-learn==1.7.2 pytest pandas numpy && python scripts/run_downloaded_benchmark.py --stage batch --device cuda --epochs 5 --train-cap 500000 --validation-cap 100000"
+  ],
+  "resources": {
+    "gpus": 1,
+    "gpu_mem_gb": 8,
+    "cpus": 2,
+    "ram_gb": 24
+  },
+  "limits": {
+    "max_hours": 2,
+    "max_attempts": 1,
+    "max_usd": 0
+  },
+  "placement": {
+    "target": "kaggle",
+    "allow_rent": false
+  },
+  "outputs": {
+    "dest": "~/.local/share/cq/kaggle/kronos-sad-20261103/batch",
+    "expect": [
+      {
+        "path": "summary.json",
+        "contains": "\"complete\""
+      }
+    ],
+    "progress": {
+      "path": "progress.txt",
+      "stall_min": 20
+    }
+  },
+  "depends_on": [
+    "j-1103-2f4f8b"
+  ]
+}

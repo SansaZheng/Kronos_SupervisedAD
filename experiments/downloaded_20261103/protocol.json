@@ -1,0 +1,61 @@
+{
+  "scientific_code_commit": "add76164bcacc34392b6dd9499a99f348f7cdc0e",
+  "upstream_commit": "67b630e67f6a18c9e9be918d9b4337c960db1e9a",
+  "model": "NeoQuasar/Kronos-mini",
+  "seed": 42,
+  "maximum_epochs": 5,
+  "maximum_batch_hours": 2,
+  "train_cap_large_transaction_datasets": 500000,
+  "validation_cap_large_transaction_datasets": 100000,
+  "large_transaction_test_sampling": false,
+  "threshold_selection": "validation F1",
+  "checkpoint_selection": "validation AP",
+  "qualifications": {
+    "tests_passed": 52,
+    "test_seconds": 27.16,
+    "public_transaction_assets": 9,
+    "parts": 25,
+    "decompressed_source_hashes_checked": true,
+    "environment": {
+      "status": "complete",
+      "stage": "qualify",
+      "torch": "2.11.0+cpu",
+      "cuda_available": false
+    }
+  },
+  "cq_jobs": {
+    "qualification": "j-1103-5e8b3c",
+    "gpu_smoke": "j-1103-2f4f8b",
+    "formal_batch": "j-1103-e661fb"
+  },
+  "gpu_smoke": {
+    "status": "complete",
+    "peak_gpu_reserved_gb": 0.5390625,
+    "used_for_runtime_validation_only": true,
+    "not_in_formal_result_table": true
+  },
+  "compute": "CQ free Kaggle GPU for public data; local CPU for restricted IEEE-CIS; no paid rentals or Colab CU",
+  "initial_backbone_state_sha256": "9df7c94d97e7cd096ee1cbd982e8bbf219695a4d0ecdf22c15afb9dcb793f0c5",
+  "full_batch_settings_declared_before_smoke_test_results": true,
+  "source_data_preserved": true,
+  "formal_batch": {
+    "status": "complete",
+    "completed_datasets": 9,
+    "peak_gpu_allocated_gb": 0.48886728286743164,
+    "peak_gpu_reserved_gb": 0.529296875,
+    "elapsed_seconds": 1083.3453931808472,
+    "cuda_torch_version": "2.11.0+cu128",
+    "all_ten_initial_backbone_hashes_match": true
+  },
+  "ieee_local": {
+    "torch_version": "2.6.0",
+    "device": "cpu",
+    "labelled_train_split_rows": [
+      413378,
+      88581,
+      88581
+    ],
+    "privacy": "source, derived matrices, vocabularies, row predictions and checkpoints stay local"
+  },
+  "figure_postprocessing": "PR display curves rebuilt from complete saved test scores, retaining recall-bin boundaries and the original operating threshold; aggregate metrics and thresholds unchanged"
+}

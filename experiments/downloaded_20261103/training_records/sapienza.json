@@ -1,0 +1,244 @@
+{
+  "method": "supervised-kronos",
+  "task": "point",
+  "input_kind": "features",
+  "initialization": "NeoQuasar/Kronos-mini",
+  "tokenizer": null,
+  "freeze_backbone": false,
+  "seed": 42,
+  "positive_weight": 1720.5947368421052,
+  "best_epoch": 5,
+  "threshold_selection": {
+    "threshold": 0.9972025156021118,
+    "policy": "f1",
+    "feasible": true,
+    "status": "active",
+    "validation_precision": 0.7380952380952381,
+    "validation_recall": 0.62,
+    "validation_fpr": 9.874238112763799e-05,
+    "validation_alerts": 42,
+    "validation_normals": 111401,
+    "validation_positives": 50,
+    "max_fpr": null,
+    "min_precision": null,
+    "beta": 1.0
+  },
+  "epoch_selection": "validation average precision with specified min_delta/patience",
+  "epochs_executed": 5,
+  "test_deferred": true,
+  "model_specification": {
+    "backbone": {
+      "s1_bits": 10,
+      "s2_bits": 10,
+      "n_layers": 4,
+      "d_model": 256,
+      "n_heads": 4,
+      "ff_dim": 512,
+      "ffn_dropout_p": 0.2,
+      "attn_dropout_p": 0.0,
+      "resid_dropout_p": 0.2,
+      "token_dropout_p": 0.0,
+      "learn_te": true
+    },
+    "n_features": 13,
+    "task": "point",
+    "input_kind": "features",
+    "freeze_backbone": false,
+    "head_type": "multiscale",
+    "sequence_pooling": "attention",
+    "scales": [
+      4,
+      16,
+      64
+    ],
+    "head_dropout": 0.1,
+    "tokenizer": null
+  },
+  "optimizer_groups": [
+    {
+      "lr": 1e-05,
+      "weight_decay": 0.0,
+      "role": "backbone",
+      "parameters": 6400
+    },
+    {
+      "lr": 1e-05,
+      "weight_decay": 0.01,
+      "role": "backbone",
+      "parameters": 2621440
+    },
+    {
+      "lr": 0.0001,
+      "weight_decay": 0.01,
+      "role": "head_adapter",
+      "parameters": 134528
+    },
+    {
+      "lr": 0.0001,
+      "weight_decay": 0.0,
+      "role": "head_adapter",
+      "parameters": 897
+    }
+  ],
+  "trainable_parameters": 2763265,
+  "initial_backbone_state_sha256": "9df7c94d97e7cd096ee1cbd982e8bbf219695a4d0ecdf22c15afb9dcb793f0c5",
+  "source_code_sha256": {
+    "__init__.py": "2c068dd9867e9488b99c491d621c5933e2f7f57ea9b4a2796acde0e052e541d8",
+    "__main__.py": "7014d41cd335bebe1dbb209cfa60012028de5f5372b8d8b87c79f958b109425a",
+    "baseline.py": "31c348704eec65e4f140493bc2bf46140c4a43a02063938304e71efceb96532b",
+    "data.py": "b6d626cb8b60aef9fa052d14b6e0b73642ca900088e05a72140999c610ed7ef4",
+    "engine.py": "7fe9fa7dfa0447fba374d0f864ac6393187a903276c00cb2c84c527ece970096",
+    "metrics.py": "0f7ef56e7884ead1cac0dcecda0e4865af199c9095793f6006c4503c7a64b8d2",
+    "model.py": "8437a2e1654991708da350b356acdaa10f25acd18ac24a87511c1d743f7def51",
+    "optimization.py": "4c5f4eafa7b2076f33bd7f8aa280d25cf97eb9794fb18075283dad4027db3492",
+    "transaction_prepare.py": "ce367d4e25cd68d2c9c8eb2a86c87a8910c5304b98bf01aa7177a49b5f8c14b4"
+  },
+  "preprocessing": "training-only mean imputation, standardization and clip [-5,5]",
+  "feature_names": [
+    "std_rush_order",
+    "avg_rush_order",
+    "std_trades",
+    "std_volume",
+    "avg_volume",
+    "std_price",
+    "avg_price",
+    "avg_price_max",
+    "hour_sin",
+    "hour_cos",
+    "minute_sin",
+    "minute_cos",
+    "log1p_gap_seconds"
+  ],
+  "group_isolation_checked": true,
+  "observation_isolation_checked": true,
+  "split_archives": {
+    "train.npz": "9f3dd31fdb04bebf00cd7dd7f3a7e142d26e01024e4fe03513166d90df51e59a",
+    "validation.npz": "ba541d669d0a75448c1d9fa77ea788c56356f226ee4f5d3c886d31b6df1ebe37"
+  },
+  "torch_version": "2.11.0+cu128",
+  "device": "cuda",
+  "settings": {
+    "command": "train",
+    "data_dir": "/kaggle/working/out/sapienza/inputs",
+    "output": "/kaggle/working/out/sapienza/model",
+    "backbone": "NeoQuasar/Kronos-mini",
+    "tokenizer": null,
+    "scratch": false,
+    "scratch_config": null,
+    "input_kind": "features",
+    "freeze_backbone": false,
+    "local_only": false,
+    "max_context": 512,
+    "epochs": 5,
+    "batch_size": 32,
+    "lr": 0.0001,
+    "weight_decay": 0.01,
+    "head_type": "multiscale",
+    "sequence_pooling": "attention",
+    "scales": [
+      4,
+      16,
+      64
+    ],
+    "head_dropout": 0.1,
+    "loss": "bce",
+    "focal_gamma": 2.0,
+    "pos_weight": "auto",
+    "max_pos_weight": null,
+    "backbone_lr_ratio": null,
+    "layer_decay": 1.0,
+    "schedule": "cosine",
+    "warmup_fraction": 0.1,
+    "patience": 3,
+    "min_delta": 0.0,
+    "threshold_policy": "f1",
+    "max_fpr": 0.001,
+    "min_precision": 0.8,
+    "beta": 1.0,
+    "defer_test": true,
+    "seed": 42,
+    "device": "cuda",
+    "threads": 2
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.2085224266807408,
+      "loss_type": "bce",
+      "validation_average_precision": 0.5328338863867825,
+      "learning_rates": [
+        9.69204601480461e-06,
+        9.69204601480461e-06,
+        9.69204601480461e-05,
+        9.69204601480461e-05
+      ]
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.5617886728954449,
+      "loss_type": "bce",
+      "validation_average_precision": 0.6478077568427169,
+      "learning_rates": [
+        7.487865888593579e-06,
+        7.487865888593579e-06,
+        7.48786588859358e-05,
+        7.48786588859358e-05
+      ]
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.23243929609486277,
+      "loss_type": "bce",
+      "validation_average_precision": 0.7038283601408222,
+      "learning_rates": [
+        4.12256911212992e-06,
+        4.12256911212992e-06,
+        4.122569112129921e-05,
+        4.122569112129921e-05
+      ]
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.13040883776868173,
+      "loss_type": "bce",
+      "validation_average_precision": 0.7265541635766761,
+      "learning_rates": [
+        1.1667797846099172e-06,
+        1.1667797846099172e-06,
+        1.1667797846099172e-05,
+        1.1667797846099172e-05
+      ]
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.14266184313748648,
+      "loss_type": "bce",
+      "validation_average_precision": 0.729100797317206,
+      "learning_rates": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "validation": {
+    "n": 111451,
+    "positives": 50,
+    "tp": 31,
+    "fp": 11,
+    "fn": 19,
+    "tn": 111390,
+    "precision": 0.7380952380952381,
+    "recall": 0.62,
+    "f1": 0.6739130434782609,
+    "false_positive_rate": 9.874238112763799e-05,
+    "false_alerts_per_1000": 0.09869808256543235,
+    "prevalence": 0.00044862764802469245,
+    "brier_score": 0.004452589003284869,
+    "average_precision": 0.729100797317206,
+    "roc_auc": 0.9986978572903296,
+    "threshold": 0.9972025156021118
+  },
+  "test": null
+}

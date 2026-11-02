@@ -1,0 +1,185 @@
+{
+  "method": "supervised-kronos",
+  "task": "point",
+  "input_kind": "features",
+  "seed": 42,
+  "positive_weight": 27.434310083918007,
+  "best_epoch": 5,
+  "epochs_executed": 5,
+  "threshold_selection": {
+    "threshold": 0.7669088840484619,
+    "policy": "f1",
+    "feasible": true,
+    "status": "active",
+    "validation_precision": 0.1992069045952881,
+    "validation_recall": 0.2807363576594346,
+    "validation_fpr": 0.040133740165304715,
+    "validation_alerts": 4287,
+    "validation_normals": 85539,
+    "validation_positives": 3042,
+    "max_fpr": null,
+    "min_precision": null,
+    "beta": 1.0
+  },
+  "epoch_selection": "validation average precision with specified min_delta/patience",
+  "test_deferred": true,
+  "model_specification": {
+    "backbone": {
+      "s1_bits": 10,
+      "s2_bits": 10,
+      "n_layers": 4,
+      "d_model": 256,
+      "n_heads": 4,
+      "ff_dim": 512,
+      "ffn_dropout_p": 0.2,
+      "attn_dropout_p": 0.0,
+      "resid_dropout_p": 0.2,
+      "token_dropout_p": 0.0,
+      "learn_te": true
+    },
+    "n_features": 97,
+    "task": "point",
+    "input_kind": "features",
+    "freeze_backbone": false,
+    "head_type": "multiscale",
+    "sequence_pooling": "attention",
+    "scales": [
+      4,
+      16,
+      64
+    ],
+    "head_dropout": 0.1,
+    "tokenizer": null
+  },
+  "optimizer_groups": [
+    {
+      "lr": 1e-05,
+      "weight_decay": 0.0,
+      "role": "backbone",
+      "parameters": 6400
+    },
+    {
+      "lr": 1e-05,
+      "weight_decay": 0.01,
+      "role": "backbone",
+      "parameters": 2621440
+    },
+    {
+      "lr": 0.0001,
+      "weight_decay": 0.01,
+      "role": "head_adapter",
+      "parameters": 156032
+    },
+    {
+      "lr": 0.0001,
+      "weight_decay": 0.0,
+      "role": "head_adapter",
+      "parameters": 897
+    }
+  ],
+  "trainable_parameters": 2784769,
+  "initial_backbone_state_sha256": "9df7c94d97e7cd096ee1cbd982e8bbf219695a4d0ecdf22c15afb9dcb793f0c5",
+  "source_code_sha256": {
+    "__init__.py": "2c068dd9867e9488b99c491d621c5933e2f7f57ea9b4a2796acde0e052e541d8",
+    "__main__.py": "7014d41cd335bebe1dbb209cfa60012028de5f5372b8d8b87c79f958b109425a",
+    "baseline.py": "31c348704eec65e4f140493bc2bf46140c4a43a02063938304e71efceb96532b",
+    "data.py": "b6d626cb8b60aef9fa052d14b6e0b73642ca900088e05a72140999c610ed7ef4",
+    "engine.py": "7fe9fa7dfa0447fba374d0f864ac6393187a903276c00cb2c84c527ece970096",
+    "metrics.py": "0f7ef56e7884ead1cac0dcecda0e4865af199c9095793f6006c4503c7a64b8d2",
+    "model.py": "8437a2e1654991708da350b356acdaa10f25acd18ac24a87511c1d743f7def51",
+    "optimization.py": "4c5f4eafa7b2076f33bd7f8aa280d25cf97eb9794fb18075283dad4027db3492",
+    "transaction_prepare.py": "ce367d4e25cd68d2c9c8eb2a86c87a8910c5304b98bf01aa7177a49b5f8c14b4"
+  },
+  "preprocessing": "training-only mean imputation, standardization and clip [-5,5]",
+  "group_isolation_checked": false,
+  "observation_isolation_checked": true,
+  "split_archives": {
+    "train.npz": "d6a97831aeb1cae3e5eea4be99b66dfeae98e8d54ab6a8c9a18d0a72c19bd79f",
+    "validation.npz": "c3fa1645464ea41881cd475c526629e4f48a4f124a426008e2d198deab42b5f9"
+  },
+  "torch_version": "2.6.0",
+  "device": "cpu",
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.2740281077071105,
+      "loss_type": "bce",
+      "validation_average_precision": 0.10102643172092948,
+      "learning_rates": [
+        9.693193185011552e-06,
+        9.693193185011552e-06,
+        9.693193185011551e-05,
+        9.693193185011551e-05
+      ]
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.1593244619483798,
+      "loss_type": "bce",
+      "validation_average_precision": 0.13422058577822282,
+      "learning_rates": [
+        7.490027456910407e-06,
+        7.490027456910407e-06,
+        7.490027456910407e-05,
+        7.490027456910407e-05
+      ]
+    },
+    {
+      "epoch": 3,
+      "train_loss": 1.128550061091733,
+      "loss_type": "bce",
+      "validation_average_precision": 0.1529189570777045,
+      "learning_rates": [
+        4.12420491125428e-06,
+        4.12420491125428e-06,
+        4.1242049112542804e-05,
+        4.1242049112542804e-05
+      ]
+    },
+    {
+      "epoch": 4,
+      "train_loss": 1.1179585151686113,
+      "loss_type": "bce",
+      "validation_average_precision": 0.16036279460142547,
+      "learning_rates": [
+        1.1673132502297696e-06,
+        1.1673132502297696e-06,
+        1.1673132502297696e-05,
+        1.1673132502297696e-05
+      ]
+    },
+    {
+      "epoch": 5,
+      "train_loss": 1.115567336564558,
+      "loss_type": "bce",
+      "validation_average_precision": 0.1618829135245243,
+      "learning_rates": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "validation": {
+    "n": 88581,
+    "positives": 3042,
+    "tp": 854,
+    "fp": 3433,
+    "fn": 2188,
+    "tn": 82106,
+    "precision": 0.1992069045952881,
+    "recall": 0.2807363576594346,
+    "f1": 0.23304680038204395,
+    "false_positive_rate": 0.040133740165304715,
+    "false_alerts_per_1000": 38.755489326153466,
+    "prevalence": 0.03434145019812375,
+    "brier_score": 0.1893097700238787,
+    "average_precision": 0.1618829135245243,
+    "roc_auc": 0.759645799514928,
+    "threshold": 0.7669088840484619
+  },
+  "test": null,
+  "initialization": "original local Kronos-mini files",
+  "feature_count": 97
+}

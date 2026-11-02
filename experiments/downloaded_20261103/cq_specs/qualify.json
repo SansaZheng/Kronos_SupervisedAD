@@ -1,0 +1,40 @@
+{
+  "name": "Kronos SAD downloaded datasets CPU qualification",
+  "work": "KronosSupervisedAD",
+  "code": {
+    "github": "SansaZheng/Kronos_SupervisedAD",
+    "commit": "add76164bcacc34392b6dd9499a99f348f7cdc0e"
+  },
+  "command": [
+    "bash",
+    "-lc",
+    "python -m pip install -q einops==0.8.1 huggingface_hub==0.33.1 safetensors==0.6.2 scikit-learn==1.7.2 pytest pandas numpy && python scripts/run_downloaded_benchmark.py --stage qualify --device cpu"
+  ],
+  "resources": {
+    "gpus": 0,
+    "cpus": 2,
+    "ram_gb": 8
+  },
+  "limits": {
+    "max_hours": 0.5,
+    "max_attempts": 1,
+    "max_usd": 0
+  },
+  "placement": {
+    "target": "kaggle",
+    "allow_rent": false
+  },
+  "outputs": {
+    "dest": "~/.local/share/cq/kaggle/kronos-sad-20261103/qualification",
+    "expect": [
+      {
+        "path": "summary.json",
+        "contains": "\"complete\""
+      }
+    ],
+    "progress": {
+      "path": "progress.txt",
+      "stall_min": 20
+    }
+  }
+}

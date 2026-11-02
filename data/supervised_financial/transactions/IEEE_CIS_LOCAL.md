@@ -51,4 +51,4 @@ for chunk in iter_transactions(private_directory, "test", chunksize=50_000):
 
 `TransactionDT` 是相对参考点的时间差，不是真实日历时间。建立本地监督评价时，须从带标签的训练交易中另行建立训练／验证／留出测试划分，例如按相对时间划分；官方 `test_transaction.csv` 只能用于推断，不能拿提交示例的 0.5 概率计算 Precision／Recall／F1。
 
-这次只下载、校验并准备读取接口，尚未训练新分类器；这些交易特征也不能直接冒充 OHLC 输入 Kronos。
+2026-11-03 已新增本地监督式 Kronos 训练与时间留出评估，汇总结果见[本轮实测记录](../../../experiments/downloaded_20261103)。原始和派生交易记录仍只在本机保存；这些交易特征通过连续适配器输入模型，不冒充 OHLC。
