@@ -20,6 +20,7 @@ def main():
     p.add_argument('--private',nargs='*',default=[])
     p.add_argument('--reference',default='experiments/downloaded_20261103/aggregate_results.json')
     p.add_argument('--output',required=True)
+    p.add_argument('--local-reference',help='optional same-MPS IEEE-CIS evaluate metrics JSON')
     args=p.parse_args();new,_=read_results(args.public,args.private)
     old=json.loads(Path(args.reference).read_text());out=Path(args.output);out.mkdir(parents=True,exist_ok=True)
     names=[n for n in ORDER if n in new and new[n]['status']=='complete']
@@ -36,7 +37,8 @@ def main():
            delta_AP=b['average_precision']-a['average_precision'],old_F1=a['f1'],new_F1=b['f1'],delta_F1=b['f1']-a['f1'],
            old_precision=a['precision'],new_precision=b['precision'],old_recall=a['recall'],new_recall=b['recall'],
            old_FP=a['fp'],new_FP=b['fp'],new_TP=b['tp'],validation_selection_sha256=new[name]['validation_selection_sha256']))
-    (out/'comparison.json').write_text(json.dumps(dict(comparisons=comparisons,results=new,validation_trials=trials,confirmation=confirmations),indent=2)+'\n')
+    local_reference=json.loads(Path(args.local_reference).read_text()) if args.local_reference else None
+    (out/'comparison.json').write_text(json.dumps(dict(comparisons=comparisons,results=new,validation_trials=trials,confirmation=confirmations,same_device_ieee_reference=local_reference),indent=2)+'\n')
     with (out/'comparison.csv').open('w',newline='') as stream:
         writer=csv.DictWriter(stream,fieldnames=list(comparisons[0]),lineterminator='\n');writer.writeheader();writer.writerows(comparisons)
     plt.rcParams.update({'font.size':10,'axes.spines.top':False,'axes.spines.right':False})
@@ -64,8 +66,12 @@ def main():
         confirmation_html+=f'<details><summary>{NAMES[name]} · 固定方案的额外种子确认</summary><table><tr><th>种子</th><th>方案</th><th>测试 AP</th><th>测试 F1</th></tr>'
         for r in data['runs']:confirmation_html+=f"<tr><td>{r['seed']}</td><td>{r['config']['name']}</td><td>{r['test']['average_precision']:.5f}</td><td>{r['test']['f1']:.5f}</td></tr>"
         confirmation_html+='</table></details>'
+    reference_html=''
+    if local_reference and 'ieee_cis' in new:
+        a=local_reference['metrics'];b=new['ieee_cis']['test']
+        reference_html=f'<section><h2>IEEE-CIS 的同设备复核</h2><p>旧结构与修复版均在本机 MPS 上训练／评估：AP {a["average_precision"]:.4f} → {b["average_precision"]:.4f}，F1 {a["f1"]:.4f} → {b["f1"]:.4f}。上方主表使用此前公布的 CPU 历史结果作为修复前记录，此处另列同设备参照。</p></section>'
     encoded=base64.b64encode((out/'before_after.png').read_bytes()).decode()
-    document=f'''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kronos 多轮改进结果</title><style>body{{font:15px/1.7 system-ui;background:#f4f7fa;color:#203446;margin:0}}main{{max-width:1400px;margin:auto;padding:32px}}section,details{{background:white;border-radius:12px;padding:24px;margin:18px 0}}img{{width:100%}}table{{border-collapse:collapse;white-space:nowrap;font-size:13px}}th,td{{padding:9px;border-bottom:1px solid #e0e7ed;text-align:right}}th:first-child,td:first-child{{text-align:left}}.scroll{{overflow:auto}}input{{padding:10px;border:1px solid #b4c2cc;border-radius:6px}}</style><main><h1>Kronos SupervisedAD · 多轮修复实测</h1><p>已完成 {len(names)} 项。同一历史测试集上的前后对照，保留退步结果。</p><img src="data:image/png;base64,{encoded}" alt="修复前后 AP 与 F1"><section><input id="filter" placeholder="筛选数据集"><div class="scroll"><table id="comparison">{table}</table></div></section><section><p>R0 为旧方法 5 轮；R1 为同预算的原始特征残差通路；R2 为更快学习率、最多 12 轮；R3 为最多 12 轮、正类权重上限 100。R2/R3 同时改变多个训练设置，不能把它们的全部提升归因于结构变化。各数据先按验证 AP、验证 F1 及较早方案的顺序选定，再评估测试。R0 仍可被选中。</p><p>不同检测单位不混算总平均。大交易数据维持相同的标签无关训练／验证抽样上限，完整测试段不变。IEEE-CIS 原始和派生记录留在本机；报告不导出其类别词表。加权 BCE 分数未经校准。</p><p>旧测试结果此前已公布，本次是历史留出集复测，不是全新外部盲测。额外种子只确认已固定方案，不用于事后更换方案。改进需要同时看 AP、F1、召回及误报，不能只挑其中一项。</p></section>{detail}{confirmation_html}</main><script>document.getElementById('filter').addEventListener('input',function(){{document.querySelectorAll('#comparison tbody tr').forEach(r=>r.hidden=!r.textContent.toLowerCase().includes(this.value.toLowerCase()));}})</script></html>'''
+    document=f'''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kronos 多轮改进结果</title><style>body{{font:15px/1.7 system-ui;background:#f4f7fa;color:#203446;margin:0}}main{{max-width:1400px;margin:auto;padding:32px}}section,details{{background:white;border-radius:12px;padding:24px;margin:18px 0}}img{{width:100%}}table{{border-collapse:collapse;white-space:nowrap;font-size:13px}}th,td{{padding:9px;border-bottom:1px solid #e0e7ed;text-align:right}}th:first-child,td:first-child{{text-align:left}}.scroll{{overflow:auto}}input{{padding:10px;border:1px solid #b4c2cc;border-radius:6px}}</style><main><h1>Kronos SupervisedAD · 多轮修复实测</h1><p>已完成 {len(names)} 项。同一历史测试集上的前后对照，保留退步结果。</p><img src="data:image/png;base64,{encoded}" alt="修复前后 AP 与 F1"><section><input id="filter" placeholder="筛选数据集"><div class="scroll"><table id="comparison">{table}</table></div></section><section><p>R0 为旧方法 5 轮；R1 为同预算的原始特征残差通路；R2 为更快学习率、最多 12 轮；R3 为最多 12 轮、正类权重上限 100。R2/R3 同时改变多个训练设置，不能把它们的全部提升归因于结构变化。各数据先按验证 AP、验证 F1 及较早方案的顺序选定，再评估测试。R0 仍可被选中。</p><p>不同检测单位不混算总平均。大交易数据维持相同的标签无关训练／验证抽样上限，完整测试段不变。IEEE-CIS 原始和派生记录留在本机；报告不导出其类别词表。加权 BCE 分数未经校准。</p><p>旧测试结果此前已公布，本次是历史留出集复测，不是全新外部盲测。额外种子只确认已固定方案，不用于事后更换方案。改进需要同时看 AP、F1、召回及误报，不能只挑其中一项。</p></section>{reference_html}{detail}{confirmation_html}</main><script>document.getElementById('filter').addEventListener('input',function(){{document.querySelectorAll('#comparison tbody tr').forEach(r=>r.hidden=!r.textContent.toLowerCase().includes(this.value.toLowerCase()));}})</script></html>'''
     (out/'report.html').write_text(document)
     print(json.dumps(dict(datasets=len(comparisons),AP_improved=sum(r['delta_AP']>1e-8 for r in comparisons),F1_improved=sum(r['delta_F1']>1e-8 for r in comparisons),output=str(out))))
 

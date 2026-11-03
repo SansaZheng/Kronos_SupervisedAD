@@ -1,0 +1,15 @@
+{
+  "scientific_code_commit": "573f0fc8419ef9c2dfd4927c71e2f3728c9a2785",
+  "qualification_job": "j-1103-0ff36e",
+  "smoke_job": "j-1103-c289cf",
+  "batch_job": "j-1103-9c166d",
+  "public_source_repo": "SansaZheng/Kronos_SupervisedAD",
+  "qualification_tests": 56,
+  "qualification_status": "complete",
+  "smoke_status": "complete",
+  "private_backend": "local MPS; CPU diagnostic preserved but excluded from selection",
+  "initial_backbone_state_sha256": "9df7c94d97e7cd096ee1cbd982e8bbf219695a4d0ecdf22c15afb9dcb793f0c5",
+  "no_paid_rentals_or_colab_CU": true,
+  "historical_holdout_already_seen": true,
+  "candidate_hyperparameters_fixed_before_new_results": true
+}

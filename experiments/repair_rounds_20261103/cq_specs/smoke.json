@@ -1,0 +1,44 @@
+{
+  "name": "Kronos residual repair GPU smoke",
+  "work": "KronosSupervisedAD",
+  "code": {
+    "github": "SansaZheng/Kronos_SupervisedAD",
+    "commit": "573f0fc8419ef9c2dfd4927c71e2f3728c9a2785"
+  },
+  "command": [
+    "bash",
+    "-lc",
+    "python -m pip install -q einops==0.8.1 huggingface_hub==0.33.1 safetensors==0.6.2 scikit-learn==1.7.2 pytest pandas numpy && python scripts/refine_supervised.py --stage smoke"
+  ],
+  "resources": {
+    "gpus": 1,
+    "gpu_mem_gb": 6,
+    "cpus": 2,
+    "ram_gb": 12
+  },
+  "limits": {
+    "max_hours": 0.5,
+    "max_attempts": 1,
+    "max_usd": 0
+  },
+  "placement": {
+    "target": "kaggle",
+    "allow_rent": false
+  },
+  "outputs": {
+    "dest": "~/.local/share/cq/kaggle/kronos-repairs-20261103/smoke",
+    "expect": [
+      {
+        "path": "summary.json",
+        "contains": "\"complete\""
+      }
+    ],
+    "progress": {
+      "path": "progress.txt",
+      "stall_min": 20
+    }
+  },
+  "depends_on": [
+    "j-1103-0ff36e"
+  ]
+}

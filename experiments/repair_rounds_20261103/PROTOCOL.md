@@ -22,3 +22,5 @@ Design motivation: Gorishniy et al., [Revisiting Deep Learning Models for Tabula
 ## Local hardware addendum, before local selection
 
 A finite-gradient local MPS check and a four-step timing check (same 32×160×97 shape) passed: warm CPU 4.14 seconds/step vs warm MPS 0.88 seconds/step in that short check. The partial CPU reference diagnostic is preserved, and all four IEEE-CIS candidates are restarted uniformly on local MPS. This hardware-only change is made before any new local validation selection or test scoring; candidate configurations and split data are unchanged. It avoids sending restricted data to the cloud. Public candidates still use the identical pinned CUDA code and settings. Timings from this small check are not a guarantee of whole-run speed.
+
+The completed local MPS R0 checkpoint is separately retained. After candidate selection is sealed, evaluate it on the same test split alongside the selected local model. Report both the previously published CPU historical baseline and this same-MPS reference; neither additional evaluation can change selection. This controls the interpretation of hardware/backend differences in the private comparison.
