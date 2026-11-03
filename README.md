@@ -83,6 +83,8 @@ python -m scripts.data.transaction_data restore --asset ulb --output /你的数�
 
 ## 下载数据的批量实测与展示
 
+[多轮改进：原始特征残差通路与验证集选择协议](docs/supervised_repair_rounds_CN.md)
+
 [已完成的 10 项实测结果、图表与复核记录](experiments/downloaded_20261103)
 
 统一运行公开数据的 9 项检测任务（SD-FMM 分股票与加密资产）：
