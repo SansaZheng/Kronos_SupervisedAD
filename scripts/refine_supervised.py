@@ -28,12 +28,29 @@ ROUNDS=[
 ]
 
 
+
+def resolve_backbone(value,revision=None):
+    """Resolve once; every trial must use exactly the same local snapshot."""
+    from huggingface_hub import snapshot_download
+    local=Path(value)
+    is_local=local.is_dir()
+    if is_local and revision is not None:
+        raise ValueError('revision applies to a Hub model ID, not a local directory')
+    directory=local.resolve() if is_local else Path(snapshot_download(value,revision=revision,
+        allow_patterns=['config.json','model.safetensors','pytorch_model.bin']))
+    files=[directory/name for name in ['config.json','model.safetensors','pytorch_model.bin'] if (directory/name).exists()]
+    if not (directory/'config.json').exists() or not any(f.name!='config.json' for f in files):
+        raise ValueError('backbone requires config.json and model weights')
+    return str(directory),dict(source=str(value),revision=directory.name if not is_local else None,
+        file_sha256={f.name:file_hash(f) for f in files})
+
+
 def training(inputs,out,dataset,config,seed,device,backbone):
     command=['train','--data-dir',str(inputs),'--output',str(out),'--backbone',backbone,
       '--epochs',str(config['epochs']),'--lr',str(config['lr']),
       '--backbone-lr-ratio',str(config['ratio']),'--head-type',config['head'],
       '--seed',str(seed),'--batch-size','4' if dataset=='tstr' else '32',
-      '--threads','2','--device',device,'--defer-test','--patience','3']
+      '--threads','2','--device',device,'--defer-test','--patience','3','--local-only']
     if dataset=='tstr':command+=['--max-context','2048']
     if config['cap'] is not None:command+=['--max-pos-weight',str(config['cap'])]
     return train(parser().parse_args(command))
@@ -126,12 +143,14 @@ def main():
     p.add_argument('--datasets',nargs='+',default=DATASETS)
     p.add_argument('--device',default='cuda')
     p.add_argument('--backbone',default='NeoQuasar/Kronos-mini')
+    p.add_argument('--revision',help='optional pinned Hub backbone revision; resolved once')
     p.add_argument('--prepared',help='local-only prepared private inputs; never use in cloud specs')
     args=p.parse_args()
     if not args.output:raise ValueError('output is required')
     if args.prepared and (args.stage!='local' or len(args.datasets)!=1):raise ValueError('private prepared data are local-only and single-dataset')
     out=Path(args.output);out.mkdir(parents=True,exist_ok=True)
-    protocol=dict(rounds=ROUNDS,seed=42,confirmation_seeds=[13,2026],confirmation_datasets=['ulb','paysim','tabformer'],
+    args.backbone,backbone_snapshot=resolve_backbone(args.backbone,args.revision)
+    protocol=dict(backbone_snapshot=backbone_snapshot,rounds=ROUNDS,seed=42,confirmation_seeds=[13,2026],confirmation_datasets=['ulb','paysim','tabformer'],
       selection='per-dataset validation AP/F1 only; baseline eligible; no test-driven retries or threshold changes',
       historical_holdout_note='previous test results have already been seen; this is a historical-holdout reassessment, not a new untouched external test',
       datasets=['sd-crypto'] if args.stage=='smoke' else args.datasets)
