@@ -1,0 +1,275 @@
+{
+  "method": "supervised-kronos",
+  "task": "point",
+  "input_kind": "features",
+  "initialization": "NeoQuasar/Kronos-mini",
+  "tokenizer": null,
+  "freeze_backbone": false,
+  "seed": 42,
+  "positive_weight": 1314.7052631578947,
+  "best_epoch": 5,
+  "threshold_selection": {
+    "threshold": 0.9788732528686523,
+    "policy": "f1",
+    "feasible": true,
+    "status": "active",
+    "validation_precision": 0.3049645390070922,
+    "validation_recall": 0.43,
+    "validation_fpr": 0.000981295309808948,
+    "validation_alerts": 141,
+    "validation_normals": 99868,
+    "validation_positives": 100,
+    "max_fpr": null,
+    "min_precision": null,
+    "beta": 1.0
+  },
+  "epoch_selection": "validation average precision with specified min_delta/patience",
+  "epochs_executed": 5,
+  "test_deferred": true,
+  "model_specification": {
+    "backbone": {
+      "s1_bits": 10,
+      "s2_bits": 10,
+      "n_layers": 4,
+      "d_model": 256,
+      "n_heads": 4,
+      "ff_dim": 512,
+      "ffn_dropout_p": 0.2,
+      "attn_dropout_p": 0.0,
+      "resid_dropout_p": 0.2,
+      "token_dropout_p": 0.0,
+      "learn_te": true
+    },
+    "n_features": 44,
+    "task": "point",
+    "input_kind": "features",
+    "freeze_backbone": false,
+    "head_type": "multiscale",
+    "sequence_pooling": "attention",
+    "scales": [
+      4,
+      16,
+      64
+    ],
+    "head_dropout": 0.1,
+    "tokenizer": null
+  },
+  "optimizer_groups": [
+    {
+      "lr": 1e-05,
+      "weight_decay": 0.0,
+      "role": "backbone",
+      "parameters": 6400
+    },
+    {
+      "lr": 1e-05,
+      "weight_decay": 0.01,
+      "role": "backbone",
+      "parameters": 2621440
+    },
+    {
+      "lr": 0.0001,
+      "weight_decay": 0.01,
+      "role": "head_adapter",
+      "parameters": 142464
+    },
+    {
+      "lr": 0.0001,
+      "weight_decay": 0.0,
+      "role": "head_adapter",
+      "parameters": 897
+    }
+  ],
+  "trainable_parameters": 2771201,
+  "initial_backbone_state_sha256": "9df7c94d97e7cd096ee1cbd982e8bbf219695a4d0ecdf22c15afb9dcb793f0c5",
+  "source_code_sha256": {
+    "__init__.py": "2c068dd9867e9488b99c491d621c5933e2f7f57ea9b4a2796acde0e052e541d8",
+    "__main__.py": "91de547e61e2ce8c30a6e80d02411359237139d557fcdc3ecb2494cb436ed342",
+    "baseline.py": "31c348704eec65e4f140493bc2bf46140c4a43a02063938304e71efceb96532b",
+    "data.py": "b6d626cb8b60aef9fa052d14b6e0b73642ca900088e05a72140999c610ed7ef4",
+    "engine.py": "7fe9fa7dfa0447fba374d0f864ac6393187a903276c00cb2c84c527ece970096",
+    "metrics.py": "0f7ef56e7884ead1cac0dcecda0e4865af199c9095793f6006c4503c7a64b8d2",
+    "model.py": "68e851eff5ff811390c8ecf3428f627645382fa6ad2647cd95ceea4f03641474",
+    "optimization.py": "4c5f4eafa7b2076f33bd7f8aa280d25cf97eb9794fb18075283dad4027db3492",
+    "transaction_prepare.py": "ce367d4e25cd68d2c9c8eb2a86c87a8910c5304b98bf01aa7177a49b5f8c14b4"
+  },
+  "preprocessing": "training-only mean imputation, standardization and clip [-5,5]",
+  "feature_names": [
+    "relative_day",
+    "hour_sin",
+    "hour_cos",
+    "log_amount_paid",
+    "log_amount_received",
+    "same_bank",
+    "category_Receiving Currency_Australian Dollar",
+    "category_Receiving Currency_Bitcoin",
+    "category_Receiving Currency_Brazil Real",
+    "category_Receiving Currency_Canadian Dollar",
+    "category_Receiving Currency_Euro",
+    "category_Receiving Currency_Mexican Peso",
+    "category_Receiving Currency_Ruble",
+    "category_Receiving Currency_Rupee",
+    "category_Receiving Currency_Saudi Riyal",
+    "category_Receiving Currency_Shekel",
+    "category_Receiving Currency_Swiss Franc",
+    "category_Receiving Currency_UK Pound",
+    "category_Receiving Currency_US Dollar",
+    "category_Receiving Currency_Yen",
+    "category_Receiving Currency_Yuan",
+    "category_Payment Currency_Australian Dollar",
+    "category_Payment Currency_Bitcoin",
+    "category_Payment Currency_Brazil Real",
+    "category_Payment Currency_Canadian Dollar",
+    "category_Payment Currency_Euro",
+    "category_Payment Currency_Mexican Peso",
+    "category_Payment Currency_Ruble",
+    "category_Payment Currency_Rupee",
+    "category_Payment Currency_Saudi Riyal",
+    "category_Payment Currency_Shekel",
+    "category_Payment Currency_Swiss Franc",
+    "category_Payment Currency_UK Pound",
+    "category_Payment Currency_US Dollar",
+    "category_Payment Currency_Yen",
+    "category_Payment Currency_Yuan",
+    "category_Payment Format_ACH",
+    "category_Payment Format_Bitcoin",
+    "category_Payment Format_Cash",
+    "category_Payment Format_Cheque",
+    "category_Payment Format_Credit Card",
+    "category_Payment Format_Reinvestment",
+    "category_Payment Format_Wire",
+    "log_gap_seconds"
+  ],
+  "group_isolation_checked": false,
+  "observation_isolation_checked": true,
+  "split_archives": {
+    "train.npz": "e06a53bcddedfcacb7d07ce773794cd620cf179c07b98f0c60f70458d2bc1714",
+    "validation.npz": "d2a4303fdb9a97eadd76c410ae30c34cd2b4000c6247f74bbd588395a50ffba9"
+  },
+  "torch_version": "2.11.0+cu130",
+  "device": "cuda",
+  "settings": {
+    "command": "train",
+    "data_dir": "/kaggle/working/out/ibm_aml/inputs",
+    "output": "/kaggle/working/out/ibm_aml/r0_reference",
+    "backbone": "NeoQuasar/Kronos-mini",
+    "tokenizer": null,
+    "scratch": false,
+    "scratch_config": null,
+    "input_kind": "features",
+    "freeze_backbone": false,
+    "local_only": false,
+    "max_context": 512,
+    "epochs": 5,
+    "batch_size": 32,
+    "lr": 0.0001,
+    "weight_decay": 0.01,
+    "head_type": "multiscale",
+    "sequence_pooling": "attention",
+    "scales": [
+      4,
+      16,
+      64
+    ],
+    "head_dropout": 0.1,
+    "loss": "bce",
+    "focal_gamma": 2.0,
+    "pos_weight": "auto",
+    "max_pos_weight": null,
+    "backbone_lr_ratio": 0.1,
+    "layer_decay": 1.0,
+    "schedule": "cosine",
+    "warmup_fraction": 0.1,
+    "patience": 3,
+    "min_delta": 0.0,
+    "threshold_policy": "f1",
+    "max_fpr": 0.001,
+    "min_precision": 0.8,
+    "beta": 1.0,
+    "defer_test": true,
+    "seed": 42,
+    "device": "cuda",
+    "threads": 2
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.2764618401031769,
+      "loss_type": "bce",
+      "validation_average_precision": 0.12149448520864507,
+      "learning_rates": [
+        9.694138166085964e-06,
+        9.694138166085964e-06,
+        9.694138166085965e-05,
+        9.694138166085965e-05
+      ]
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.9536742402905387,
+      "loss_type": "bce",
+      "validation_average_precision": 0.17376247172255443,
+      "learning_rates": [
+        7.491810523395762e-06,
+        7.491810523395762e-06,
+        7.491810523395762e-05,
+        7.491810523395762e-05
+      ]
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.8672738862660258,
+      "loss_type": "bce",
+      "validation_average_precision": 0.19002861778306981,
+      "learning_rates": [
+        4.125554698803241e-06,
+        4.125554698803241e-06,
+        4.1255546988032414e-05,
+        4.1255546988032414e-05
+      ]
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.8442718899683408,
+      "loss_type": "bce",
+      "validation_average_precision": 0.19552415599764378,
+      "learning_rates": [
+        1.1677534978824906e-06,
+        1.1677534978824906e-06,
+        1.1677534978824905e-05,
+        1.1677534978824905e-05
+      ]
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.8500888534557862,
+      "loss_type": "bce",
+      "validation_average_precision": 0.19607807616787776,
+      "learning_rates": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "validation": {
+    "n": 99968,
+    "positives": 100,
+    "tp": 43,
+    "fp": 98,
+    "fn": 57,
+    "tn": 99770,
+    "precision": 0.3049645390070922,
+    "recall": 0.43,
+    "f1": 0.3568464730290456,
+    "false_positive_rate": 0.000981295309808948,
+    "false_alerts_per_1000": 0.9803137003841229,
+    "prevalence": 0.0010003201024327785,
+    "brier_score": 0.06350612238091298,
+    "average_precision": 0.19607807616787776,
+    "roc_auc": 0.9041004125445589,
+    "threshold": 0.9788732528686523
+  },
+  "test": null
+}

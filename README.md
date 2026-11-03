@@ -83,7 +83,7 @@ python -m scripts.data.transaction_data restore --asset ulb --output /你的数�
 
 ## 下载数据的批量实测与展示
 
-[多轮改进：原始特征残差通路与验证集选择协议](docs/supervised_repair_rounds_CN.md)
+[多轮改进实测：9/10 项 AP、8/10 项 F1 提高](experiments/repair_rounds_20261103) · [原始特征残差通路与验证选择协议](docs/supervised_repair_rounds_CN.md)
 
 [已完成的 10 项实测结果、图表与复核记录](experiments/downloaded_20261103)
 

@@ -27,5 +27,24 @@
     "test_absent_during_all_primary_trials": true,
     "same_device_reference_evaluated_after_selection": true,
     "primary_and_same_device_reference_independently_audited": true
-  }
+  },
+  "public_completed": {
+    "status": "complete",
+    "datasets": 9,
+    "completed_training_runs": 48,
+    "all_initial_backbone_hashes_match": true,
+    "peak_gpu_allocated_gb": 0.4979381561279297,
+    "cq_tracked_elapsed_seconds": 3212.6259179115295,
+    "test_selection_unchanged": true,
+    "torch_versions": [
+      "2.11.0+cu130"
+    ]
+  },
+  "current_local_tests": 58,
+  "runner_snapshot_hardening_not_used_for_pinned_runs": true,
+  "historical_public_torch_version": "2.11.0+cu128",
+  "current_local_torch_version": "2.6.0",
+  "public_selected_checkpoint_offline_CPU_reload_verified": true,
+  "primary_prediction_audit": "all ten verified, tolerance 1e-10",
+  "environment_comparison_note": "Historical CUDA12.8 vs current CUDA13.0; extra seed13/2026 reference-vs-selected pairs share CUDA13.0. Private reference-vs-selected share local MPS."
 }

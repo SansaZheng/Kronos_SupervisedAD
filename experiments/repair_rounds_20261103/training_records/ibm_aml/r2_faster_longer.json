@@ -1,0 +1,323 @@
+{
+  "method": "supervised-kronos",
+  "task": "point",
+  "input_kind": "features",
+  "initialization": "NeoQuasar/Kronos-mini",
+  "tokenizer": null,
+  "freeze_backbone": false,
+  "seed": 42,
+  "positive_weight": 1314.7052631578947,
+  "best_epoch": 6,
+  "threshold_selection": {
+    "threshold": 0.9981564879417419,
+    "policy": "f1",
+    "feasible": true,
+    "status": "active",
+    "validation_precision": 0.7083333333333334,
+    "validation_recall": 0.51,
+    "validation_fpr": 0.00021027756638763168,
+    "validation_alerts": 72,
+    "validation_normals": 99868,
+    "validation_positives": 100,
+    "max_fpr": null,
+    "min_precision": null,
+    "beta": 1.0
+  },
+  "epoch_selection": "validation average precision with specified min_delta/patience",
+  "epochs_executed": 9,
+  "test_deferred": true,
+  "model_specification": {
+    "backbone": {
+      "s1_bits": 10,
+      "s2_bits": 10,
+      "n_layers": 4,
+      "d_model": 256,
+      "n_heads": 4,
+      "ff_dim": 512,
+      "ffn_dropout_p": 0.2,
+      "attn_dropout_p": 0.0,
+      "resid_dropout_p": 0.2,
+      "token_dropout_p": 0.0,
+      "learn_te": true
+    },
+    "n_features": 44,
+    "task": "point",
+    "input_kind": "features",
+    "freeze_backbone": false,
+    "head_type": "hybrid",
+    "sequence_pooling": "attention",
+    "scales": [
+      4,
+      16,
+      64
+    ],
+    "head_dropout": 0.1,
+    "tokenizer": null
+  },
+  "optimizer_groups": [
+    {
+      "lr": 0.0001,
+      "weight_decay": 0.0,
+      "role": "backbone",
+      "parameters": 6400
+    },
+    {
+      "lr": 0.0001,
+      "weight_decay": 0.01,
+      "role": "backbone",
+      "parameters": 2621440
+    },
+    {
+      "lr": 0.001,
+      "weight_decay": 0.01,
+      "role": "head_adapter",
+      "parameters": 173248
+    },
+    {
+      "lr": 0.001,
+      "weight_decay": 0.0,
+      "role": "head_adapter",
+      "parameters": 1090
+    }
+  ],
+  "trainable_parameters": 2802178,
+  "initial_backbone_state_sha256": "9df7c94d97e7cd096ee1cbd982e8bbf219695a4d0ecdf22c15afb9dcb793f0c5",
+  "source_code_sha256": {
+    "__init__.py": "2c068dd9867e9488b99c491d621c5933e2f7f57ea9b4a2796acde0e052e541d8",
+    "__main__.py": "91de547e61e2ce8c30a6e80d02411359237139d557fcdc3ecb2494cb436ed342",
+    "baseline.py": "31c348704eec65e4f140493bc2bf46140c4a43a02063938304e71efceb96532b",
+    "data.py": "b6d626cb8b60aef9fa052d14b6e0b73642ca900088e05a72140999c610ed7ef4",
+    "engine.py": "7fe9fa7dfa0447fba374d0f864ac6393187a903276c00cb2c84c527ece970096",
+    "metrics.py": "0f7ef56e7884ead1cac0dcecda0e4865af199c9095793f6006c4503c7a64b8d2",
+    "model.py": "68e851eff5ff811390c8ecf3428f627645382fa6ad2647cd95ceea4f03641474",
+    "optimization.py": "4c5f4eafa7b2076f33bd7f8aa280d25cf97eb9794fb18075283dad4027db3492",
+    "transaction_prepare.py": "ce367d4e25cd68d2c9c8eb2a86c87a8910c5304b98bf01aa7177a49b5f8c14b4"
+  },
+  "preprocessing": "training-only mean imputation, standardization and clip [-5,5]",
+  "feature_names": [
+    "relative_day",
+    "hour_sin",
+    "hour_cos",
+    "log_amount_paid",
+    "log_amount_received",
+    "same_bank",
+    "category_Receiving Currency_Australian Dollar",
+    "category_Receiving Currency_Bitcoin",
+    "category_Receiving Currency_Brazil Real",
+    "category_Receiving Currency_Canadian Dollar",
+    "category_Receiving Currency_Euro",
+    "category_Receiving Currency_Mexican Peso",
+    "category_Receiving Currency_Ruble",
+    "category_Receiving Currency_Rupee",
+    "category_Receiving Currency_Saudi Riyal",
+    "category_Receiving Currency_Shekel",
+    "category_Receiving Currency_Swiss Franc",
+    "category_Receiving Currency_UK Pound",
+    "category_Receiving Currency_US Dollar",
+    "category_Receiving Currency_Yen",
+    "category_Receiving Currency_Yuan",
+    "category_Payment Currency_Australian Dollar",
+    "category_Payment Currency_Bitcoin",
+    "category_Payment Currency_Brazil Real",
+    "category_Payment Currency_Canadian Dollar",
+    "category_Payment Currency_Euro",
+    "category_Payment Currency_Mexican Peso",
+    "category_Payment Currency_Ruble",
+    "category_Payment Currency_Rupee",
+    "category_Payment Currency_Saudi Riyal",
+    "category_Payment Currency_Shekel",
+    "category_Payment Currency_Swiss Franc",
+    "category_Payment Currency_UK Pound",
+    "category_Payment Currency_US Dollar",
+    "category_Payment Currency_Yen",
+    "category_Payment Currency_Yuan",
+    "category_Payment Format_ACH",
+    "category_Payment Format_Bitcoin",
+    "category_Payment Format_Cash",
+    "category_Payment Format_Cheque",
+    "category_Payment Format_Credit Card",
+    "category_Payment Format_Reinvestment",
+    "category_Payment Format_Wire",
+    "log_gap_seconds"
+  ],
+  "group_isolation_checked": false,
+  "observation_isolation_checked": true,
+  "split_archives": {
+    "train.npz": "e06a53bcddedfcacb7d07ce773794cd620cf179c07b98f0c60f70458d2bc1714",
+    "validation.npz": "d2a4303fdb9a97eadd76c410ae30c34cd2b4000c6247f74bbd588395a50ffba9"
+  },
+  "torch_version": "2.11.0+cu130",
+  "device": "cuda",
+  "settings": {
+    "command": "train",
+    "data_dir": "/kaggle/working/out/ibm_aml/inputs",
+    "output": "/kaggle/working/out/ibm_aml/r2_faster_longer",
+    "backbone": "NeoQuasar/Kronos-mini",
+    "tokenizer": null,
+    "scratch": false,
+    "scratch_config": null,
+    "input_kind": "features",
+    "freeze_backbone": false,
+    "local_only": false,
+    "max_context": 512,
+    "epochs": 12,
+    "batch_size": 32,
+    "lr": 0.001,
+    "weight_decay": 0.01,
+    "head_type": "hybrid",
+    "sequence_pooling": "attention",
+    "scales": [
+      4,
+      16,
+      64
+    ],
+    "head_dropout": 0.1,
+    "loss": "bce",
+    "focal_gamma": 2.0,
+    "pos_weight": "auto",
+    "max_pos_weight": null,
+    "backbone_lr_ratio": 0.1,
+    "layer_decay": 1.0,
+    "schedule": "cosine",
+    "warmup_fraction": 0.1,
+    "patience": 3,
+    "min_delta": 0.0,
+    "threshold_policy": "f1",
+    "max_fpr": 0.001,
+    "min_precision": 0.8,
+    "beta": 1.0,
+    "defer_test": true,
+    "seed": 42,
+    "device": "cuda",
+    "threads": 2
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.085370651359016,
+      "loss_type": "bce",
+      "validation_average_precision": 0.25731439754418484,
+      "learning_rates": [
+        8.435374149659864e-05,
+        8.435374149659864e-05,
+        0.0008435374149659865,
+        0.0008435374149659865
+      ]
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.9135668883247982,
+      "loss_type": "bce",
+      "validation_average_precision": 0.4443799344692067,
+      "learning_rates": [
+        9.863705859078115e-05,
+        9.863705859078115e-05,
+        0.0009863705859078115,
+        0.0009863705859078115
+      ]
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.7633351574356716,
+      "loss_type": "bce",
+      "validation_average_precision": 0.47947918830664443,
+      "learning_rates": [
+        9.32716914869944e-05,
+        9.32716914869944e-05,
+        0.0009327169148699439,
+        0.0009327169148699439
+      ]
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.6990778187468183,
+      "loss_type": "bce",
+      "validation_average_precision": 0.44954344676295194,
+      "learning_rates": [
+        8.427385358859293e-05,
+        8.427385358859293e-05,
+        0.0008427385358859293,
+        0.0008427385358859293
+      ]
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.6690193172515629,
+      "loss_type": "bce",
+      "validation_average_precision": 0.5221161086883473,
+      "learning_rates": [
+        7.239887435595723e-05,
+        7.239887435595723e-05,
+        0.0007239887435595724,
+        0.0007239887435595724
+      ]
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.5848890926385621,
+      "loss_type": "bce",
+      "validation_average_precision": 0.5221890601331369,
+      "learning_rates": [
+        5.864360678389497e-05,
+        5.864360678389497e-05,
+        0.0005864360678389497,
+        0.0005864360678389497
+      ]
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.5585447486625441,
+      "loss_type": "bce",
+      "validation_average_precision": 0.502551253976119,
+      "learning_rates": [
+        4.416274591691682e-05,
+        4.416274591691682e-05,
+        0.0004416274591691681,
+        0.0004416274591691681
+      ]
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.4805016546956985,
+      "loss_type": "bce",
+      "validation_average_precision": 0.5149616340094344,
+      "learning_rates": [
+        3.0171897209133292e-05,
+        3.0171897209133292e-05,
+        0.0003017189720913329,
+        0.0003017189720913329
+      ]
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.4802860403085329,
+      "loss_type": "bce",
+      "validation_average_precision": 0.5005680965523077,
+      "learning_rates": [
+        1.784553171948531e-05,
+        1.784553171948531e-05,
+        0.0001784553171948531,
+        0.0001784553171948531
+      ]
+    }
+  ],
+  "validation": {
+    "n": 99968,
+    "positives": 100,
+    "tp": 51,
+    "fp": 21,
+    "fn": 49,
+    "tn": 99847,
+    "precision": 0.7083333333333334,
+    "recall": 0.51,
+    "f1": 0.5930232558139535,
+    "false_positive_rate": 0.00021027756638763168,
+    "false_alerts_per_1000": 0.21006722151088347,
+    "prevalence": 0.0010003201024327785,
+    "brier_score": 0.02211842595905086,
+    "average_precision": 0.5221890601331369,
+    "roc_auc": 0.9215577562382344,
+    "threshold": 0.9981564879417419
+  },
+  "test": null
+}

@@ -1,0 +1,220 @@
+{
+  "method": "supervised-kronos",
+  "task": "sequence",
+  "input_kind": "features",
+  "initialization": "NeoQuasar/Kronos-mini",
+  "tokenizer": null,
+  "freeze_backbone": false,
+  "seed": 42,
+  "positive_weight": 1.0681003584229392,
+  "best_epoch": 1,
+  "threshold_selection": {
+    "threshold": 0.4116027057170868,
+    "policy": "f1",
+    "feasible": true,
+    "status": "active",
+    "validation_precision": 0.5058823529411764,
+    "validation_recall": 0.9247311827956989,
+    "validation_fpr": 0.84,
+    "validation_alerts": 170,
+    "validation_normals": 100,
+    "validation_positives": 93,
+    "max_fpr": null,
+    "min_precision": null,
+    "beta": 1.0
+  },
+  "epoch_selection": "validation average precision with specified min_delta/patience",
+  "epochs_executed": 4,
+  "test_deferred": true,
+  "model_specification": {
+    "backbone": {
+      "s1_bits": 10,
+      "s2_bits": 10,
+      "n_layers": 4,
+      "d_model": 256,
+      "n_heads": 4,
+      "ff_dim": 512,
+      "ffn_dropout_p": 0.2,
+      "attn_dropout_p": 0.0,
+      "resid_dropout_p": 0.2,
+      "token_dropout_p": 0.0,
+      "learn_te": true
+    },
+    "n_features": 1,
+    "task": "sequence",
+    "input_kind": "features",
+    "freeze_backbone": false,
+    "head_type": "hybrid",
+    "sequence_pooling": "attention",
+    "scales": [
+      4,
+      16,
+      64
+    ],
+    "head_dropout": 0.1,
+    "tokenizer": null
+  },
+  "optimizer_groups": [
+    {
+      "lr": 8.999999999999999e-05,
+      "weight_decay": 0.0,
+      "role": "backbone",
+      "parameters": 6400
+    },
+    {
+      "lr": 8.999999999999999e-05,
+      "weight_decay": 0.01,
+      "role": "backbone",
+      "parameters": 2621440
+    },
+    {
+      "lr": 0.0003,
+      "weight_decay": 0.01,
+      "role": "head_adapter",
+      "parameters": 75072
+    },
+    {
+      "lr": 0.0003,
+      "weight_decay": 0.0,
+      "role": "head_adapter",
+      "parameters": 1090
+    }
+  ],
+  "trainable_parameters": 2704002,
+  "initial_backbone_state_sha256": "9df7c94d97e7cd096ee1cbd982e8bbf219695a4d0ecdf22c15afb9dcb793f0c5",
+  "source_code_sha256": {
+    "__init__.py": "2c068dd9867e9488b99c491d621c5933e2f7f57ea9b4a2796acde0e052e541d8",
+    "__main__.py": "91de547e61e2ce8c30a6e80d02411359237139d557fcdc3ecb2494cb436ed342",
+    "baseline.py": "31c348704eec65e4f140493bc2bf46140c4a43a02063938304e71efceb96532b",
+    "data.py": "b6d626cb8b60aef9fa052d14b6e0b73642ca900088e05a72140999c610ed7ef4",
+    "engine.py": "7fe9fa7dfa0447fba374d0f864ac6393187a903276c00cb2c84c527ece970096",
+    "metrics.py": "0f7ef56e7884ead1cac0dcecda0e4865af199c9095793f6006c4503c7a64b8d2",
+    "model.py": "68e851eff5ff811390c8ecf3428f627645382fa6ad2647cd95ceea4f03641474",
+    "optimization.py": "4c5f4eafa7b2076f33bd7f8aa280d25cf97eb9794fb18075283dad4027db3492",
+    "transaction_prepare.py": "ce367d4e25cd68d2c9c8eb2a86c87a8910c5304b98bf01aa7177a49b5f8c14b4"
+  },
+  "preprocessing": "training-only mean imputation, standardization and clip [-5,5]",
+  "feature_names": [
+    "High"
+  ],
+  "group_isolation_checked": false,
+  "observation_isolation_checked": false,
+  "split_archives": {
+    "train.npz": "de6ea8ae6045b94b28fa7ae1358123f146d143dc46f41a5036a34bd24d3e5a57",
+    "validation.npz": "cc23e651eaf1bba497f4ef7f39a5abc059b0581ae800906a39cefdeb586aa923"
+  },
+  "torch_version": "2.11.0+cu130",
+  "device": "cuda",
+  "settings": {
+    "command": "train",
+    "data_dir": "/kaggle/working/out/tstr/inputs",
+    "output": "/kaggle/working/out/tstr/r3_capped_weight",
+    "backbone": "NeoQuasar/Kronos-mini",
+    "tokenizer": null,
+    "scratch": false,
+    "scratch_config": null,
+    "input_kind": "features",
+    "freeze_backbone": false,
+    "local_only": false,
+    "max_context": 2048,
+    "epochs": 12,
+    "batch_size": 4,
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "head_type": "hybrid",
+    "sequence_pooling": "attention",
+    "scales": [
+      4,
+      16,
+      64
+    ],
+    "head_dropout": 0.1,
+    "loss": "bce",
+    "focal_gamma": 2.0,
+    "pos_weight": "auto",
+    "max_pos_weight": 100.0,
+    "backbone_lr_ratio": 0.3,
+    "layer_decay": 1.0,
+    "schedule": "cosine",
+    "warmup_fraction": 0.1,
+    "patience": 3,
+    "min_delta": 0.0,
+    "threshold_policy": "f1",
+    "max_fpr": 0.001,
+    "min_precision": 0.8,
+    "beta": 1.0,
+    "defer_test": true,
+    "seed": 42,
+    "device": "cuda",
+    "threads": 2
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.719190489687994,
+      "loss_type": "bce",
+      "validation_average_precision": 0.5807440075224626,
+      "learning_rates": [
+        7.551724137931034e-05,
+        7.551724137931034e-05,
+        0.0002517241379310345,
+        0.0002517241379310345
+      ]
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.7245668668680836,
+      "loss_type": "bce",
+      "validation_average_precision": 0.5791313019091184,
+      "learning_rates": [
+        8.878701917609206e-05,
+        8.878701917609206e-05,
+        0.00029595673058697357,
+        0.00029595673058697357
+      ]
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.7193628410119531,
+      "loss_type": "bce",
+      "validation_average_precision": 0.5708322533240028,
+      "learning_rates": [
+        8.397114317029974e-05,
+        8.397114317029974e-05,
+        0.0002799038105676658,
+        0.0002799038105676658
+      ]
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.7210522324001768,
+      "loss_type": "bce",
+      "validation_average_precision": 0.5694480065447067,
+      "learning_rates": [
+        7.588087370409301e-05,
+        7.588087370409301e-05,
+        0.00025293624568031,
+        0.00025293624568031
+      ]
+    }
+  ],
+  "validation": {
+    "n": 193,
+    "positives": 93,
+    "tp": 86,
+    "fp": 84,
+    "fn": 7,
+    "tn": 16,
+    "precision": 0.5058823529411764,
+    "recall": 0.9247311827956989,
+    "f1": 0.6539923954372623,
+    "false_positive_rate": 0.84,
+    "false_alerts_per_1000": 435.23316062176167,
+    "prevalence": 0.48186528497409326,
+    "brier_score": 0.25651408274682413,
+    "average_precision": 0.5807440075224626,
+    "roc_auc": 0.6028494623655914,
+    "threshold": 0.4116027057170868
+  },
+  "test": null
+}

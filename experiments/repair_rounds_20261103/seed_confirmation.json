@@ -1,0 +1,523 @@
+{
+  "summary": [
+    {
+      "dataset": "ulb",
+      "method": "reference",
+      "seeds": [
+        42,
+        13,
+        2026
+      ],
+      "n": 3,
+      "AP_mean": 0.508973606448972,
+      "AP_sample_sd": 0.16967268406198133,
+      "F1_mean": 0.5283290881013841,
+      "F1_sample_sd": 0.1706285716610331
+    },
+    {
+      "dataset": "ulb",
+      "method": "selected",
+      "seeds": [
+        42,
+        13,
+        2026
+      ],
+      "n": 3,
+      "AP_mean": 0.7538593098049059,
+      "AP_sample_sd": 0.010486959157920635,
+      "F1_mean": 0.7842262667692044,
+      "F1_sample_sd": 0.05516592193035722
+    },
+    {
+      "dataset": "paysim",
+      "method": "reference",
+      "seeds": [
+        42,
+        13,
+        2026
+      ],
+      "n": 3,
+      "AP_mean": 0.029694911546763222,
+      "AP_sample_sd": 0.013991443542323895,
+      "F1_mean": 0.009768514150165972,
+      "F1_sample_sd": 0.007414097514009751
+    },
+    {
+      "dataset": "paysim",
+      "method": "selected",
+      "seeds": [
+        42,
+        13,
+        2026
+      ],
+      "n": 3,
+      "AP_mean": 0.4515123343830232,
+      "AP_sample_sd": 0.1972323060347607,
+      "F1_mean": 0.12041151737727403,
+      "F1_sample_sd": 0.10296383883751328
+    },
+    {
+      "dataset": "tabformer",
+      "method": "reference",
+      "seeds": [
+        42,
+        13,
+        2026
+      ],
+      "n": 3,
+      "AP_mean": 0.0012684175898420712,
+      "AP_sample_sd": 0.00028281068814672004,
+      "F1_mean": 0.0021994877200498136,
+      "F1_sample_sd": 0.0005059214446252927
+    },
+    {
+      "dataset": "tabformer",
+      "method": "selected",
+      "seeds": [
+        42,
+        13,
+        2026
+      ],
+      "n": 3,
+      "AP_mean": 0.0073721876534625546,
+      "AP_sample_sd": 0.0007677827931305774,
+      "F1_mean": 0.010892469204825403,
+      "F1_sample_sd": 0.001525585577449734
+    }
+  ],
+  "runs": [
+    {
+      "dataset": "ulb",
+      "seed": 42,
+      "method": "reference",
+      "metrics": {
+        "n": 42724,
+        "positives": 52,
+        "tp": 17,
+        "fp": 24,
+        "fn": 35,
+        "tn": 42648,
+        "precision": 0.4146341463414634,
+        "recall": 0.3269230769230769,
+        "f1": 0.3655913978494624,
+        "false_positive_rate": 0.0005624296962879641,
+        "false_alerts_per_1000": 0.5617451549480386,
+        "prevalence": 0.0012171145023874169,
+        "brier_score": 0.039344537263493774,
+        "average_precision": 0.3173659629490847,
+        "roc_auc": 0.9329744238700931,
+        "threshold": 0.5914193987846375
+      },
+      "source": "previous published seed42 reference"
+    },
+    {
+      "dataset": "ulb",
+      "seed": 42,
+      "method": "selected",
+      "metrics": {
+        "n": 42724,
+        "positives": 52,
+        "tp": 39,
+        "fp": 3,
+        "fn": 13,
+        "tn": 42669,
+        "precision": 0.9285714285714286,
+        "recall": 0.75,
+        "f1": 0.8297872340425532,
+        "false_positive_rate": 7.030371203599551e-05,
+        "false_alerts_per_1000": 0.07021814436850482,
+        "prevalence": 0.0012171145023874169,
+        "brier_score": 0.011436859116400275,
+        "average_precision": 0.7418785727178854,
+        "roc_auc": 0.9698207796140867,
+        "threshold": 0.9595367312431335
+      },
+      "source": "formal selected seed42"
+    },
+    {
+      "dataset": "ulb",
+      "seed": 13,
+      "method": "reference",
+      "metrics": {
+        "n": 42724,
+        "positives": 52,
+        "tp": 30,
+        "fp": 3,
+        "fn": 22,
+        "tn": 42669,
+        "precision": 0.9090909090909091,
+        "recall": 0.5769230769230769,
+        "f1": 0.7058823529411764,
+        "false_positive_rate": 7.030371203599551e-05,
+        "false_alerts_per_1000": 0.07021814436850482,
+        "prevalence": 0.0012171145023874169,
+        "brier_score": 0.03382181730825045,
+        "average_precision": 0.6401850958870308,
+        "roc_auc": 0.9164480942286062,
+        "threshold": 0.6589358448982239
+      },
+      "source": "new paired confirmation"
+    },
+    {
+      "dataset": "ulb",
+      "seed": 13,
+      "method": "selected",
+      "metrics": {
+        "n": 42724,
+        "positives": 52,
+        "tp": 30,
+        "fp": 1,
+        "fn": 22,
+        "tn": 42671,
+        "precision": 0.967741935483871,
+        "recall": 0.5769230769230769,
+        "f1": 0.7228915662650601,
+        "false_positive_rate": 2.3434570678665168e-05,
+        "false_alerts_per_1000": 0.02340604812283494,
+        "prevalence": 0.0012171145023874169,
+        "brier_score": 0.0020901708489856384,
+        "average_precision": 0.7613737408532582,
+        "roc_auc": 0.9791017709324795,
+        "threshold": 0.9991381168365479
+      },
+      "source": "new paired confirmation"
+    },
+    {
+      "dataset": "ulb",
+      "seed": 2026,
+      "method": "reference",
+      "metrics": {
+        "n": 42724,
+        "positives": 52,
+        "tp": 19,
+        "fp": 3,
+        "fn": 33,
+        "tn": 42669,
+        "precision": 0.8636363636363636,
+        "recall": 0.36538461538461536,
+        "f1": 0.5135135135135135,
+        "false_positive_rate": 7.030371203599551e-05,
+        "false_alerts_per_1000": 0.07021814436850482,
+        "prevalence": 0.0012171145023874169,
+        "brier_score": 0.045150582599402835,
+        "average_precision": 0.5693697605108007,
+        "roc_auc": 0.9532511861498082,
+        "threshold": 0.782784640789032
+      },
+      "source": "new paired confirmation"
+    },
+    {
+      "dataset": "ulb",
+      "seed": 2026,
+      "method": "selected",
+      "metrics": {
+        "n": 42724,
+        "positives": 52,
+        "tp": 36,
+        "fp": 2,
+        "fn": 16,
+        "tn": 42670,
+        "precision": 0.9473684210526315,
+        "recall": 0.6923076923076923,
+        "f1": 0.7999999999999999,
+        "false_positive_rate": 4.6869141357330336e-05,
+        "false_alerts_per_1000": 0.04681209624566988,
+        "prevalence": 0.0012171145023874169,
+        "brier_score": 0.004970131192732934,
+        "average_precision": 0.7583256158435738,
+        "roc_auc": 0.9834687130454848,
+        "threshold": 0.9999414682388306
+      },
+      "source": "new paired confirmation"
+    },
+    {
+      "dataset": "paysim",
+      "seed": 42,
+      "method": "reference",
+      "metrics": {
+        "n": 955744,
+        "positives": 4010,
+        "tp": 6,
+        "fp": 23,
+        "fn": 4004,
+        "tn": 951711,
+        "precision": 0.20689655172413793,
+        "recall": 0.0014962593516209476,
+        "f1": 0.0029710324337707357,
+        "false_positive_rate": 2.4166416246556285e-05,
+        "false_alerts_per_1000": 0.02406502159574112,
+        "prevalence": 0.004195684199953125,
+        "brier_score": 0.009173341685990941,
+        "average_precision": 0.04076381295615721,
+        "roc_auc": 0.8974728925940438,
+        "threshold": 0.787329912185669
+      },
+      "source": "previous published seed42 reference"
+    },
+    {
+      "dataset": "paysim",
+      "seed": 42,
+      "method": "selected",
+      "metrics": {
+        "n": 955744,
+        "positives": 4010,
+        "tp": 129,
+        "fp": 3,
+        "fn": 3881,
+        "tn": 951731,
+        "precision": 0.9772727272727273,
+        "recall": 0.03216957605985037,
+        "f1": 0.06228874939642684,
+        "false_positive_rate": 3.15214124955082e-06,
+        "false_alerts_per_1000": 0.003138915860314059,
+        "prevalence": 0.004195684199953125,
+        "brier_score": 0.0036548323542054196,
+        "average_precision": 0.4455907686342916,
+        "roc_auc": 0.9903579321632686,
+        "threshold": 0.9998893737792969
+      },
+      "source": "formal selected seed42"
+    },
+    {
+      "dataset": "paysim",
+      "seed": 13,
+      "method": "reference",
+      "metrics": {
+        "n": 955744,
+        "positives": 4010,
+        "tp": 18,
+        "fp": 129,
+        "fn": 3992,
+        "tn": 951605,
+        "precision": 0.12244897959183673,
+        "recall": 0.004488778054862843,
+        "f1": 0.008660091412076017,
+        "false_positive_rate": 0.00013554207373068526,
+        "false_alerts_per_1000": 0.13497338199350453,
+        "prevalence": 0.004195684199953125,
+        "brier_score": 0.0051097532781342785,
+        "average_precision": 0.013968794707921435,
+        "roc_auc": 0.745129541790756,
+        "threshold": 0.5597617626190186
+      },
+      "source": "new paired confirmation"
+    },
+    {
+      "dataset": "paysim",
+      "seed": 13,
+      "method": "selected",
+      "metrics": {
+        "n": 955744,
+        "positives": 4010,
+        "tp": 125,
+        "fp": 56,
+        "fn": 3885,
+        "tn": 951678,
+        "precision": 0.6906077348066298,
+        "recall": 0.03117206982543641,
+        "f1": 0.05965163445478407,
+        "false_positive_rate": 5.8839969991615306e-05,
+        "false_alerts_per_1000": 0.05859309605919577,
+        "prevalence": 0.004195684199953125,
+        "brier_score": 0.004152378161244818,
+        "average_precision": 0.2573074918606123,
+        "roc_auc": 0.9699508385709754,
+        "threshold": 0.987359344959259
+      },
+      "source": "new paired confirmation"
+    },
+    {
+      "dataset": "paysim",
+      "seed": 2026,
+      "method": "reference",
+      "metrics": {
+        "n": 955744,
+        "positives": 4010,
+        "tp": 38,
+        "fp": 252,
+        "fn": 3972,
+        "tn": 951482,
+        "precision": 0.1310344827586207,
+        "recall": 0.009476309226932668,
+        "f1": 0.017674418604651163,
+        "false_positive_rate": 0.0002647798649622689,
+        "false_alerts_per_1000": 0.26366893226638094,
+        "prevalence": 0.004195684199953125,
+        "brier_score": 0.015813922907376734,
+        "average_precision": 0.03435212697621102,
+        "roc_auc": 0.8942744722512447,
+        "threshold": 0.6541742086410522
+      },
+      "source": "new paired confirmation"
+    },
+    {
+      "dataset": "paysim",
+      "seed": 2026,
+      "method": "selected",
+      "metrics": {
+        "n": 955744,
+        "positives": 4010,
+        "tp": 556,
+        "fp": 81,
+        "fn": 3454,
+        "tn": 951653,
+        "precision": 0.8728414442700158,
+        "recall": 0.13865336658354116,
+        "f1": 0.2392941682806112,
+        "false_positive_rate": 8.510781373787214e-05,
+        "false_alerts_per_1000": 0.0847507282284796,
+        "prevalence": 0.004195684199953125,
+        "brier_score": 0.0026456925097599958,
+        "average_precision": 0.6516387426541658,
+        "roc_auc": 0.9963402601170017,
+        "threshold": 0.9985538125038147
+      },
+      "source": "new paired confirmation"
+    },
+    {
+      "dataset": "tabformer",
+      "seed": 42,
+      "method": "reference",
+      "metrics": {
+        "n": 3658953,
+        "positives": 4454,
+        "tp": 18,
+        "fp": 13559,
+        "fn": 4436,
+        "tn": 3640940,
+        "precision": 0.0013257715253737938,
+        "recall": 0.004041311180960934,
+        "f1": 0.001996561477455493,
+        "false_positive_rate": 0.0037102212916189058,
+        "false_alerts_per_1000": 3.7057048833368453,
+        "prevalence": 0.001217288114933425,
+        "brier_score": 0.053639545421051045,
+        "average_precision": 0.0013810565829853393,
+        "roc_auc": 0.5609235066223413,
+        "threshold": 0.9697293639183044
+      },
+      "source": "previous published seed42 reference"
+    },
+    {
+      "dataset": "tabformer",
+      "seed": 42,
+      "method": "selected",
+      "metrics": {
+        "n": 3658953,
+        "positives": 4454,
+        "tp": 21,
+        "fp": 31,
+        "fn": 4433,
+        "tn": 3654468,
+        "precision": 0.40384615384615385,
+        "recall": 0.004714863044454423,
+        "f1": 0.009320905459387486,
+        "false_positive_rate": 8.482694891967408e-06,
+        "false_alerts_per_1000": 0.00847236900829281,
+        "prevalence": 0.001217288114933425,
+        "brier_score": 0.018677676033857334,
+        "average_precision": 0.00663801497990938,
+        "roc_auc": 0.7002316436816794,
+        "threshold": 0.9972183704376221
+      },
+      "source": "formal selected seed42"
+    },
+    {
+      "dataset": "tabformer",
+      "seed": 13,
+      "method": "reference",
+      "metrics": {
+        "n": 3658953,
+        "positives": 4454,
+        "tp": 64,
+        "fp": 41602,
+        "fn": 4390,
+        "tn": 3612897,
+        "precision": 0.0015360245763932222,
+        "recall": 0.014369106421194431,
+        "f1": 0.002775368603642671,
+        "false_positive_rate": 0.011383776545020262,
+        "false_alerts_per_1000": 11.36991920912895,
+        "prevalence": 0.001217288114933425,
+        "brier_score": 0.07400788190839461,
+        "average_precision": 0.0014775528507108993,
+        "roc_auc": 0.5982628546460983,
+        "threshold": 0.9304102659225464
+      },
+      "source": "new paired confirmation"
+    },
+    {
+      "dataset": "tabformer",
+      "seed": 13,
+      "method": "selected",
+      "metrics": {
+        "n": 3658953,
+        "positives": 4454,
+        "tp": 25,
+        "fp": 71,
+        "fn": 4429,
+        "tn": 3654428,
+        "precision": 0.2604166666666667,
+        "recall": 0.005612932195779075,
+        "f1": 0.01098901098901099,
+        "false_positive_rate": 1.942810765579632e-05,
+        "false_alerts_per_1000": 0.019404458051251273,
+        "prevalence": 0.001217288114933425,
+        "brier_score": 0.030298188210762328,
+        "average_precision": 0.007308886628106809,
+        "roc_auc": 0.7158120675555255,
+        "threshold": 0.9832413196563721
+      },
+      "source": "new paired confirmation"
+    },
+    {
+      "dataset": "tabformer",
+      "seed": 2026,
+      "method": "reference",
+      "metrics": {
+        "n": 3658953,
+        "positives": 4454,
+        "tp": 34,
+        "fp": 32741,
+        "fn": 4420,
+        "tn": 3621758,
+        "precision": 0.0010373760488176964,
+        "recall": 0.007633587786259542,
+        "f1": 0.0018265330790512772,
+        "false_positive_rate": 0.008959093982513062,
+        "false_alerts_per_1000": 8.948188183887577,
+        "prevalence": 0.001217288114933425,
+        "brier_score": 0.06673397461728632,
+        "average_precision": 0.0009466433358299755,
+        "roc_auc": 0.4117858725326844,
+        "threshold": 0.9513970613479614
+      },
+      "source": "new paired confirmation"
+    },
+    {
+      "dataset": "tabformer",
+      "seed": 2026,
+      "method": "selected",
+      "metrics": {
+        "n": 3658953,
+        "positives": 4454,
+        "tp": 28,
+        "fp": 46,
+        "fn": 4426,
+        "tn": 3654453,
+        "precision": 0.3783783783783784,
+        "recall": 0.006286484059272564,
+        "f1": 0.012367491166077738,
+        "false_positive_rate": 1.258722467840325e-05,
+        "false_alerts_per_1000": 0.012571902399402233,
+        "prevalence": 0.001217288114933425,
+        "brier_score": 0.03375347561177475,
+        "average_precision": 0.008169661352371476,
+        "roc_auc": 0.6921914246573005,
+        "threshold": 0.9929563999176025
+      },
+      "source": "new paired confirmation"
+    }
+  ],
+  "note": "sample SD across three seeds, not a confidence interval; reference seed42 comes from the prior run; seeds13/2026 are new paired comparisons on CUDA13.0; no selection changes after confirmation; reference seed42 used CUDA12.8 while current runs use CUDA13.0, so the three-sample historical summary is not a pure same-backend seed-variance experiment; the two newly paired seeds are same-backend controls"
+}

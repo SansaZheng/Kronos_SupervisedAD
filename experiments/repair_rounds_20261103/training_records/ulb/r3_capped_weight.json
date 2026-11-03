@@ -1,0 +1,273 @@
+{
+  "method": "supervised-kronos",
+  "task": "point",
+  "input_kind": "features",
+  "initialization": "NeoQuasar/Kronos-mini",
+  "tokenizer": null,
+  "freeze_backbone": false,
+  "seed": 42,
+  "positive_weight": 100.0,
+  "best_epoch": 3,
+  "threshold_selection": {
+    "threshold": 0.9098698496818542,
+    "policy": "f1",
+    "feasible": true,
+    "status": "active",
+    "validation_precision": 0.9767441860465116,
+    "validation_recall": 0.75,
+    "validation_fpr": 2.3439514333263016e-05,
+    "validation_alerts": 43,
+    "validation_normals": 42663,
+    "validation_positives": 56,
+    "max_fpr": null,
+    "min_precision": null,
+    "beta": 1.0
+  },
+  "epoch_selection": "validation average precision with specified min_delta/patience",
+  "epochs_executed": 6,
+  "test_deferred": true,
+  "model_specification": {
+    "backbone": {
+      "s1_bits": 10,
+      "s2_bits": 10,
+      "n_layers": 4,
+      "d_model": 256,
+      "n_heads": 4,
+      "ff_dim": 512,
+      "ffn_dropout_p": 0.2,
+      "attn_dropout_p": 0.0,
+      "resid_dropout_p": 0.2,
+      "token_dropout_p": 0.0,
+      "learn_te": true
+    },
+    "n_features": 30,
+    "task": "point",
+    "input_kind": "features",
+    "freeze_backbone": false,
+    "head_type": "hybrid",
+    "sequence_pooling": "attention",
+    "scales": [
+      4,
+      16,
+      64
+    ],
+    "head_dropout": 0.1,
+    "tokenizer": null
+  },
+  "optimizer_groups": [
+    {
+      "lr": 8.999999999999999e-05,
+      "weight_decay": 0.0,
+      "role": "backbone",
+      "parameters": 6400
+    },
+    {
+      "lr": 8.999999999999999e-05,
+      "weight_decay": 0.01,
+      "role": "backbone",
+      "parameters": 2621440
+    },
+    {
+      "lr": 0.0003,
+      "weight_decay": 0.01,
+      "role": "head_adapter",
+      "parameters": 162496
+    },
+    {
+      "lr": 0.0003,
+      "weight_decay": 0.0,
+      "role": "head_adapter",
+      "parameters": 1090
+    }
+  ],
+  "trainable_parameters": 2791426,
+  "initial_backbone_state_sha256": "9df7c94d97e7cd096ee1cbd982e8bbf219695a4d0ecdf22c15afb9dcb793f0c5",
+  "source_code_sha256": {
+    "__init__.py": "2c068dd9867e9488b99c491d621c5933e2f7f57ea9b4a2796acde0e052e541d8",
+    "__main__.py": "91de547e61e2ce8c30a6e80d02411359237139d557fcdc3ecb2494cb436ed342",
+    "baseline.py": "31c348704eec65e4f140493bc2bf46140c4a43a02063938304e71efceb96532b",
+    "data.py": "b6d626cb8b60aef9fa052d14b6e0b73642ca900088e05a72140999c610ed7ef4",
+    "engine.py": "7fe9fa7dfa0447fba374d0f864ac6393187a903276c00cb2c84c527ece970096",
+    "metrics.py": "0f7ef56e7884ead1cac0dcecda0e4865af199c9095793f6006c4503c7a64b8d2",
+    "model.py": "68e851eff5ff811390c8ecf3428f627645382fa6ad2647cd95ceea4f03641474",
+    "optimization.py": "4c5f4eafa7b2076f33bd7f8aa280d25cf97eb9794fb18075283dad4027db3492",
+    "transaction_prepare.py": "ce367d4e25cd68d2c9c8eb2a86c87a8910c5304b98bf01aa7177a49b5f8c14b4"
+  },
+  "preprocessing": "training-only mean imputation, standardization and clip [-5,5]",
+  "feature_names": [
+    "Time",
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7",
+    "V8",
+    "V9",
+    "V10",
+    "V11",
+    "V12",
+    "V13",
+    "V14",
+    "V15",
+    "V16",
+    "V17",
+    "V18",
+    "V19",
+    "V20",
+    "V21",
+    "V22",
+    "V23",
+    "V24",
+    "V25",
+    "V26",
+    "V27",
+    "V28",
+    "Amount"
+  ],
+  "group_isolation_checked": false,
+  "observation_isolation_checked": true,
+  "split_archives": {
+    "train.npz": "e0f88e81ce54b11e0ede66ba3ac5e3049143536052f555a6f0cbb482ba7e305a",
+    "validation.npz": "3ffa4720e84c9ee01f495b6fe81ce20f7aff81171c50dc0a28e64d3f7dc4e240"
+  },
+  "torch_version": "2.11.0+cu130",
+  "device": "cuda",
+  "settings": {
+    "command": "train",
+    "data_dir": "/kaggle/working/out/ulb/inputs",
+    "output": "/kaggle/working/out/ulb/r3_capped_weight",
+    "backbone": "NeoQuasar/Kronos-mini",
+    "tokenizer": null,
+    "scratch": false,
+    "scratch_config": null,
+    "input_kind": "features",
+    "freeze_backbone": false,
+    "local_only": false,
+    "max_context": 512,
+    "epochs": 12,
+    "batch_size": 32,
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "head_type": "hybrid",
+    "sequence_pooling": "attention",
+    "scales": [
+      4,
+      16,
+      64
+    ],
+    "head_dropout": 0.1,
+    "loss": "bce",
+    "focal_gamma": 2.0,
+    "pos_weight": "auto",
+    "max_pos_weight": 100.0,
+    "backbone_lr_ratio": 0.3,
+    "layer_decay": 1.0,
+    "schedule": "cosine",
+    "warmup_fraction": 0.1,
+    "patience": 3,
+    "min_delta": 0.0,
+    "threshold_policy": "f1",
+    "max_fpr": 0.001,
+    "min_precision": 0.8,
+    "beta": 1.0,
+    "defer_test": true,
+    "seed": 42,
+    "device": "cuda",
+    "threads": 2
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.6241329285285319,
+      "loss_type": "bce",
+      "validation_average_precision": 0.7633034194002617,
+      "learning_rates": [
+        7.758620689655172e-05,
+        7.758620689655172e-05,
+        0.00025862068965517237,
+        0.00025862068965517237
+      ]
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.15280503773670256,
+      "loss_type": "bce",
+      "validation_average_precision": 0.8477468703263064,
+      "learning_rates": [
+        8.874103113361848e-05,
+        8.874103113361848e-05,
+        0.0002958034371120616,
+        0.0002958034371120616
+      ]
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.09932848805319605,
+      "loss_type": "bce",
+      "validation_average_precision": 0.8515513120198971,
+      "learning_rates": [
+        8.38819261188097e-05,
+        8.38819261188097e-05,
+        0.00027960642039603234,
+        0.00027960642039603234
+      ]
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.09213525924595962,
+      "loss_type": "bce",
+      "validation_average_precision": 0.8471999953697326,
+      "learning_rates": [
+        7.576570925671523e-05,
+        7.576570925671523e-05,
+        0.00025255236418905073,
+        0.00025255236418905073
+      ]
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.0778563604343605,
+      "loss_type": "bce",
+      "validation_average_precision": 0.8457468566546918,
+      "learning_rates": [
+        6.507227037624657e-05,
+        6.507227037624657e-05,
+        0.00021690756792082188,
+        0.00021690756792082188
+      ]
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.06661753039335076,
+      "loss_type": "bce",
+      "validation_average_precision": 0.8367176840179374,
+      "learning_rates": [
+        5.269739139827289e-05,
+        5.269739139827289e-05,
+        0.0001756579713275763,
+        0.0001756579713275763
+      ]
+    }
+  ],
+  "validation": {
+    "n": 42719,
+    "positives": 56,
+    "tp": 42,
+    "fp": 1,
+    "fn": 14,
+    "tn": 42662,
+    "precision": 0.9767441860465116,
+    "recall": 0.75,
+    "f1": 0.8484848484848485,
+    "false_positive_rate": 2.3439514333263016e-05,
+    "false_alerts_per_1000": 0.023408787658887147,
+    "prevalence": 0.0013108921088976803,
+    "brier_score": 0.0034383579627077403,
+    "average_precision": 0.8515513120198971,
+    "roc_auc": 0.9799960487675837,
+    "threshold": 0.9098698496818542
+  },
+  "test": null
+}

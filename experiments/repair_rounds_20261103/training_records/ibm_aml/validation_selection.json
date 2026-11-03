@@ -1,0 +1,141 @@
+{
+  "dataset": "ibm_aml",
+  "selected": {
+    "name": "r2_faster_longer",
+    "head": "hybrid",
+    "epochs": 12,
+    "lr": 0.001,
+    "ratio": 0.1,
+    "cap": null
+  },
+  "selected_index": 2,
+  "trials": [
+    {
+      "config": {
+        "name": "r0_reference",
+        "head": "multiscale",
+        "epochs": 5,
+        "lr": 0.0001,
+        "ratio": 0.1,
+        "cap": null
+      },
+      "validation": {
+        "n": 99968,
+        "positives": 100,
+        "tp": 43,
+        "fp": 98,
+        "fn": 57,
+        "tn": 99770,
+        "precision": 0.3049645390070922,
+        "recall": 0.43,
+        "f1": 0.3568464730290456,
+        "false_positive_rate": 0.000981295309808948,
+        "false_alerts_per_1000": 0.9803137003841229,
+        "prevalence": 0.0010003201024327785,
+        "brier_score": 0.06350612238091298,
+        "average_precision": 0.19607807616787776,
+        "roc_auc": 0.9041004125445589,
+        "threshold": 0.9788732528686523
+      },
+      "epochs_executed": 5,
+      "best_epoch": 5,
+      "checkpoint_sha256": "5d11cad61a97bc5f1847d7c43d07a1c7e0e973bda6c239f0708d52e37bbafac9"
+    },
+    {
+      "config": {
+        "name": "r1_raw_residual",
+        "head": "hybrid",
+        "epochs": 5,
+        "lr": 0.0001,
+        "ratio": 0.1,
+        "cap": null
+      },
+      "validation": {
+        "n": 99968,
+        "positives": 100,
+        "tp": 42,
+        "fp": 73,
+        "fn": 58,
+        "tn": 99795,
+        "precision": 0.3652173913043478,
+        "recall": 0.42,
+        "f1": 0.3906976744186046,
+        "false_positive_rate": 0.0007309648736331958,
+        "false_alerts_per_1000": 0.7302336747759283,
+        "prevalence": 0.0010003201024327785,
+        "brier_score": 0.05975448289335732,
+        "average_precision": 0.24522896046639392,
+        "roc_auc": 0.9126514999799735,
+        "threshold": 0.9806367754936218
+      },
+      "epochs_executed": 5,
+      "best_epoch": 5,
+      "checkpoint_sha256": "43a46da52d13ee27693ad04e46e2c5af05e910f6055ebf76c42dc32335be7e1a"
+    },
+    {
+      "config": {
+        "name": "r2_faster_longer",
+        "head": "hybrid",
+        "epochs": 12,
+        "lr": 0.001,
+        "ratio": 0.1,
+        "cap": null
+      },
+      "validation": {
+        "n": 99968,
+        "positives": 100,
+        "tp": 51,
+        "fp": 21,
+        "fn": 49,
+        "tn": 99847,
+        "precision": 0.7083333333333334,
+        "recall": 0.51,
+        "f1": 0.5930232558139535,
+        "false_positive_rate": 0.00021027756638763168,
+        "false_alerts_per_1000": 0.21006722151088347,
+        "prevalence": 0.0010003201024327785,
+        "brier_score": 0.02211842595905086,
+        "average_precision": 0.5221890601331369,
+        "roc_auc": 0.9215577562382344,
+        "threshold": 0.9981564879417419
+      },
+      "epochs_executed": 9,
+      "best_epoch": 6,
+      "checkpoint_sha256": "5daba6d0aa8f0cc712291c8779c7d9cd671441718ce70b49333eaf349071e207"
+    },
+    {
+      "config": {
+        "name": "r3_capped_weight",
+        "head": "hybrid",
+        "epochs": 12,
+        "lr": 0.0003,
+        "ratio": 0.3,
+        "cap": 100.0
+      },
+      "validation": {
+        "n": 99968,
+        "positives": 100,
+        "tp": 52,
+        "fp": 18,
+        "fn": 48,
+        "tn": 99850,
+        "precision": 0.7428571428571429,
+        "recall": 0.52,
+        "f1": 0.6117647058823529,
+        "false_positive_rate": 0.00018023791404654145,
+        "false_alerts_per_1000": 0.18005761843790014,
+        "prevalence": 0.0010003201024327785,
+        "brier_score": 0.0023906281427768933,
+        "average_precision": 0.5214182351016857,
+        "roc_auc": 0.9100706933151761,
+        "threshold": 0.930986762046814
+      },
+      "epochs_executed": 8,
+      "best_epoch": 5,
+      "checkpoint_sha256": "647bba5244e7e7f2f3cc8687e60d17e7637bd54da66b98b55f90cb70b41d3702"
+    }
+  ],
+  "policy": "validation AP, then validation F1, then earlier candidate; reference is eligible",
+  "test_file_absent_during_training": true,
+  "historical_test_already_reported": true
+}

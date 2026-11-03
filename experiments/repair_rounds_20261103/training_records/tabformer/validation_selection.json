@@ -1,0 +1,141 @@
+{
+  "dataset": "tabformer",
+  "selected": {
+    "name": "r2_faster_longer",
+    "head": "hybrid",
+    "epochs": 12,
+    "lr": 0.001,
+    "ratio": 0.1,
+    "cap": null
+  },
+  "selected_index": 2,
+  "trials": [
+    {
+      "config": {
+        "name": "r0_reference",
+        "head": "multiscale",
+        "epochs": 5,
+        "lr": 0.0001,
+        "ratio": 0.1,
+        "cap": null
+      },
+      "validation": {
+        "n": 99968,
+        "positives": 104,
+        "tp": 30,
+        "fp": 600,
+        "fn": 74,
+        "tn": 99264,
+        "precision": 0.047619047619047616,
+        "recall": 0.28846153846153844,
+        "f1": 0.08174386920980926,
+        "false_positive_rate": 0.00600817111271329,
+        "false_alerts_per_1000": 6.001920614596671,
+        "prevalence": 0.0010403329065300896,
+        "brier_score": 0.06048434347950179,
+        "average_precision": 0.033811055079873746,
+        "roc_auc": 0.9173739747595191,
+        "threshold": 0.9697293639183044
+      },
+      "epochs_executed": 5,
+      "best_epoch": 4,
+      "checkpoint_sha256": "3d003bb14f171367af4b31f4c7877f69af08c13e81b63cfd6bcc090d8e1b9365"
+    },
+    {
+      "config": {
+        "name": "r1_raw_residual",
+        "head": "hybrid",
+        "epochs": 5,
+        "lr": 0.0001,
+        "ratio": 0.1,
+        "cap": null
+      },
+      "validation": {
+        "n": 99968,
+        "positives": 104,
+        "tp": 21,
+        "fp": 392,
+        "fn": 83,
+        "tn": 99472,
+        "precision": 0.05084745762711865,
+        "recall": 0.20192307692307693,
+        "f1": 0.08123791102514506,
+        "false_positive_rate": 0.003925338460306016,
+        "false_alerts_per_1000": 3.9212548015364916,
+        "prevalence": 0.0010403329065300896,
+        "brier_score": 0.052765795553029085,
+        "average_precision": 0.032332774278498,
+        "roc_auc": 0.9330957409769594,
+        "threshold": 0.9708525538444519
+      },
+      "epochs_executed": 5,
+      "best_epoch": 5,
+      "checkpoint_sha256": "29c8bb72b365288ea7ce19c8e2bb46029a8fc5e6cee6cd2ff29c7706232629ea"
+    },
+    {
+      "config": {
+        "name": "r2_faster_longer",
+        "head": "hybrid",
+        "epochs": 12,
+        "lr": 0.001,
+        "ratio": 0.1,
+        "cap": null
+      },
+      "validation": {
+        "n": 99968,
+        "positives": 104,
+        "tp": 19,
+        "fp": 3,
+        "fn": 85,
+        "tn": 99861,
+        "precision": 0.8636363636363636,
+        "recall": 0.18269230769230768,
+        "f1": 0.30158730158730157,
+        "false_positive_rate": 3.004085556356645e-05,
+        "false_alerts_per_1000": 0.030009603072983355,
+        "prevalence": 0.0010403329065300896,
+        "brier_score": 0.022821215154034184,
+        "average_precision": 0.23441898411677856,
+        "roc_auc": 0.9517003220533773,
+        "threshold": 0.9972183704376221
+      },
+      "epochs_executed": 12,
+      "best_epoch": 12,
+      "checkpoint_sha256": "2accb9fcc1838653fb9ad3a8d03f0c02eacbf5122f1c784e03fcf7e33db5ed6c"
+    },
+    {
+      "config": {
+        "name": "r3_capped_weight",
+        "head": "hybrid",
+        "epochs": 12,
+        "lr": 0.0003,
+        "ratio": 0.3,
+        "cap": 100.0
+      },
+      "validation": {
+        "n": 99968,
+        "positives": 104,
+        "tp": 20,
+        "fp": 15,
+        "fn": 84,
+        "tn": 99849,
+        "precision": 0.5714285714285714,
+        "recall": 0.19230769230769232,
+        "f1": 0.28776978417266186,
+        "false_positive_rate": 0.00015020427781783224,
+        "false_alerts_per_1000": 0.15004801536491677,
+        "prevalence": 0.0010403329065300896,
+        "brier_score": 0.014222521459343395,
+        "average_precision": 0.2219260124841382,
+        "roc_auc": 0.949664620807375,
+        "threshold": 0.9143186211585999
+      },
+      "epochs_executed": 9,
+      "best_epoch": 6,
+      "checkpoint_sha256": "1bb3f632ad0eb6756fe63b7c958dc5beb934c59f5358ba86d4bb19f712b0dce2"
+    }
+  ],
+  "policy": "validation AP, then validation F1, then earlier candidate; reference is eligible",
+  "test_file_absent_during_training": true,
+  "historical_test_already_reported": true
+}

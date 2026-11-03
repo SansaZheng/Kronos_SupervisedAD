@@ -1,0 +1,141 @@
+{
+  "dataset": "elliptic",
+  "selected": {
+    "name": "r2_faster_longer",
+    "head": "hybrid",
+    "epochs": 12,
+    "lr": 0.001,
+    "ratio": 0.1,
+    "cap": null
+  },
+  "selected_index": 2,
+  "trials": [
+    {
+      "config": {
+        "name": "r0_reference",
+        "head": "multiscale",
+        "epochs": 5,
+        "lr": 0.0001,
+        "ratio": 0.1,
+        "cap": null
+      },
+      "validation": {
+        "n": 7829,
+        "positives": 675,
+        "tp": 505,
+        "fp": 116,
+        "fn": 170,
+        "tn": 7038,
+        "precision": 0.8132045088566827,
+        "recall": 0.7481481481481481,
+        "f1": 0.779320987654321,
+        "false_positive_rate": 0.016214705060106235,
+        "false_alerts_per_1000": 14.816707114574019,
+        "prevalence": 0.08621790777877124,
+        "brier_score": 0.034092965079097856,
+        "average_precision": 0.8131976436514342,
+        "roc_auc": 0.958662442145808,
+        "threshold": 0.7409929037094116
+      },
+      "epochs_executed": 5,
+      "best_epoch": 2,
+      "checkpoint_sha256": "4007d768c6611909e54cbec21534ad19719862b07806e0774a2c17adfa78a599"
+    },
+    {
+      "config": {
+        "name": "r1_raw_residual",
+        "head": "hybrid",
+        "epochs": 5,
+        "lr": 0.0001,
+        "ratio": 0.1,
+        "cap": null
+      },
+      "validation": {
+        "n": 7829,
+        "positives": 675,
+        "tp": 458,
+        "fp": 222,
+        "fn": 217,
+        "tn": 6932,
+        "precision": 0.6735294117647059,
+        "recall": 0.6785185185185185,
+        "f1": 0.6760147601476015,
+        "false_positive_rate": 0.031031590718479173,
+        "false_alerts_per_1000": 28.356111891684762,
+        "prevalence": 0.08621790777877124,
+        "brier_score": 0.04244421956758875,
+        "average_precision": 0.7475005320265335,
+        "roc_auc": 0.9390203874548297,
+        "threshold": 0.4366043210029602
+      },
+      "epochs_executed": 5,
+      "best_epoch": 3,
+      "checkpoint_sha256": "3ec6429ecbf8f0ded36604bbec05d64cb0b1e0d81f84e9db66dd929b5cc17c62"
+    },
+    {
+      "config": {
+        "name": "r2_faster_longer",
+        "head": "hybrid",
+        "epochs": 12,
+        "lr": 0.001,
+        "ratio": 0.1,
+        "cap": null
+      },
+      "validation": {
+        "n": 7829,
+        "positives": 675,
+        "tp": 529,
+        "fp": 41,
+        "fn": 146,
+        "tn": 7113,
+        "precision": 0.9280701754385965,
+        "recall": 0.7837037037037037,
+        "f1": 0.8497991967871485,
+        "false_positive_rate": 0.005731059547106514,
+        "false_alerts_per_1000": 5.236939583599438,
+        "prevalence": 0.08621790777877124,
+        "brier_score": 0.032893443194627954,
+        "average_precision": 0.8881701623724195,
+        "roc_auc": 0.9692815208275091,
+        "threshold": 0.7036940455436707
+      },
+      "epochs_executed": 5,
+      "best_epoch": 2,
+      "checkpoint_sha256": "f648113ec6e255e32f364defd813a3c3ff9aa12e8cdadcfe25e8cad84ef42fb7"
+    },
+    {
+      "config": {
+        "name": "r3_capped_weight",
+        "head": "hybrid",
+        "epochs": 12,
+        "lr": 0.0003,
+        "ratio": 0.3,
+        "cap": 100.0
+      },
+      "validation": {
+        "n": 7829,
+        "positives": 675,
+        "tp": 468,
+        "fp": 78,
+        "fn": 207,
+        "tn": 7076,
+        "precision": 0.8571428571428571,
+        "recall": 0.6933333333333334,
+        "f1": 0.7665847665847666,
+        "false_positive_rate": 0.01090299133351971,
+        "false_alerts_per_1000": 9.962958232213564,
+        "prevalence": 0.08621790777877124,
+        "brier_score": 0.0345272761812315,
+        "average_precision": 0.8050108828139007,
+        "roc_auc": 0.9515900972261051,
+        "threshold": 0.5634239315986633
+      },
+      "epochs_executed": 5,
+      "best_epoch": 2,
+      "checkpoint_sha256": "44f7cf654e76d783583ce0129b5e4b5afed4fe4764670737a462e70479b7ad09"
+    }
+  ],
+  "policy": "validation AP, then validation F1, then earlier candidate; reference is eligible",
+  "test_file_absent_during_training": true,
+  "historical_test_already_reported": true
+}
