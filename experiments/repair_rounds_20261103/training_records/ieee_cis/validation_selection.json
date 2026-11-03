@@ -1,0 +1,141 @@
+{
+  "dataset": "ieee_cis",
+  "selected": {
+    "name": "r2_faster_longer",
+    "head": "hybrid",
+    "epochs": 12,
+    "lr": 0.001,
+    "ratio": 0.1,
+    "cap": null
+  },
+  "selected_index": 2,
+  "trials": [
+    {
+      "config": {
+        "name": "r0_reference",
+        "head": "multiscale",
+        "epochs": 5,
+        "lr": 0.0001,
+        "ratio": 0.1,
+        "cap": null
+      },
+      "validation": {
+        "n": 88581,
+        "positives": 3042,
+        "tp": 907,
+        "fp": 3818,
+        "fn": 2135,
+        "tn": 81721,
+        "precision": 0.19195767195767197,
+        "recall": 0.29815910585141353,
+        "f1": 0.23355220805973995,
+        "false_positive_rate": 0.04463461111305954,
+        "false_alerts_per_1000": 43.10179383840779,
+        "prevalence": 0.03434145019812375,
+        "brier_score": 0.19257515531511976,
+        "average_precision": 0.1693722123463306,
+        "roc_auc": 0.7618829322532626,
+        "threshold": 0.7745094299316406
+      },
+      "epochs_executed": 5,
+      "best_epoch": 5,
+      "checkpoint_sha256": "a6f0b337d1b310809dec8ef873c2dde80c1d14086a0d807580336bd57bc597bd"
+    },
+    {
+      "config": {
+        "name": "r1_raw_residual",
+        "head": "hybrid",
+        "epochs": 5,
+        "lr": 0.0001,
+        "ratio": 0.1,
+        "cap": null
+      },
+      "validation": {
+        "n": 88581,
+        "positives": 3042,
+        "tp": 904,
+        "fp": 3232,
+        "fn": 2138,
+        "tn": 82307,
+        "precision": 0.218568665377176,
+        "recall": 0.2971729125575279,
+        "f1": 0.25188074672610755,
+        "false_positive_rate": 0.03778393481335999,
+        "false_alerts_per_1000": 36.48637969767783,
+        "prevalence": 0.03434145019812375,
+        "brier_score": 0.1848370591644493,
+        "average_precision": 0.2038529398098224,
+        "roc_auc": 0.7689106254396311,
+        "threshold": 0.7713803052902222
+      },
+      "epochs_executed": 5,
+      "best_epoch": 5,
+      "checkpoint_sha256": "d1aa9ff3f836befec772e64eaf07aef97601ceb7c7ae3fef0efa910a69e58fca"
+    },
+    {
+      "config": {
+        "name": "r2_faster_longer",
+        "head": "hybrid",
+        "epochs": 12,
+        "lr": 0.001,
+        "ratio": 0.1,
+        "cap": null
+      },
+      "validation": {
+        "n": 88581,
+        "positives": 3042,
+        "tp": 859,
+        "fp": 1340,
+        "fn": 2183,
+        "tn": 84199,
+        "precision": 0.39063210550250116,
+        "recall": 0.28238001314924394,
+        "f1": 0.3278000381606564,
+        "false_positive_rate": 0.015665369012964846,
+        "false_alerts_per_1000": 15.127397523170883,
+        "prevalence": 0.03434145019812375,
+        "brier_score": 0.16235530255921837,
+        "average_precision": 0.29937015501429665,
+        "roc_auc": 0.7988769578166048,
+        "threshold": 0.8603838086128235
+      },
+      "epochs_executed": 11,
+      "best_epoch": 8,
+      "checkpoint_sha256": "24a39c3088dce17b8d0bde2db56bd4e55c07e21796dc07a4be6694d891f900ec"
+    },
+    {
+      "config": {
+        "name": "r3_capped_weight",
+        "head": "hybrid",
+        "epochs": 12,
+        "lr": 0.0003,
+        "ratio": 0.3,
+        "cap": 100.0
+      },
+      "validation": {
+        "n": 88581,
+        "positives": 3042,
+        "tp": 822,
+        "fp": 1807,
+        "fn": 2220,
+        "tn": 83732,
+        "precision": 0.3126664130848231,
+        "recall": 0.2702169625246548,
+        "f1": 0.2898959619114794,
+        "false_positive_rate": 0.021124867019721997,
+        "false_alerts_per_1000": 20.39940845102223,
+        "prevalence": 0.03434145019812375,
+        "brier_score": 0.16028056711893116,
+        "average_precision": 0.26353666596668734,
+        "roc_auc": 0.7873505534794987,
+        "threshold": 0.8340489864349365
+      },
+      "epochs_executed": 11,
+      "best_epoch": 8,
+      "checkpoint_sha256": "4ee5f39ceded4841f069d4641ff4610bd29c438a1bb127d67941ab13cfec128a"
+    }
+  ],
+  "policy": "validation AP, then validation F1, then earlier candidate; reference is eligible",
+  "test_file_absent_during_training": true,
+  "historical_test_already_reported": true
+}

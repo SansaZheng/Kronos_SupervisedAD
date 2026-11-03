@@ -1,0 +1,34 @@
+{
+  "status": "verified",
+  "results": [
+    {
+      "dataset": "ieee_cis",
+      "status": "verified",
+      "prediction_rows": 88581,
+      "known_labels": 88581,
+      "unknown_labels": 0,
+      "prediction_sha256": "30cdf4c5863ced4650f672c14e8e78b2acbfb1b1dc70a02ed35656ee3447cbb7",
+      "metrics_recomputed": [
+        "n",
+        "positives",
+        "tp",
+        "fp",
+        "fn",
+        "tn",
+        "precision",
+        "recall",
+        "f1",
+        "false_positive_rate",
+        "false_alerts_per_1000",
+        "prevalence",
+        "brier_score",
+        "average_precision",
+        "roc_auc"
+      ],
+      "maximum_allowed_difference": 1e-10,
+      "probabilities_valid": true,
+      "alerts_match_fixed_threshold": true,
+      "holdout_isolation_checked": true
+    }
+  ]
+}

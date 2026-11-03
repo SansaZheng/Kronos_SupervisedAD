@@ -11,5 +11,21 @@
   "initial_backbone_state_sha256": "9df7c94d97e7cd096ee1cbd982e8bbf219695a4d0ecdf22c15afb9dcb793f0c5",
   "no_paid_rentals_or_colab_CU": true,
   "historical_holdout_already_seen": true,
-  "candidate_hyperparameters_fixed_before_new_results": true
+  "candidate_hyperparameters_fixed_before_new_results": true,
+  "local_completed": {
+    "status": "complete",
+    "selected": {
+      "name": "r2_faster_longer",
+      "head": "hybrid",
+      "epochs": 12,
+      "lr": 0.001,
+      "ratio": 0.1,
+      "cap": null
+    },
+    "four_initial_backbone_hashes_match": true,
+    "four_input_archive_hashes_match": true,
+    "test_absent_during_all_primary_trials": true,
+    "same_device_reference_evaluated_after_selection": true,
+    "primary_and_same_device_reference_independently_audited": true
+  }
 }

@@ -1,0 +1,38 @@
+{
+  "metrics": {
+    "n": 88581,
+    "positives": 3083,
+    "tp": 511,
+    "fp": 1670,
+    "fn": 2572,
+    "tn": 83828,
+    "precision": 0.23429619440623567,
+    "recall": 0.16574764839442102,
+    "f1": 0.19414893617021275,
+    "false_positive_rate": 0.019532620646096985,
+    "false_alerts_per_1000": 18.852801390817444,
+    "prevalence": 0.03480430340592226,
+    "brier_score": 0.19455633436310477,
+    "average_precision": 0.13995866588078612,
+    "roc_auc": 0.7592093779129245,
+    "threshold": 0.7745094299316406
+  },
+  "holdout_isolation_checked": true,
+  "operating_point": {
+    "threshold": 0.7745094299316406,
+    "policy": "f1",
+    "feasible": true,
+    "status": "active",
+    "validation_precision": 0.19195767195767197,
+    "validation_recall": 0.29815910585141353,
+    "validation_fpr": 0.04463461111305954,
+    "validation_alerts": 4725,
+    "validation_normals": 85539,
+    "validation_positives": 3042,
+    "max_fpr": null,
+    "min_precision": null,
+    "beta": 1.0
+  },
+  "checkpoint_sha256": "a6f0b337d1b310809dec8ef873c2dde80c1d14086a0d807580336bd57bc597bd",
+  "input_sha256": "4492e37da6914b7dda9c58cf5eae724dc053b7715cf275998e1f5c7cc7672834"
+}
