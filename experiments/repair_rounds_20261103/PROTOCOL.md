@@ -18,3 +18,7 @@ Public evaluation covers the same nine tasks. The exact same label-independent 4
 CQ CPU qualification -> GPU smoke -> formal GPU batch, all pinned to the same code commit, free Kaggle only. Formal batch maximum 2 hours, no paid rentals or Colab CU. IEEE-CIS source/derived data stay local and are excluded from the public cloud batch.
 
 Design motivation: Gorishniy et al., [Revisiting Deep Learning Models for Tabular Data](https://arxiv.org/abs/2106.11959) discusses strong residual tabular baselines and the absence of a universally best architecture. Our additive head is a project-specific extension, not a claimed reproduction of that paper's exact architecture or reported scores.
+
+## Local hardware addendum, before local selection
+
+A finite-gradient local MPS check and a four-step timing check (same 32×160×97 shape) passed: warm CPU 4.14 seconds/step vs warm MPS 0.88 seconds/step in that short check. The partial CPU reference diagnostic is preserved, and all four IEEE-CIS candidates are restarted uniformly on local MPS. This hardware-only change is made before any new local validation selection or test scoring; candidate configurations and split data are unchanged. It avoids sending restricted data to the cloud. Public candidates still use the identical pinned CUDA code and settings. Timings from this small check are not a guarantee of whole-run speed.
