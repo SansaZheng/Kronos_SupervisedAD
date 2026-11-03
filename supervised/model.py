@@ -46,12 +46,14 @@ class SupervisedKronos(nn.Module):
             raise ValueError('task must be point or sequence')
         if input_kind not in ('features', 'ohlcv'):
             raise ValueError('input_kind must be features or ohlcv')
-        if head_type not in ('mlp', 'multiscale') or sequence_pooling not in ('last', 'attention'):
+        if head_type not in ('mlp', 'multiscale', 'hybrid') or sequence_pooling not in ('last', 'attention'):
             raise ValueError('invalid head type or sequence pooling')
         if not scales or any(not isinstance(s, int) or s < 1 for s in scales):
             raise ValueError('scales must contain positive integers')
         if not 0 <= head_dropout < 1:
             raise ValueError('head dropout must lie in [0,1)')
+        if head_type == 'hybrid' and input_kind != 'features':
+            raise ValueError('hybrid residual head requires continuous features')
         if input_kind == 'ohlcv':
             if n_features != 6 or tokenizer is None or tokenizer.d_in != 6:
                 raise ValueError('ohlcv requires six genuine OHLCVA features and a tokenizer')
@@ -70,13 +72,18 @@ class SupervisedKronos(nn.Module):
         self.pool_score = (nn.Linear(backbone.d_model, 1, bias=False)
                            if task == 'sequence' and sequence_pooling == 'attention' else None)
         head_dim = backbone.d_model
-        if task == 'point' and head_type == 'multiscale':
+        if task == 'point' and head_type in ('multiscale', 'hybrid'):
             head_dim *= 1 + len(scales)
         if self.pool_score is not None:
             head_dim *= 2  # last valid state + masked attention summary
         self.head_drop = nn.Dropout(head_dropout)
         self.classifier = nn.Sequential(nn.Linear(head_dim, backbone.d_model // 2),
                                         nn.GELU(), nn.Linear(backbone.d_model // 2, 1))
+        self.raw_classifier = None
+        if head_type == 'hybrid':
+            raw_dim = n_features * (5 if task == 'sequence' else 1 + len(scales))
+            self.raw_classifier = nn.Sequential(nn.Linear(raw_dim, 128), nn.GELU(),
+                nn.Dropout(head_dropout), nn.Linear(128, 64), nn.GELU(), nn.Linear(64, 1))
         if freeze_backbone:
             backbone.requires_grad_(False)
         # Forecast token heads and calendar embeddings are not used by this task.
@@ -119,9 +126,23 @@ class SupervisedKronos(nn.Module):
                 h = torch.cat([last, (weights.unsqueeze(-1) * h).sum(dim=1)], dim=-1)
             else:
                 h = last
-        elif self.head_type == 'multiscale':
+        elif self.head_type in ('multiscale', 'hybrid'):
             h = torch.cat([h] + [h - causal_mean(h, s) for s in self.scales], dim=-1)
-        return self.classifier(self.head_drop(h)).squeeze(-1)
+        logits = self.classifier(self.head_drop(h)).squeeze(-1)
+        if self.raw_classifier is not None:
+            if self.task == 'point':
+                raw = torch.cat([x] + [x - causal_mean(x, width) for width in self.scales], dim=-1)
+            else:
+                valid = torch.arange(x.shape[1], device=x.device)[None] < lengths[:, None]
+                mask = valid.unsqueeze(-1)
+                count = lengths[:, None].to(x.dtype)
+                mean = x.masked_fill(~mask, 0.).sum(dim=1) / count
+                variance = (x - mean[:, None]).square().masked_fill(~mask, 0.).sum(dim=1) / count
+                raw = torch.cat([x[torch.arange(len(x),device=x.device), lengths-1], mean,
+                    variance.clamp_min(1e-12).sqrt(), x.masked_fill(~mask,float('-inf')).amax(dim=1),
+                    x.masked_fill(~mask,float('inf')).amin(dim=1)], dim=-1)
+            logits = logits + self.raw_classifier(raw).squeeze(-1)
+        return logits
 
     def specification(self):
         return dict(backbone=kronos_config(self.backbone), n_features=self.n_features,

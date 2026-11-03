@@ -29,7 +29,7 @@ def parser():
     train.add_argument('--batch-size', type=int, default=16)
     train.add_argument('--lr', type=float, default=1e-4)
     train.add_argument('--weight-decay', type=float, default=.01)
-    train.add_argument('--head-type', choices=['mlp', 'multiscale'], default='multiscale')
+    train.add_argument('--head-type', choices=['mlp', 'multiscale', 'hybrid'], default='multiscale')
     train.add_argument('--sequence-pooling', choices=['last', 'attention'], default='attention')
     train.add_argument('--scales', nargs='+', type=int, default=[4, 16, 64])
     train.add_argument('--head-dropout', type=float, default=.1)
